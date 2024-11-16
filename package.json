@@ -6,7 +6,8 @@
     "user_main"
   ],
   "scripts": {
-    "dev": "bun --filter '*' dev"
+    "dev": "clear && bun --filter '*' dev",
+    "lint": "clear && bun --filter '*' lint"
   },
   "devDependencies": {
     "@eslint/js": "^9.15.0",

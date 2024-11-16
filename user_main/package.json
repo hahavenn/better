@@ -2,12 +2,16 @@
   "name": "user_main",
   "private": true,
   "type": "module",
+  "browserslist": [
+    "> 0.3%"
+  ],
   "scripts": {
     "build": "nuxt build",
     "dev": "nuxt dev",
     "generate": "nuxt generate",
     "preview": "nuxt preview",
-    "postinstall": "nuxt prepare"
+    "postinstall": "nuxt prepare",
+    "lint": "eslint ."
   },
   "dependencies": {
     "nuxt": "^3.14.159",
