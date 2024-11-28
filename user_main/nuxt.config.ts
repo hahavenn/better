@@ -21,6 +21,9 @@ export default defineNuxtConfig({
         },
       ],
     },
+    rootAttrs: {
+      id: "__ha_edu",
+    },
   },
 
   devServer: {
