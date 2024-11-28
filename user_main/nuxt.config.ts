@@ -30,4 +30,6 @@ export default defineNuxtConfig({
     host: "localhost",
     port: 3000,
   },
+
+  css: ["~/assets/css/index.css"],
 });
