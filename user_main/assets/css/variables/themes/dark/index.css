@@ -1,0 +1,15 @@
+/* background colors */
+html.dark {
+  --background-color__0: var(--color-gray__11);
+  --background-color__1: var(--color-gray__10);
+}
+
+/* border colors */
+html.dark {
+  --border-color__0: var(--color-gray__9);
+}
+
+/* font colors */
+html.dark {
+  --font-color__0: var(--color-gray__2);
+}

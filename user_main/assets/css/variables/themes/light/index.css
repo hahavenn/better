@@ -1,0 +1,15 @@
+/* background colors */
+html {
+  --background-color__0: var(--color-gray__0);
+  --background-color__1: var(--color-gray__0);
+}
+
+/* border colors */
+html {
+  --border-color__0: var(--color-gray__3);
+}
+
+/* font colors */
+html {
+  --font-color__0: var(--color-gray__11);
+}
