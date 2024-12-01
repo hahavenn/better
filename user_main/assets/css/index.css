@@ -18,9 +18,15 @@ body,
 #__ha_edu {
   display: flex;
   flex-direction: column;
+
+  padding: 10px;
 }
 
 /* base styles */
 * {
   color: var(--font-color__0);
+}
+
+body {
+  background-color: var(--background-color__0);
 }

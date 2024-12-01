@@ -11,12 +11,13 @@
 <style scoped>
 header {
   background-color: var(--background-color__1);
-  border-bottom-color: var(--border-color__0);
+
+  border-color: var(--border-color__0);
+  border-radius: var(--border-radius__0);
+  border-width: var(--border-width__0);
+  border-style: solid;
 
   height: var(--header-height__desktop);
-
-  border-bottom-width: 1px;
-  border-bottom-style: solid;
 
   display: flex;
   justify-content: center;

@@ -6,8 +6,6 @@
 
 <style scoped>
 main {
-  background-color: var(--background-color__0);
-
   flex-grow: 1;
 
   display: flex;
