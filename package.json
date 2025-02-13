@@ -6,7 +6,7 @@
     "user_main"
   ],
   "scripts": {
-    "dev": "clear && bun --filter '*' dev",
+    "dev": "bun --filter '*' dev",
     "lint": "clear && bun --filter '*' lint",
     "preview": "clear && bun --filter '*' preview"
   },
