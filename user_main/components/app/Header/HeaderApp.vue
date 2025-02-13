@@ -1,8 +1,11 @@
 <template>
   <header>
-    Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero voluptatem
-    aspernatur ut placeat? Error at ipsam consectetur ut, amet mollitia odit
-    blanditiis saepe iste incidunt impedit quam dolor sapiente rerum.
+    <a
+      class="logo"
+      href="/"
+    >
+      ha_edu
+    </a>
   </header>
 </template>
 
@@ -10,6 +13,8 @@
 
 <style scoped>
 header {
+  width: 100%;
+
   background-color: var(--background-color__1);
 
   border-color: var(--border-color__0);
@@ -22,5 +27,19 @@ header {
   display: flex;
   justify-content: center;
   align-items: center;
+
+  padding: var(--padding__0);
+}
+
+.logo {
+  text-decoration: none;
+  font-size: var(--font-size__6);
+
+  display: inline-block;
+  padding: var(--padding__1);
+
+  &:visited {
+    color: inherit;
+  }
 }
 </style>

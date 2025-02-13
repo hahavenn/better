@@ -2,6 +2,8 @@
 @import url("./themes/index.css");
 @import url("./sizes/index.css");
 @import url("./border/index.css");
+@import url("./paddings/index.css");
+@import url("./fonts/index.css");
 
 /* normalize styles */
 * {
@@ -22,7 +24,7 @@ body,
   display: flex;
   flex-direction: column;
 
-  padding: 10px;
+  padding: var(--padding__0);
 }
 
 /* base styles */
