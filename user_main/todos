@@ -2,4 +2,5 @@
 2. think about how to change colors of text links relative to theme
 3. add base sections of site
 4. add instrument for opening local files (pdfs and so on if possible)
+  - using [PDF.js](https://mozilla.github.io/pdf.js/)
 5. add instrument for adding notes for files
