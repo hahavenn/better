@@ -154,5 +154,97 @@
     "scope": "css,typescript,javascript,html,vue",
     "prefix": "--color-black",
     "body": ["--color-black"]
+  },
+
+  /* states */
+  "--state__default": {
+    "scope": "css,typescript,javascript,html,vue",
+    "prefix": "--state__default",
+    "body": ["default"]
+  },
+  "--state__hover": {
+    "scope": "css,typescript,javascript,html,vue",
+    "prefix": "--state__hover",
+    "body": ["hover"]
+  },
+  "--state__active": {
+    "scope": "css,typescript,javascript,html,vue",
+    "prefix": "--state__active",
+    "body": ["active"]
+  },
+  "--state__focus": {
+    "scope": "css,typescript,javascript,html,vue",
+    "prefix": "--state__focus",
+    "body": ["focus"]
+  },
+  "--state__disabled": {
+    "scope": "css,typescript,javascript,html,vue",
+    "prefix": "--state__disabled",
+    "body": ["disabled"]
+  },
+  "--state__visited": {
+    "scope": "css,typescript,javascript,html,vue",
+    "prefix": "--state__visited",
+    "body": ["visited"]
+  },
+  "--state__checked": {
+    "scope": "css,typescript,javascript,html,vue",
+    "prefix": "--state__checked",
+    "body": ["checked"]
+  },
+  "--state__selected": {
+    "scope": "css,typescript,javascript,html,vue",
+    "prefix": "--state__selected",
+    "body": ["selected"]
+  },
+  "--state__expanded": {
+    "scope": "css,typescript,javascript,html,vue",
+    "prefix": "--state__expanded",
+    "body": ["expanded"]
+  },
+  "--state__collapsed": {
+    "scope": "css,typescript,javascript,html,vue",
+    "prefix": "--state__collapsed",
+    "body": ["collapsed"]
+  },
+  "--state__open": {
+    "scope": "css,typescript,javascript,html,vue",
+    "prefix": "--state__open",
+    "body": ["open"]
+  },
+  "--state__closed": {
+    "scope": "css,typescript,javascript,html,vue",
+    "prefix": "--state__closed",
+    "body": ["closed"]
+  },
+  "--state__loading": {
+    "scope": "css,typescript,javascript,html,vue",
+    "prefix": "--state__loading",
+    "body": ["loading"]
+  },
+  "--state__error": {
+    "scope": "css,typescript,javascript,html,vue",
+    "prefix": "--state__error",
+    "body": ["error"]
+  },
+  "--state__success": {
+    "scope": "css,typescript,javascript,html,vue",
+    "prefix": "--state__success",
+    "body": ["success"]
+  },
+  "--state__warning": {
+    "scope": "css,typescript,javascript,html,vue",
+    "prefix": "--state__warning",
+    "body": ["warning"]
+  },
+  "--state__info": {
+    "scope": "css,typescript,javascript,html,vue",
+    "prefix": "--state__info",
+    "body": ["info"]
+  },
+  "--state__danger": {
+    "scope": "css,typescript,javascript,html,vue",
+    "prefix": "--state__danger",
+    "body": ["danger"]
   }
 }
