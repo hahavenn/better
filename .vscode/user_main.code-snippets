@@ -1,0 +1,158 @@
+{
+  /* border-radius */
+  "--border-radius__0": {
+    "scope": "css,typescript,javascript,html,vue",
+    "prefix": "--border-radius__0",
+    "body": ["--border-radius__0"]
+  },
+
+  /* border-width */
+  "--border-width__0": {
+    "scope": "css,typescript,javascript,html,vue",
+    "prefix": "--border-width__0",
+    "body": ["--border-width__0"]
+  },
+
+  /* font-size */
+  "--font-size__0": {
+    "scope": "css,typescript,javascript,html,vue",
+    "prefix": "--font-size__0",
+    "body": ["--font-size__0"]
+  },
+  "--font-size__1": {
+    "scope": "css,typescript,javascript,html,vue",
+    "prefix": "--font-size__1",
+    "body": ["--font-size__1"]
+  },
+  "--font-size__2": {
+    "scope": "css,typescript,javascript,html,vue",
+    "prefix": "--font-size__2",
+    "body": ["--font-size__2"]
+  },
+  "--font-size__3": {
+    "scope": "css,typescript,javascript,html,vue",
+    "prefix": "--font-size__3",
+    "body": ["--font-size__3"]
+  },
+  "--font-size__4": {
+    "scope": "css,typescript,javascript,html,vue",
+    "prefix": "--font-size__4",
+    "body": ["--font-size__4"]
+  },
+  "--font-size__5": {
+    "scope": "css,typescript,javascript,html,vue",
+    "prefix": "--font-size__5",
+    "body": ["--font-size__5"]
+  },
+  "--font-size__6": {
+    "scope": "css,typescript,javascript,html,vue",
+    "prefix": "--font-size__6",
+    "body": ["--font-size__6"]
+  },
+  "--font-size__7": {
+    "scope": "css,typescript,javascript,html,vue",
+    "prefix": "--font-size__7",
+    "body": ["--font-size__7"]
+  },
+  "--font-size__8": {
+    "scope": "css,typescript,javascript,html,vue",
+    "prefix": "--font-size__8",
+    "body": ["--font-size__8"]
+  },
+
+  /* padding */
+  "--padding__0": {
+    "scope": "css,typescript,javascript,html,vue",
+    "prefix": "--padding__0",
+    "body": ["--padding__0"]
+  },
+  "--padding__1": {
+    "scope": "css,typescript,javascript,html,vue",
+    "prefix": "--padding__1",
+    "body": ["--padding__1"]
+  },
+
+  /* heights */
+  "--header-height__desktop": {
+    "scope": "css,typescript,javascript,html,vue",
+    "prefix": "--header-height__desktop",
+    "body": ["--header-height__desktop"]
+  },
+
+  /* white-gray-black colors */
+  "--color-white": {
+    "scope": "css,typescript,javascript,html,vue",
+    "prefix": "--color-white",
+    "body": ["--color-white"]
+  },
+  "--color-gray__0": {
+    "scope": "css,typescript,javascript,html,vue",
+    "prefix": "--color-gray__0",
+    "body": ["--color-gray__0"]
+  },
+  "--color-gray__1": {
+    "scope": "css,typescript,javascript,html,vue",
+    "prefix": "--color-gray__1",
+    "body": ["--color-gray__1"]
+  },
+  "--color-gray__2": {
+    "scope": "css,typescript,javascript,html,vue",
+    "prefix": "--color-gray__2",
+    "body": ["--color-gray__2"]
+  },
+  "--color-gray__3": {
+    "scope": "css,typescript,javascript,html,vue",
+    "prefix": "--color-gray__3",
+    "body": ["--color-gray__3"]
+  },
+  "--color-gray__4": {
+    "scope": "css,typescript,javascript,html,vue",
+    "prefix": "--color-gray__4",
+    "body": ["--color-gray__4"]
+  },
+  "--color-gray__5": {
+    "scope": "css,typescript,javascript,html,vue",
+    "prefix": "--color-gray__5",
+    "body": ["--color-gray__5"]
+  },
+  "--color-gray__6": {
+    "scope": "css,typescript,javascript,html,vue",
+    "prefix": "--color-gray__6",
+    "body": ["--color-gray__6"]
+  },
+  "--color-gray__7": {
+    "scope": "css,typescript,javascript,html,vue",
+    "prefix": "--color-gray__7",
+    "body": ["--color-gray__7"]
+  },
+  "--color-gray__8": {
+    "scope": "css,typescript,javascript,html,vue",
+    "prefix": "--color-gray__8",
+    "body": ["--color-gray__8"]
+  },
+  "--color-gray__9": {
+    "scope": "css,typescript,javascript,html,vue",
+    "prefix": "--color-gray__9",
+    "body": ["--color-gray__9"]
+  },
+  "--color-gray__10": {
+    "scope": "css,typescript,javascript,html,vue",
+    "prefix": "--color-gray__10",
+    "body": ["--color-gray__10"]
+  },
+  "--color-gray__11": {
+    "scope": "css,typescript,javascript,html,vue",
+    "prefix": "--color-gray__11",
+    "body": ["--color-gray__11"]
+  },
+  "--color-gray__12": {
+    "scope": "css,typescript,javascript,html,vue",
+    "prefix": "--color-gray__12",
+    "body": ["--color-gray__12"]
+  },
+  "--color-black": {
+    "scope": "css,typescript,javascript,html,vue",
+    "prefix": "--color-black",
+    "body": ["--color-black"]
+  }
+}
