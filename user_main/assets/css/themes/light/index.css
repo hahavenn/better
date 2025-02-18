@@ -1,7 +1,7 @@
 /* background colors */
 html {
-  --background-color__0: var(--color-gray__0);
-  --background-color__1: var(--color-gray__0);
+  --background-color__0: var(--color-gray__2);
+  --background-color__1: var(--color-gray__1);
 }
 
 /* border colors */

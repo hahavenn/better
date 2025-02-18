@@ -1,17 +1,5 @@
-<template>
-  <main>This is main page</main>
-</template>
+<template>This is main page</template>
 
 <script lang="ts" setup></script>
 
-<style scoped>
-main {
-  flex-grow: 1;
-
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
-  width: 100%;
-}
-</style>
+<style scoped></style>
