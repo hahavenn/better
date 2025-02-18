@@ -6,7 +6,7 @@
 </template>
 
 <script setup lang="ts">
-import HeaderApp from "@/components/app/Header/HeaderApp.vue";
+import HeaderApp from "~/components/app/Header/HeaderApp.vue";
 </script>
 
 <style scoped>
