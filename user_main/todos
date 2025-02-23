@@ -3,8 +3,9 @@
 3. add base sections of site
 4. add instrument for opening local files (pdfs and so on if possible)
   - using [PDF.js](https://mozilla.github.io/pdf.js/)
-5. add instrument for adding notes for files
+5. add instrument for adding notes for files (feature)
 6. to better a11y and seo opt-s - types of link should be pre-defined (logo, about, and etc.)
   - see https://microformats.org/wiki/existing-rel-values
 7. define text types for project (combine font-sizes, font-weights, line-heights)
 8. use localization library [i18next](https://www.i18next.com/)
+9. define link types of project for future use 
