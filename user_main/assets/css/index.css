@@ -3,7 +3,7 @@
 @import url("./sizes/index.css");
 @import url("./border/index.css");
 @import url("./paddings/index.css");
-@import url("./fonts/index.css");
+@import url("./text/index.css");
 
 /* normalize styles */
 * {
@@ -27,6 +27,7 @@ body,
   padding: var(--padding__0);
 }
 
+/* todo - remove, use instead - ui component for text */
 /* base styles */
 * {
   color: var(--font-color__0);

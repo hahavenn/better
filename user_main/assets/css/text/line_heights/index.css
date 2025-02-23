@@ -1,0 +1,11 @@
+:root {
+  --line-height__0: calc(var(--font-size__0) * 1.2);
+  --line-height__1: calc(var(--font-size__1) * 1.2);
+  --line-height__2: calc(var(--font-size__2) * 1.5);
+  --line-height__3: calc(var(--font-size__3) * 1.4);
+  --line-height__4: calc(var(--font-size__4) * 1.5);
+  --line-height__5: calc(var(--font-size__5) * 1.5);
+  --line-height__6: calc(var(--font-size__6) * 1.5);
+  --line-height__7: calc(var(--font-size__7) * 1.4);
+  --line-height__8: calc(var(--font-size__8) * 1.5);
+}

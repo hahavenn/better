@@ -60,6 +60,100 @@
     "body": ["--font-size__8"]
   },
 
+  /* font-weight */
+  "--font-weight__0": {
+    "scope": "css,typescript,javascript,html,vue",
+    "prefix": "--font-weight__0",
+    "body": ["--font-weight__0"]
+  },
+  "--font-weight__1": {
+    "scope": "css,typescript,javascript,html,vue",
+    "prefix": "--font-weight__1",
+    "body": ["--font-weight__1"]
+  },
+  "--font-weight__2": {
+    "scope": "css,typescript,javascript,html,vue",
+    "prefix": "--font-weight__2",
+    "body": ["--font-weight__2"]
+  },
+  "--font-weight__3": {
+    "scope": "css,typescript,javascript,html,vue",
+    "prefix": "--font-weight__3",
+    "body": ["--font-weight__3"]
+  },
+  "--font-weight__4": {
+    "scope": "css,typescript,javascript,html,vue",
+    "prefix": "--font-weight__4",
+    "body": ["--font-weight__4"]
+  },
+  "--font-weight__5": {
+    "scope": "css,typescript,javascript,html,vue",
+    "prefix": "--font-weight__5",
+    "body": ["--font-weight__5"]
+  },
+  "--font-weight__6": {
+    "scope": "css,typescript,javascript,html,vue",
+    "prefix": "--font-weight__6",
+    "body": ["--font-weight__6"]
+  },
+  "--font-weight__7": {
+    "scope": "css,typescript,javascript,html,vue",
+    "prefix": "--font-weight__7",
+    "body": ["--font-weight__7"]
+  },
+  "--font-weight__8": {
+    "scope": "css,typescript,javascript,html,vue",
+    "prefix": "--font-weight__8",
+    "body": ["--font-weight__8"]
+  },
+
+  /* line-height */
+  "--line-height__0": {
+    "scope": "css,typescript,javascript,html,vue",
+    "prefix": "--line-height__0",
+    "body": ["--line-height__0"]
+  },
+  "--line-height__1": {
+    "scope": "css,typescript,javascript,html,vue",
+    "prefix": "--line-height__1",
+    "body": ["--line-height__1"]
+  },
+  "--line-height__2": {
+    "scope": "css,typescript,javascript,html,vue",
+    "prefix": "--line-height__2",
+    "body": ["--line-height__2"]
+  },
+  "--line-height__3": {
+    "scope": "css,typescript,javascript,html,vue",
+    "prefix": "--line-height__3",
+    "body": ["--line-height__3"]
+  },
+  "--line-height__4": {
+    "scope": "css,typescript,javascript,html,vue",
+    "prefix": "--line-height__4",
+    "body": ["--line-height__4"]
+  },
+  "--line-height__5": {
+    "scope": "css,typescript,javascript,html,vue",
+    "prefix": "--line-height__5",
+    "body": ["--line-height__5"]
+  },
+  "--line-height__6": {
+    "scope": "css,typescript,javascript,html,vue",
+    "prefix": "--line-height__6",
+    "body": ["--line-height__6"]
+  },
+  "--line-height__7": {
+    "scope": "css,typescript,javascript,html,vue",
+    "prefix": "--line-height__7",
+    "body": ["--line-height__7"]
+  },
+  "--line-height__8": {
+    "scope": "css,typescript,javascript,html,vue",
+    "prefix": "--line-height__8",
+    "body": ["--line-height__8"]
+  },
+
   /* padding */
   "--padding__0": {
     "scope": "css,typescript,javascript,html,vue",
