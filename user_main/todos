@@ -7,5 +7,5 @@
 6. to better a11y and seo opt-s - types of link should be pre-defined (logo, about, and etc.)
   - see https://microformats.org/wiki/existing-rel-values
 7. define text types for project (combine font-sizes, font-weights, line-heights)
-8. use localization library [i18next](https://www.i18next.com/)
+8. use localization library [i18next](https://www.i18next.com/). Here is [integration with Nuxt](https://i18n.nuxtjs.org/)
 9. define link types of project for future use 
