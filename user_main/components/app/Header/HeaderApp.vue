@@ -1,15 +1,14 @@
 <template>
   <header>
-    <a
-      class="logo"
-      href="/"
-    >
-      ha_edu
-    </a>
+    <LinkUI :type="'home'">
+      <span class="home_link">ha_edu</span>
+    </LinkUI>
   </header>
 </template>
 
-<script lang="ts" setup></script>
+<script lang="ts" setup>
+import LinkUI from "~/components/ui/Link/LinkUI.vue";
+</script>
 
 <style scoped>
 header {
@@ -31,7 +30,7 @@ header {
   padding: var(--padding__0);
 }
 
-.logo {
+.home_link {
   text-decoration: none;
   font-size: var(--font-size__6);
 
