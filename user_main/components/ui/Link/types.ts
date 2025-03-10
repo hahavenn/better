@@ -13,7 +13,7 @@ export type LinkUIProps = {
   href?: string;
   target?: LinkTargetAttribute;
   title?: string;
-  rel?: LinkRelAttribute[];
+  rel?: LinkRelAttribute[] | string[];
   ariaLabel?: string;
   type?: LinkTypes;
 };
