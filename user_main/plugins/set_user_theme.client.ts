@@ -3,21 +3,19 @@
  */
 export default defineNuxtPlugin((nuxtApp) => {
   nuxtApp.hook("app:beforeMount", () => {
+    const themePreference = localStorage.getItem("themePreference");
     const htmlElement = document.getElementsByTagName("html")[0];
+
+    if (themePreference) {
+      htmlElement.classList.add(themePreference);
+      return;
+    }
 
     if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
       htmlElement.classList.add("dark");
+      localStorage.setItem("themePreference", "dark");
+    } else {
+      localStorage.setItem("themePreference", "light");
     }
-
-    // #todo: remove. for dev purposes only
-    Object.defineProperty(window, "toggleTheme", {
-      value: function () {
-        if (htmlElement.classList.contains("dark")) {
-          htmlElement.classList.remove("dark");
-        } else {
-          htmlElement.classList.add("dark");
-        }
-      },
-    });
   });
 });
