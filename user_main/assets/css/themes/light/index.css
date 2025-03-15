@@ -1,7 +1,7 @@
 /* background colors */
 html {
-  --background-color__0: var(--color-gray__2);
-  --background-color__1: var(--color-gray__1);
+  --background-color__0: var(--color-gray__1);
+  --background-color__1: var(--color-gray__0);
 }
 
 /* border colors */
@@ -11,5 +11,6 @@ html {
 
 /* font colors */
 html {
-  --font-color__0: var(--color-gray__11);
+  --font-color__0: var(--color-gray__8);
+  --font-color__1: var(--color-gray__6);
 }

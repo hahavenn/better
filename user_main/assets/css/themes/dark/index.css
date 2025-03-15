@@ -12,4 +12,5 @@ html.dark {
 /* font colors */
 html.dark {
   --font-color__0: var(--color-gray__2);
+  --font-color__1: var(--color-gray__5);
 }
