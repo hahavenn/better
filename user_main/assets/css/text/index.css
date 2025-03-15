@@ -1,3 +1,52 @@
 @import url("./font_sizes/index.css");
 @import url("./line_heights/index.css");
 @import url("./font_weights/index.css");
+
+.text {
+  display: inline-block;
+
+  color: var(--font-color__0);
+  transition: var(--transition-plain__0);
+
+  @media (hover: hover) {
+    &:hover {
+      color: var(--font-color__1);
+    }
+  }
+
+  &.xxs {
+    font-size: var(--font-size__0);
+    font-weight: var(--font-weight__0);
+    line-height: var(--line-height__0);
+  }
+  &.xs {
+    font-size: var(--font-size__1);
+    font-weight: var(--font-weight__1);
+    line-height: var(--line-height__1);
+  }
+  &.s {
+    font-size: var(--font-size__2);
+    font-weight: var(--font-weight__2);
+    line-height: var(--line-height__2);
+  }
+  &.m {
+    font-size: var(--font-size__3);
+    font-weight: var(--font-weight__3);
+    line-height: var(--line-height__3);
+  }
+  &.l {
+    font-size: var(--font-size__4);
+    font-weight: var(--font-weight__4);
+    line-height: var(--line-height__4);
+  }
+  &.xl {
+    font-size: var(--font-size__5);
+    font-weight: var(--font-weight__5);
+    line-height: var(--line-height__5);
+  }
+  &.xxl {
+    font-size: var(--font-size__6);
+    font-weight: var(--font-weight__6);
+    line-height: var(--line-height__6);
+  }
+}

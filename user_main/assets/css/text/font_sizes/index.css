@@ -1,11 +1,9 @@
 :root {
-  --font-size__0: 10px;
-  --font-size__1: 12px;
-  --font-size__2: 16px;
-  --font-size__3: 20px;
-  --font-size__4: 24px;
-  --font-size__5: 28px;
-  --font-size__6: 32px;
-  --font-size__7: 40px;
-  --font-size__8: 48px;
+  --font-size__0: 12px;
+  --font-size__1: 16px;
+  --font-size__2: 20px;
+  --font-size__3: 24px;
+  --font-size__4: 32px;
+  --font-size__5: 40px;
+  --font-size__6: 48px;
 }

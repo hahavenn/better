@@ -1,11 +1,9 @@
 :root {
   --font-weight__0: 400;
   --font-weight__1: 400;
-  --font-weight__2: 500;
+  --font-weight__2: 400;
   --font-weight__3: 600;
   --font-weight__4: 600;
   --font-weight__5: 700;
-  --font-weight__6: 700;
-  --font-weight__7: 800;
-  --font-weight__8: 800;
+  --font-weight__6: 800;
 }
