@@ -4,6 +4,7 @@
 @import url("./border/index.css");
 @import url("./paddings/index.css");
 @import url("./text/index.css");
+@import url("./transitions/index.css");
 
 /* normalize styles */
 * {
@@ -25,12 +26,6 @@ body,
   flex-direction: column;
 
   padding: var(--padding__0);
-}
-
-/* todo - remove, use instead - ui component for text */
-/* base styles */
-* {
-  color: var(--font-color__0);
 }
 
 body {
