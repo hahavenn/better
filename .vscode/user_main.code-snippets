@@ -165,6 +165,16 @@
     "prefix": "--padding__1",
     "body": ["--padding__1"]
   },
+  "--padding__2": {
+    "scope": "css,typescript,javascript,html,vue",
+    "prefix": "--padding__2",
+    "body": ["--padding__2"]
+  },
+  "--padding__3": {
+    "scope": "css,typescript,javascript,html,vue",
+    "prefix": "--padding__3",
+    "body": ["--padding__3"]
+  },
 
   /* heights */
   "--header-height__desktop": {
