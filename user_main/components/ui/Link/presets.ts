@@ -13,6 +13,9 @@ type LinkUIPresetsType = {
   };
 };
 
+/**
+ * Presets for link with pre-defined config and a11y performance
+ */
 export const LinkUIPresets: LinkUIPresetsType = {
   home: {
     target: "_self",

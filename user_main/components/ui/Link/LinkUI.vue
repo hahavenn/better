@@ -39,4 +39,12 @@ const linkAriaLabel = computed<string>(() =>
 );
 </script>
 
-<style scoped></style>
+<style scoped>
+a {
+  text-decoration: none;
+
+  &:visited {
+    color: initial;
+  }
+}
+</style>
