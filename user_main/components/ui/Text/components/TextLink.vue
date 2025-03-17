@@ -31,4 +31,6 @@ const additionalStyles = computed<CSSProperties>(() => {
 });
 </script>
 
-<style scoped></style>
+<style scoped>
+@import url(./styles.css);
+</style>
