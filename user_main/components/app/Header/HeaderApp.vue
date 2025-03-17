@@ -1,32 +1,31 @@
 <template>
   <header>
-    <LinkUI :type="'home'">
-      <TextUI
-        :type="'link'"
-        :fontSize="'m'"
-        :padding="'var(--padding__3) var(--padding__2)'"
-      >
-        ha_edu
-      </TextUI>
-    </LinkUI>
+    <ContainerUI>
+      <div class="inner">
+        <LinkUI :type="'home'">
+          <TextUI
+            :type="'link'"
+            :fontSize="'m'"
+            :padding="'var(--padding__3) 0'"
+          >
+            ha_edu
+          </TextUI>
+        </LinkUI>
+      </div>
+    </ContainerUI>
   </header>
 </template>
 
 <script lang="ts" setup>
+import ContainerUI from "~/components/ui/Container/ContainerUI.vue";
 import LinkUI from "~/components/ui/Link/LinkUI.vue";
 import TextUI from "~/components/ui/Text/TextUI.vue";
 </script>
 
 <style scoped>
-header {
+.inner {
+  height: 100%;
   width: 100%;
-  height: var(--header-height__desktop);
-  padding: var(--padding__0);
-
-  background-color: var(--background-color__1);
-
-  border-radius: var(--border-radius__0);
-  border: var(--border-width__0) solid var(--border-color__0);
 
   display: flex;
   flex-direction: row;
