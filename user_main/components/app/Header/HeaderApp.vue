@@ -1,44 +1,36 @@
 <template>
   <header>
     <LinkUI :type="'home'">
-      <span class="home_link">ha_edu</span>
+      <TextUI
+        :type="'link'"
+        :fontSize="'m'"
+        :padding="'var(--padding__3) var(--padding__2)'"
+      >
+        ha_edu
+      </TextUI>
     </LinkUI>
   </header>
 </template>
 
 <script lang="ts" setup>
 import LinkUI from "~/components/ui/Link/LinkUI.vue";
+import TextUI from "~/components/ui/Text/TextUI.vue";
 </script>
 
 <style scoped>
 header {
   width: 100%;
+  height: var(--header-height__desktop);
+  padding: var(--padding__0);
 
   background-color: var(--background-color__1);
 
-  border-color: var(--border-color__0);
   border-radius: var(--border-radius__0);
-  border-width: var(--border-width__0);
-  border-style: solid;
-
-  height: var(--header-height__desktop);
+  border: var(--border-width__0) solid var(--border-color__0);
 
   display: flex;
-  justify-content: center;
+  flex-direction: row;
+  justify-content: flex-start;
   align-items: center;
-
-  padding: var(--padding__0);
-}
-
-.home_link {
-  text-decoration: none;
-  font-size: var(--font-size__6);
-
-  display: inline-block;
-  padding: var(--padding__1);
-
-  &:visited {
-    color: inherit;
-  }
 }
 </style>
