@@ -155,25 +155,25 @@
   },
 
   /* padding */
-  "--padding__0": {
+  "--offset__0": {
     "scope": "css,typescript,javascript,html,vue",
-    "prefix": "--padding__0",
-    "body": ["--padding__0"]
+    "prefix": "--offset__0",
+    "body": ["--offset__0"]
   },
-  "--padding__1": {
+  "--offset__1": {
     "scope": "css,typescript,javascript,html,vue",
-    "prefix": "--padding__1",
-    "body": ["--padding__1"]
+    "prefix": "--offset__1",
+    "body": ["--offset__1"]
   },
-  "--padding__2": {
+  "--offset__2": {
     "scope": "css,typescript,javascript,html,vue",
-    "prefix": "--padding__2",
-    "body": ["--padding__2"]
+    "prefix": "--offset__2",
+    "body": ["--offset__2"]
   },
-  "--padding__3": {
+  "--offset__3": {
     "scope": "css,typescript,javascript,html,vue",
-    "prefix": "--padding__3",
-    "body": ["--padding__3"]
+    "prefix": "--offset__3",
+    "body": ["--offset__3"]
   },
 
   /* heights */

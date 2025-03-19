@@ -16,7 +16,7 @@ Usage of component is simple:
 <TextUI
   :type="'link'"
   :fontSize="'m'"
-  :padding="'var(--padding__3) var(--padding__2)'"
+  :padding="'var(--offset__3) var(--offset__2)'"
 >
   ha_edu
 </TextUI>

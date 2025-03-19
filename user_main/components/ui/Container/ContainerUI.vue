@@ -10,7 +10,7 @@
 div {
   width: 100%;
   height: var(--header-height__desktop);
-  padding: var(--padding__0);
+  padding: var(--offset__0);
 
   background-color: var(--background-color__1);
 

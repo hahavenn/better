@@ -2,7 +2,7 @@
 @import url("./themes/index.css");
 @import url("./sizes/index.css");
 @import url("./border/index.css");
-@import url("./paddings/index.css");
+@import url("./offsets/index.css");
 @import url("./text/index.css");
 @import url("./transitions/index.css");
 
@@ -24,8 +24,9 @@ body,
 #__ha_edu {
   display: flex;
   flex-direction: column;
+  gap: var(--offset__0);
 
-  padding: var(--padding__0);
+  padding: var(--offset__0);
 }
 
 body {

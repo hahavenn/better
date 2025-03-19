@@ -6,7 +6,7 @@
           <TextUI
             :type="'link'"
             :fontSize="'m'"
-            :padding="'var(--padding__3) 0'"
+            :padding="'var(--offset__3) 0'"
           >
             ha_edu
           </TextUI>
