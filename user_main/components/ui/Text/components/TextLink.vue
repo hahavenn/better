@@ -33,4 +33,8 @@ const additionalStyles = computed<CSSProperties>(() => {
 
 <style scoped>
 @import url(./styles.css);
+
+.text {
+  text-decoration: underline;
+}
 </style>

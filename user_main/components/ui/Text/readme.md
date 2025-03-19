@@ -13,15 +13,11 @@ Text component are created in [./components](./components/) directory and import
 Usage of component is simple:
 
 ```html
-<TextUI
+<UiText
   :type="'link'"
   :fontSize="'m'"
   :padding="'var(--offset__3) var(--offset__2)'"
 >
   ha_edu
-</TextUI>
-```
-
-```typescript
-import TextUI from "~/components/ui/Text/TextUI.vue";
+</UiText>
 ```
