@@ -1,14 +1,27 @@
 <template>
-  <div>
+  <div :style="styles">
     <slot></slot>
   </div>
 </template>
 
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import type { CSSProperties } from "vue";
+
+const props = defineProps<{
+  flexGrow?: number;
+}>();
+
+const styles = computed<CSSProperties>(() => {
+  const styles: CSSProperties = {};
+  if (props.flexGrow) {
+    styles.flexGrow = props.flexGrow;
+  }
+  return styles;
+});
+</script>
 
 <style scoped>
 div {
-  width: 100%;
   padding: var(--offset__0);
 
   background-color: var(--background-color__1);
