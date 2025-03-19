@@ -9,7 +9,7 @@ type LinkUIPresetsType = {
     rel: LinkRelAttribute[];
     ariaLabel: string;
     title: string;
-    href: string;
+    to: string;
   };
 };
 
@@ -22,6 +22,6 @@ export const LinkUIPresets: LinkUIPresetsType = {
     rel: ["noopener", "noreferrer"],
     ariaLabel: "Go to home page",
     title: "Go to home page",
-    href: HA_EDU_LINKS.HOME,
+    to: HA_EDU_LINKS.HOME,
   },
 };

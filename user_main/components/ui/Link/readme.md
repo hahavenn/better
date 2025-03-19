@@ -1,4 +1,4 @@
-# LinkUI
+# UiLink
 
 This component is used for using link with pre-defined config and a11y performance
 
@@ -16,14 +16,10 @@ For corresponding link types defined presets are locates in [presets.ts](presets
 
 ## Usage
 
-```vue
+```html
 <template>
-  <LinkUI :type="'home'">
+  <UiLink :type="'home'">
     <!-- link content goes here -->
-  </LinkUI>
+  </UiLink>
 </template>
-```
-
-```typescript
-import LinkUI from "~/components/ui/Link/LinkUI.vue";
 ```

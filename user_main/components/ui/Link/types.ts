@@ -10,7 +10,7 @@ import type { LinkTargetAttribute } from "~/types/link_target_attribute";
 export type LinkTypes = "home";
 
 export type LinkUIProps = {
-  href?: string;
+  to?: string;
   target?: LinkTargetAttribute;
   title?: string;
   rel?: LinkRelAttribute[] | string[];
