@@ -1,26 +1,22 @@
 <template>
   <header>
-    <ContainerUI>
+    <UiContainer>
       <div class="inner">
-        <LinkUI :type="'home'">
-          <TextUI
+        <UiLink :type="'home'">
+          <UiText
             :type="'link'"
             :fontSize="'m'"
             :padding="'var(--offset__3) 0'"
           >
             ha_edu
-          </TextUI>
-        </LinkUI>
+          </UiText>
+        </UiLink>
       </div>
-    </ContainerUI>
+    </UiContainer>
   </header>
 </template>
 
-<script lang="ts" setup>
-import ContainerUI from "~/components/ui/Container/ContainerUI.vue";
-import LinkUI from "~/components/ui/Link/LinkUI.vue";
-import TextUI from "~/components/ui/Text/TextUI.vue";
-</script>
+<script lang="ts" setup></script>
 
 <style scoped>
 .inner {

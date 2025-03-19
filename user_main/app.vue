@@ -1,22 +1,20 @@
 <template>
-  <HeaderApp />
+  <AppHeader />
   <main>
     <NuxtPage />
   </main>
 </template>
 
-<script setup lang="ts">
-import HeaderApp from "~/components/app/Header/HeaderApp.vue";
-</script>
+<script setup lang="ts"></script>
 
 <style scoped>
 main {
-  flex-grow: 1;
+  width: 100%;
+  height: 100%;
 
   display: flex;
-  justify-content: center;
-  align-items: center;
-
-  width: 100%;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: var(--offset__0);
 }
 </style>
