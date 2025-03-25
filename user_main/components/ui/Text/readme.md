@@ -16,7 +16,7 @@ Usage of component is simple:
 <UiText
   :type="'link'"
   :fontSize="'m'"
-  :padding="'var(--offset__3) var(--offset__2)'"
+  :padding="'var(--offset__0) 0'"
 >
   ha_edu
 </UiText>

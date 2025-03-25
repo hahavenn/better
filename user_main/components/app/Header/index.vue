@@ -1,31 +1,26 @@
 <template>
-  <header>
-    <UiContainer>
-      <div class="inner">
-        <UiLink :type="'home'">
-          <UiText
-            :type="'link'"
-            :fontSize="'m'"
-            :padding="'var(--offset__3) 0'"
-          >
-            ha_edu
-          </UiText>
-        </UiLink>
-      </div>
-    </UiContainer>
-  </header>
+  <UiContainer :responsive="true">
+    <header>
+      <UiLink :type="'home'">
+        <UiText
+          :type="'link'"
+          :fontSize="'l'"
+        >
+          ha_edu
+        </UiText>
+      </UiLink>
+    </header>
+  </UiContainer>
 </template>
 
 <script lang="ts" setup></script>
 
 <style scoped>
-.inner {
-  height: 100%;
+header {
   width: 100%;
 
   display: flex;
   flex-direction: row;
-  justify-content: flex-start;
-  align-items: center;
+  align-items: flex-start;
 }
 </style>

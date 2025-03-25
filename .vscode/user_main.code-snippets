@@ -160,21 +160,6 @@
     "prefix": "--offset__0",
     "body": ["--offset__0"]
   },
-  "--offset__1": {
-    "scope": "css,typescript,javascript,html,vue",
-    "prefix": "--offset__1",
-    "body": ["--offset__1"]
-  },
-  "--offset__2": {
-    "scope": "css,typescript,javascript,html,vue",
-    "prefix": "--offset__2",
-    "body": ["--offset__2"]
-  },
-  "--offset__3": {
-    "scope": "css,typescript,javascript,html,vue",
-    "prefix": "--offset__3",
-    "body": ["--offset__3"]
-  },
 
   /* heights */
   "--header-height__desktop": {
