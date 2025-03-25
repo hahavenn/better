@@ -24,11 +24,12 @@ body,
 #__ha_edu {
   display: flex;
   flex-direction: column;
-  gap: var(--offset__0);
+  align-items: center;
+  justify-content: flex-start;
 
+  gap: var(--offset__0);
   padding: var(--offset__0);
 }
-
 body {
   background-color: var(--background-color__0);
 }
