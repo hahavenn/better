@@ -17,6 +17,7 @@ import textTypeComponents from "./components";
 
 const props = withDefaults(defineProps<TextUIProps>(), {
   fontSize: "m",
+  type: "plain",
 });
 
 const currentTextTypeComponent = textTypeComponents.get(

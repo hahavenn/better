@@ -10,7 +10,7 @@ import type { PaddingRule } from "~/components/ui/types";
 export type TextTypes = "link" | "plain";
 
 export type TextUIProps = {
-  type: TextTypes;
+  type?: TextTypes;
   fontSize?: Sizes;
   padding?: PaddingRule;
 };
