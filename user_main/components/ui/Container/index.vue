@@ -14,11 +14,9 @@ const props = withDefaults(
   defineProps<{
     fullHeight?: boolean;
     responsive?: boolean;
+    header?: boolean;
   }>(),
-  {
-    fullHeight: false,
-    responsive: false,
-  }
+  {}
 );
 
 const styles = computed<CSSProperties>(() => {
@@ -28,7 +26,10 @@ const styles = computed<CSSProperties>(() => {
 
   return styles;
 });
-const classes = computed(() => [props.responsive ? "responsive" : ""]);
+const classes = computed(() => [
+  props.responsive ? "responsive" : "",
+  props.header ? "header" : "",
+]);
 </script>
 
 <style scoped>
@@ -50,5 +51,10 @@ div {
   div.responsive {
     max-width: calc(1280px - 2 * var(--offset__0));
   }
+}
+
+div.header {
+  border-radius: 0 0 var(--border-radius__0) var(--border-radius__0);
+  border-top-color: var(--background-color__1);
 }
 </style>

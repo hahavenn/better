@@ -31,4 +31,5 @@ export default defineNuxtConfig({
   },
 
   css: ["~/assets/css/index.css"],
+  modules: ["@vueuse/nuxt"],
 });
