@@ -4,7 +4,7 @@
       <UiLink :type="'home'">
         <UiText
           :type="'link'"
-          :fontSize="'l'"
+          :fontSize="'m'"
         >
           ha_edu
         </UiText>
