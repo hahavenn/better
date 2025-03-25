@@ -160,6 +160,11 @@
     "prefix": "--offset__0",
     "body": ["--offset__0"]
   },
+  "--offset__1": {
+    "scope": "css,typescript,javascript,html,vue",
+    "prefix": "--offset__1",
+    "body": ["--offset__1"]
+  },
 
   /* heights */
   "--header-height__desktop": {
