@@ -46,10 +46,10 @@ div {
   width: 100%;
   padding: var(--offset__1);
 
-  background-color: var(--background-color__1);
+  background-color: var(--theme-bg-color__1);
 
   border-radius: var(--border-radius__0);
-  border: var(--border-width__0) solid var(--border-color__0);
+  border: var(--border-width__0) solid var(--theme-border-color__0);
 
   display: flex;
   flex-direction: column;

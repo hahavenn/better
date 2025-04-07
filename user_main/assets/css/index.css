@@ -1,6 +1,5 @@
 @import url("./colors/index.css");
 @import url("./themes/index.css");
-@import url("./sizes/index.css");
 @import url("./border/index.css");
 @import url("./offsets/index.css");
 @import url("./text/index.css");
@@ -31,5 +30,5 @@ body,
   padding: 0 var(--offset__0) var(--offset__0);
 }
 body {
-  background-color: var(--background-color__0);
+  background-color: var(--theme-bg-color__0);
 }

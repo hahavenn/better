@@ -1,12 +1,12 @@
 .text {
   display: inline-block;
 
-  color: var(--font-color__0);
-  transition: var(--transition-plain__0);
+  color: var(--theme-font-color__0);
+  transition: var(--transition__0);
 
   @media (hover: hover) {
     &:hover {
-      color: var(--font-color__1);
+      color: var(--theme-font-color__1);
     }
   }
 
