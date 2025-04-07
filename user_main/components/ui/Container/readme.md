@@ -9,3 +9,7 @@ This component is used for wrap content inside with styled background-color, bor
   <!-- content goes here -->
 </UiContainer>
 ```
+
+## Props
+
+Read about props in [Container component](./index.vue)

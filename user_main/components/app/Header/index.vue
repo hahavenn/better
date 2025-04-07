@@ -2,7 +2,7 @@
   <div class="wrapper">
     <UiContainer
       :responsive="true"
-      :header="true"
+      :attachedTo="'top'"
     >
       <header>
         <UiLink :type="'home'">

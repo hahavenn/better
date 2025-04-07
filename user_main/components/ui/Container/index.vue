@@ -12,9 +12,18 @@ import type { CSSProperties } from "vue";
 
 const props = withDefaults(
   defineProps<{
+    /**
+     * Does container should be full height of parent component
+     */
     fullHeight?: boolean;
+    /**
+     * Does container should be responsive to media-query
+     */
     responsive?: boolean;
-    header?: boolean;
+    /**
+     * Which side of parent component container is attached to
+     */
+    attachedTo?: "left" | "top" | "right" | "bottom";
   }>(),
   {}
 );
@@ -28,7 +37,7 @@ const styles = computed<CSSProperties>(() => {
 });
 const classes = computed(() => [
   props.responsive ? "responsive" : "",
-  props.header ? "header" : "",
+  props.attachedTo ?? "",
 ]);
 </script>
 
@@ -48,13 +57,25 @@ div {
 }
 
 @media screen and (min-width: 1280px) {
-  div.responsive {
+  .responsive {
     max-width: calc(1280px - 2 * var(--offset__0));
   }
 }
 
-div.header {
+.top {
   border-radius: 0 0 var(--border-radius__0) var(--border-radius__0);
-  border-top-color: var(--background-color__1);
+  border-top-width: 0;
+}
+.bottom {
+  border-radius: var(--border-radius__0) var(--border-radius__0) 0 0;
+  border-bottom-width: 0;
+}
+.left {
+  border-radius: var(--border-radius__0) 0 0 var(--border-radius__0);
+  border-left-width: 0;
+}
+.right {
+  border-radius: 0 var(--border-radius__0) var(--border-radius__0) 0;
+  border-right-width: 0;
 }
 </style>
