@@ -15,6 +15,8 @@ type LinkUIPresetsType = {
 
 /**
  * Presets for link with pre-defined config and a11y performance
+ *
+ * @todo add i18n for ariaLabel and title attributes
  */
 export const LinkUIPresets: LinkUIPresetsType = {
   home: {
