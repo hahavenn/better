@@ -13,6 +13,8 @@
             ha_edu
           </UiText>
         </UiLink>
+
+        <AppSearch />
       </header>
     </UiContainer>
   </div>
@@ -37,6 +39,7 @@ header {
 
   display: flex;
   flex-direction: row;
-  align-items: flex-start;
+  align-items: center;
+  gap: var(--offset__3);
 }
 </style>
