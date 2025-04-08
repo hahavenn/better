@@ -16,3 +16,8 @@ html {
   --theme-font-color__1: var(--color-gray__6);
   --theme-font-color__2: var(--color-gray__4);
 }
+
+/* icons */
+html {
+  --theme-icon__default: var(--color-gray__6);
+}

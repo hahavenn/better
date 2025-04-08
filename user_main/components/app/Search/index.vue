@@ -3,7 +3,7 @@
     role="search"
     aria-label="Site search"
   >
-    <label :for="id"></label>
+    <label :for="id">Search</label>
     <input
       :id
       type="text"
@@ -12,6 +12,9 @@
       autocapitalize="off"
       autocomplete="off"
     />
+    <button type="submit">
+      <UiIcon :icon="'search'" />
+    </button>
   </form>
 </template>
 
@@ -20,6 +23,7 @@
  * @todo add i18n
  * @todo add search-icon inside label element
  * @todo add button for 'submit' search form
+ * @todo 'Search' inside <label> and placeholder are same. Move to i18n
  */
 
 const id = useId();
@@ -30,6 +34,18 @@ form {
   position: relative;
 
   display: flex;
+
+  transition: var(--transition__0);
+
+  --border: var(--border-width__0) solid var(--theme-border-color__0);
+}
+
+/**
+ * Should be visible only for screen readers
+ */
+label {
+  position: absolute;
+  clip-path: circle(0);
 }
 
 input {
@@ -40,28 +56,58 @@ input {
 
   background-color: transparent;
 
-  border: var(--border-width__0) solid var(--theme-border-color__0);
+  border: var(--border);
   border-radius: var(--border-radius__1);
 
   color: var(--theme-font-color__0);
-
-  transition: var(--transition__0);
 
   outline: none;
 
   &::placeholder {
     color: var(--theme-font-color__2);
   }
+}
+
+button {
+  background-color: transparent;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 32px;
+  height: 100%;
+
+  position: absolute;
+  right: 0;
+  top: 0;
+
+  border-left: var(--border);
+  border-top: none;
+  border-right: none;
+  border-bottom: none;
 
   @media (hover: hover) {
     &:hover {
-      border-color: var(--theme-border-color__1);
+      cursor: pointer;
     }
   }
+}
 
-  &:active,
-  &:focus {
+input:active,
+input:focus {
+  &,
+  & ~ button {
     border-color: var(--theme-border-color__1);
+  }
+}
+
+@media (hover: hover) {
+  form:hover {
+    button,
+    input {
+      border-color: var(--theme-border-color__1);
+    }
   }
 }
 </style>

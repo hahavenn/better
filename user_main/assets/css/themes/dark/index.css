@@ -1,18 +1,23 @@
-/* background colors */
+/* background */
 html.dark {
   --theme-bg-color__0: var(--color-gray__11);
   --theme-bg-color__1: var(--color-gray__9);
 }
 
-/* border colors */
+/* border */
 html.dark {
   --theme-border-color__0: var(--color-gray__8);
   --theme-border-color__1: var(--color-gray__6);
 }
 
-/* font colors */
+/* font */
 html.dark {
   --theme-font-color__0: var(--color-gray__2);
   --theme-font-color__1: var(--color-gray__5);
   --theme-font-color__2: var(--color-gray__7);
+}
+
+/* icons */
+html.dark {
+  --theme-icon__default: var(--color-gray__5);
 }
