@@ -7,7 +7,7 @@ html {
 /* border colors */
 html {
   --theme-border-color__0: var(--color-gray__3);
-  --theme-border-color__1: var(--color-gray__1);
+  --theme-border-color__1: var(--color-gray__5);
 }
 
 /* font colors */

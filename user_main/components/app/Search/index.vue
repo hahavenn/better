@@ -37,7 +37,8 @@ form {
 
   transition: var(--transition__0);
 
-  --border: var(--border-width__0) solid var(--theme-border-color__0);
+  --border-width__local: var(--border-width__0);
+  --border: var(--border-width__local) solid var(--theme-border-color__0);
 }
 
 /**
@@ -76,11 +77,11 @@ button {
   justify-content: center;
 
   width: 32px;
-  height: 100%;
+  height: calc(100% - 2 * var(--border-width__local));
 
   position: absolute;
-  right: 0;
-  top: 0;
+  right: var(--border-width__local);
+  top: var(--border-width__local);
 
   border-left: var(--border);
   border-top: none;
