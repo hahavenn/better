@@ -5,15 +5,15 @@ export type IconState = Extract<
   "default" | "hover" | "active" | "disabled"
 >;
 
-export type Icon = "search";
-
 /**
- *
+ * All added icons to project
  */
+export type Icons = "search";
+
 export type IconProps = {
   /**
    * State type of icon for styling
    */
   state: IconState;
-  icon: Icon;
+  type: Icons;
 };

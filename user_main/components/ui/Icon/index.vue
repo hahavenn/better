@@ -1,19 +1,22 @@
 <template>
-  <div :class="iconClasses">
+  <div
+    class="icon"
+    :class="iconClasses"
+  >
     <component :is="IconMap.get(props.icon)"></component>
   </div>
 </template>
 
 <script lang="ts" setup>
 import IconMap from "./icon_map";
-import type { Icon, IconState } from "./types";
+import type { Icons, IconState } from "./types";
 
 const props = withDefaults(
   defineProps<{
     /**
      * What icon should be displayed
      */
-    icon: Icon;
+    icon: Icons;
     /**
      * What state the icon should be in
      */
@@ -28,14 +31,14 @@ const iconClasses = [props.state];
 </script>
 
 <style scoped>
-div {
+.icon {
   display: flex;
 
   width: fit-content;
   height: fit-content;
 }
 
-div * {
+.icon * {
   fill: var(--theme-icon__default);
 }
 </style>
