@@ -1,11 +1,9 @@
-import type { LinkRelAttribute } from "~/types/link_rel_attribute";
-import type { LinkTargetAttribute } from "~/types/link_target_attribute";
 import type { LinkPresets, LinkUIProps } from "./types";
 import HA_EDU_LINKS from "~/constants/links";
 
 type LinkUIPreset = {
-  target: LinkTargetAttribute;
-  rel: LinkRelAttribute[];
+  target: LinkUIProps["target"];
+  rel: LinkUIProps["rel"];
   ariaLabel: NonNullable<LinkUIProps["ariaLabel"]>;
   title: NonNullable<LinkUIProps["title"]>;
   to: LinkUIProps["to"];
