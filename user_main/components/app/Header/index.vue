@@ -5,7 +5,7 @@
       :attachedTo="'top'"
     >
       <header>
-        <UiLink :type="'home'">
+        <UiLink :preset="'home'">
           <UiText
             :type="'link'"
             :fontSize="'m'"
