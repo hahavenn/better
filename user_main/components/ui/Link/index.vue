@@ -1,11 +1,11 @@
 <template>
   <NuxtLink
     class="link"
-    :target="linkTarget"
-    :to="linkTo"
-    :rel="linkRel"
-    :title="linkTitle"
-    :aria-label="linkAriaLabel"
+    :target
+    :to
+    :rel
+    :title
+    :aria-label="ariaLabel"
   >
     <slot></slot>
   </NuxtLink>
@@ -23,19 +23,19 @@ const props = withDefaults(defineProps<LinkUIProps>(), {
   title: "",
 });
 
-const linkTarget = computed<LinkUIProps["target"]>(() =>
-  props.type ? LinkUIPresets[props.type].target : props.target
+const target = computed<LinkUIProps["target"]>(() =>
+  props.preset ? LinkUIPresets[props.preset].target : props.target
 );
-const linkTo = computed<LinkUIProps["to"]>(() =>
-  props.type ? LinkUIPresets[props.type].to : props.to
+const to = computed<LinkUIProps["to"]>(() =>
+  props.preset ? LinkUIPresets[props.preset].to : props.to
 );
-const linkRel = computed<string>(() =>
-  (props.type ? LinkUIPresets[props.type].rel : props.rel).join(" ")
+const rel = computed<string>(() =>
+  (props.preset ? LinkUIPresets[props.preset].rel : props.rel).join(" ")
 );
-const linkTitle = computed<string>(() =>
-  props.type ? LinkUIPresets[props.type].title : props.title
+const title = computed<string>(() =>
+  props.preset ? LinkUIPresets[props.preset].title : props.title
 );
-const linkAriaLabel = computed<string>(() =>
-  props.type ? LinkUIPresets[props.type].ariaLabel : props.ariaLabel
+const ariaLabel = computed<string>(() =>
+  props.preset ? LinkUIPresets[props.preset].ariaLabel : props.ariaLabel ?? ""
 );
 </script>
