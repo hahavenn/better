@@ -1,5 +1,6 @@
 <template>
   <div
+    class="ui-container"
     :style="styles"
     :class="classes"
   >
@@ -42,7 +43,7 @@ const classes = computed(() => [
 </script>
 
 <style scoped>
-div {
+.ui-container {
   width: 100%;
   padding: var(--offset__1);
 
@@ -54,28 +55,28 @@ div {
   display: flex;
   flex-direction: column;
   justify-content: center;
-}
 
-@media screen and (min-width: 1280px) {
-  .responsive {
-    max-width: calc(1280px - 2 * var(--offset__0));
+  @media screen and (min-width: 1280px) {
+    &.responsive {
+      max-width: calc(1280px - 2 * var(--offset__0));
+    }
   }
-}
 
-.top {
-  border-radius: 0 0 var(--border-radius__0) var(--border-radius__0);
-  border-top-width: 0;
-}
-.bottom {
-  border-radius: var(--border-radius__0) var(--border-radius__0) 0 0;
-  border-bottom-width: 0;
-}
-.left {
-  border-radius: var(--border-radius__0) 0 0 var(--border-radius__0);
-  border-left-width: 0;
-}
-.right {
-  border-radius: 0 var(--border-radius__0) var(--border-radius__0) 0;
-  border-right-width: 0;
+  &.top {
+    border-radius: 0 0 var(--border-radius__0) var(--border-radius__0);
+    border-top-width: 0;
+  }
+  &.bottom {
+    border-radius: var(--border-radius__0) var(--border-radius__0) 0 0;
+    border-bottom-width: 0;
+  }
+  &.left {
+    border-radius: var(--border-radius__0) 0 0 var(--border-radius__0);
+    border-left-width: 0;
+  }
+  &.right {
+    border-radius: 0 var(--border-radius__0) var(--border-radius__0) 0;
+    border-right-width: 0;
+  }
 }
 </style>
