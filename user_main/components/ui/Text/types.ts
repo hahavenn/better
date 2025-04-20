@@ -13,4 +13,8 @@ export type TextUIProps = {
   type?: TextTypes;
   fontSize?: Sizes;
   padding?: PaddingRule;
+  /**
+   * Should text apply hover_styles
+   */
+  hoverStyles?: boolean;
 };

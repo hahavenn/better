@@ -9,6 +9,7 @@
           <UiText
             :type="'link'"
             :fontSize="'m'"
+            :hoverStyles="true"
           >
             ha_edu
           </UiText>
