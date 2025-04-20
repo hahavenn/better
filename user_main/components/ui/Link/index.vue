@@ -30,7 +30,7 @@ const to = computed<LinkUIProps["to"]>(() =>
   props.preset ? LinkUIPresets[props.preset].to : props.to
 );
 const rel = computed<string>(() =>
-  (props.preset ? LinkUIPresets[props.preset].rel : props.rel).join(" ")
+  (props.preset ? LinkUIPresets[props.preset].rel : props.rel)!.join(" ")
 );
 const title = computed<string>(() =>
   props.preset ? LinkUIPresets[props.preset].title : props.title
