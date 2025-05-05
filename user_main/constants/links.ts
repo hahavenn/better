@@ -1,7 +1,7 @@
 /**
  * All links used in project (project-only)
  */
-const HA_EDU_LINKS = {
+const SITE_LINKS = {
   HOME: "/",
 };
-export default HA_EDU_LINKS;
+export default SITE_LINKS;

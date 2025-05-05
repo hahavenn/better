@@ -1,5 +1,5 @@
 import type { LinkPresets, LinkUIProps } from "./types";
-import HA_EDU_LINKS from "~/constants/links";
+import SITE_LINKS from "~/constants/links";
 
 type LinkUIPreset = {
   target: LinkUIProps["target"];
@@ -20,6 +20,6 @@ export const LinkUIPresets: {
     rel: ["noopener", "noreferrer"],
     ariaLabel: "Go to home page",
     title: "Go to home page",
-    to: HA_EDU_LINKS.HOME,
+    to: SITE_LINKS.HOME,
   },
 } as const;

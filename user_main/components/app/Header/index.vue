@@ -11,7 +11,7 @@
             :fontSize="'m'"
             :hoverStyles="true"
           >
-            ha_edu
+            better
           </UiText>
         </UiLink>
 

@@ -16,6 +16,6 @@ Usage of component is simple:
   :fontSize="'m'"
   :padding="'var(--offset__0) 0'"
 >
-  ha_edu
+  better
 </UiText>
 ```

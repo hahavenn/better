@@ -5,6 +5,8 @@
 @import url("./text/index.css");
 @import url("./transitions/index.css");
 
+@import "tailwindcss";
+
 /* normalize styles */
 * {
   margin: 0;
@@ -16,11 +18,11 @@
 /* base layout styles */
 html,
 body,
-#__ha_edu {
+#__better {
   width: 100%;
   height: fit-content;
 }
-#__ha_edu {
+#__better {
   display: flex;
   flex-direction: column;
   align-items: center;
