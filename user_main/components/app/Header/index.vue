@@ -1,14 +1,14 @@
 <template>
-  <div class="wrapper">
+  <div class="fixed top-0 flex w-full flex-col items-center">
     <UiContainer
       :responsive="true"
-      :attachedTo="'top'"
+      :attachedTo="'attachment__top'"
     >
-      <header>
+      <header class="flex w-full flex-row items-center gap-[var(--offset__3)]">
         <UiLink :preset="'home'">
           <UiText
             :type="'link'"
-            :fontSize="'m'"
+            :fontSize="'size__m'"
             :hoverStyles="true"
           >
             better
@@ -16,13 +16,6 @@
         </UiLink>
 
         <AppSearch />
-
-        <UiDropdown :title="'Site sections'">
-          <UiDropdownItem> Hello! </UiDropdownItem>
-          <UiDropdownItem> Hello1! </UiDropdownItem>
-          <UiDropdownItem> Hello2! </UiDropdownItem>
-          <UiDropdownItem> Hello3! </UiDropdownItem>
-        </UiDropdown>
       </header>
     </UiContainer>
   </div>
@@ -30,24 +23,4 @@
 
 <script lang="ts" setup></script>
 
-<style scoped>
-.wrapper {
-  position: fixed;
-  top: 0;
-
-  width: 100%;
-
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-header {
-  width: 100%;
-
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  gap: var(--offset__3);
-}
-</style>
+<style scoped></style>

@@ -2,7 +2,7 @@ import type { StateTypes } from "~/types/state";
 
 export type IconState = Extract<
   StateTypes,
-  "default" | "hover" | "active" | "disabled"
+  "state__default" | "state__hover" | "state__active" | "state__disabled"
 >;
 
 /**

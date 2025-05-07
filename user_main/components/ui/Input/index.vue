@@ -1,8 +1,12 @@
 <template>
-  <div class="ui-input">
+  <div
+    class="group relative flex h-full w-full transition-[var(--transition__0)]"
+    style="--border-width: var(--border-width__0)"
+  >
     <label
       v-if="label && label.length > 0"
       :for="id"
+      class="absolute [clip-path:circle(0)]"
     >
       {{ label }}
     </label>
@@ -12,10 +16,13 @@
       :placeholder
       :autocapitalize
       :autocomplete
+      class="peer h-full w-full rounded-[var(--border-radius__1)] border-[length:var(--border-width)] border-solid border-[color:var(--theme-border-color__0)] bg-transparent px-[var(--offset__0)] py-0 text-[var(--theme-font-color__0)] outline-none group-hover:border-[color:var(--theme-border-color__1)] placeholder:text-[var(--theme-font-color__2)] focus:border-[color:var(--theme-border-color__1)] active:border-[color:var(--theme-border-color__1)]"
     />
     <button
       v-if="icon !== undefined"
       :type="buttonType"
+      style="height: calc(100% - 2 * var(--border-width))"
+      class="border-l-solid absolute top-[var(--border-width)] right-[var(--border-width)] flex w-[32px] items-center justify-center border-t-0 border-r-0 border-b-0 border-l-[length:var(--border-width)] border-l-[color:var(--theme-border-color__0)] bg-transparent group-hover:border-[color:var(--theme-border-color__1)] peer-focus:border-[color:var(--theme-border-color__1)] peer-active:border-[color:var(--theme-border-color__1)] hover:cursor-pointer"
     >
       <UiIcon :icon />
     </button>
@@ -63,87 +70,4 @@ const icon = computed(() =>
 );
 </script>
 
-<style scoped>
-.ui-input {
-  display: flex;
-
-  width: 100%;
-  height: 100%;
-
-  position: relative;
-
-  transition: var(--transition__0);
-
-  --border-width__local: var(--border-width__0);
-  --border: var(--border-width__local) solid var(--theme-border-color__0);
-
-  label {
-    /* Should be visible only for screen readers */
-    position: absolute;
-    clip-path: circle(0);
-  }
-
-  input {
-    height: 100%;
-    width: 100%;
-
-    padding: 0 var(--offset__0);
-
-    background-color: transparent;
-
-    border: var(--border);
-    border-radius: var(--border-radius__1);
-
-    color: var(--theme-font-color__0);
-
-    outline: none;
-
-    &::placeholder {
-      color: var(--theme-font-color__2);
-    }
-  }
-
-  button {
-    background-color: transparent;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    width: 32px;
-    height: calc(100% - 2 * var(--border-width__local));
-
-    position: absolute;
-    right: var(--border-width__local);
-    top: var(--border-width__local);
-
-    border-left: var(--border);
-    border-top: none;
-    border-right: none;
-    border-bottom: none;
-
-    @media (hover: hover) {
-      &:hover {
-        cursor: pointer;
-      }
-    }
-  }
-
-  input:active,
-  input:focus {
-    &,
-    & ~ button {
-      border-color: var(--theme-border-color__1);
-    }
-  }
-
-  @media (hover: hover) {
-    &:hover {
-      button,
-      input {
-        border-color: var(--theme-border-color__1);
-      }
-    }
-  }
-}
-</style>
+<style scoped></style>

@@ -1,4 +1,11 @@
 /**
  * Sizes for UI things
  */
-export type Sizes = "xxs" | "xs" | "s" | "m" | "l" | "xl" | "xxl";
+export type Sizes =
+  | "size__xxs"
+  | "size__xs"
+  | "size__s"
+  | "size__m"
+  | "size__l"
+  | "size__xl"
+  | "size__xxl";

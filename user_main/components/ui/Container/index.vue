@@ -1,6 +1,6 @@
 <template>
   <div
-    class="ui-container"
+    class="ui-container flex w-full flex-col justify-center rounded-[var(--border-radius__0)] border-[length:var(--border-width__0)] border-solid border-[color:var(--theme-border-color__0)] bg-[var(--theme-bg-color__1)] p-[var(--offset__1)]"
     :style="styles"
     :class="classes"
   >
@@ -24,7 +24,11 @@ const props = withDefaults(
     /**
      * Which side of parent component container is attached to
      */
-    attachedTo?: "left" | "top" | "right" | "bottom";
+    attachedTo?:
+      | "attachment__left"
+      | "attachment__top"
+      | "attachment__right"
+      | "attachment__bottom";
   }>(),
   {}
 );
@@ -44,37 +48,25 @@ const classes = computed(() => [
 
 <style scoped>
 .ui-container {
-  width: 100%;
-  padding: var(--offset__1);
-
-  background-color: var(--theme-bg-color__1);
-
-  border-radius: var(--border-radius__0);
-  border: var(--border-width__0) solid var(--theme-border-color__0);
-
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-
   @media screen and (min-width: 1280px) {
     &.responsive {
       max-width: calc(1280px - 2 * var(--offset__0));
     }
   }
 
-  &.top {
+  &.attachment__top {
     border-radius: 0 0 var(--border-radius__0) var(--border-radius__0);
     border-top-width: 0;
   }
-  &.bottom {
+  &.attachment__bottom {
     border-radius: var(--border-radius__0) var(--border-radius__0) 0 0;
     border-bottom-width: 0;
   }
-  &.left {
+  &.attachment__left {
     border-radius: var(--border-radius__0) 0 0 var(--border-radius__0);
     border-left-width: 0;
   }
-  &.right {
+  &.attachment__right {
     border-radius: 0 var(--border-radius__0) var(--border-radius__0) 0;
     border-right-width: 0;
   }

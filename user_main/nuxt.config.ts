@@ -21,6 +21,7 @@ export default defineNuxtConfig({
           href: "favicon_light.ico",
         },
       ],
+      title: "Better",
     },
     rootAttrs: {
       id: "__better",
@@ -34,7 +35,7 @@ export default defineNuxtConfig({
 
   css: ["~/assets/css/index.css"],
 
-  modules: ["@vueuse/nuxt"],
+  modules: ["@vueuse/nuxt", "@nuxtjs/color-mode"],
   vite: {
     plugins: [tailwindcss()],
   },
