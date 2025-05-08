@@ -21,7 +21,7 @@ const props = withDefaults(defineProps<TextUIProps>(), {
 });
 
 const classes = computed(() => [
-  props.hoverStyles ? "hoverable" : "",
+  props.hoverStyles && "hoverable",
   props.fontSize,
 ]);
 

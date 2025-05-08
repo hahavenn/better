@@ -41,7 +41,7 @@ const styles = computed<CSSProperties>(() => {
   return styles;
 });
 const classes = computed(() => [
-  props.responsive ? "responsive" : "",
+  props.responsive && "responsive",
   props.attachedTo ?? "",
 ]);
 </script>
@@ -50,7 +50,7 @@ const classes = computed(() => [
 .ui-container {
   @media screen and (min-width: 1280px) {
     &.responsive {
-      max-width: calc(1280px - 2 * var(--offset__0));
+      max-width: 1280px;
     }
   }
 

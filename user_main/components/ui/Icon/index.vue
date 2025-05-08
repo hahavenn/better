@@ -1,7 +1,7 @@
 <template>
   <div
     class="icon flex h-fit w-fit [&>*]:fill-[var(--theme-icon__default)]"
-    :class="iconClasses"
+    :class="classes"
   >
     <component :is="IconMap.get(props.icon)"></component>
   </div>
@@ -27,7 +27,7 @@ const props = withDefaults(
   }
 );
 
-const iconClasses = [props.state];
+const classes = computed(() => [props.state]);
 </script>
 
 <style scoped></style>

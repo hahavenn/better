@@ -1,7 +1,10 @@
 <template>
   <AppHeader ref="headerRef" />
 
-  <main :style="mainStyles">
+  <main
+    class="flex w-full flex-col items-center justify-start"
+    :style="mainStyles"
+  >
     <NuxtPage />
   </main>
 </template>
@@ -17,13 +20,4 @@ const mainStyles = computed<CSSProperties>(() => ({
 }));
 </script>
 
-<style scoped>
-main {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: flex-start;
-
-  width: 100%;
-}
-</style>
+<style scoped></style>
