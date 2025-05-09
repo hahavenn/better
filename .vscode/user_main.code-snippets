@@ -269,10 +269,10 @@
   },
 
   /* text types */
-  "text-xss": {
+  "text-xxs": {
     "scope": "css,typescript,javascript,html,vue",
-    "prefix": "text-xss",
-    "body": ["text-xss"]
+    "prefix": "text-xxs",
+    "body": ["text-xxs"]
   },
   "text-xs": {
     "scope": "css,typescript,javascript,html,vue",

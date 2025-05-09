@@ -1,5 +1,5 @@
 <template>
-  <section class="gap-(--offset__2) flex flex-col">
+  <section class="flex flex-col gap-(--offset__2)">
     <h1 class="text-l">
       {{ goalsStore.selectedGoal.name }}
     </h1>
@@ -8,13 +8,11 @@
       {{ goalsStore.selectedGoal.description }}
     </p>
 
-    <span class="text-xxs">hello</span>
-
     <div
-      class="rounded-(--border-radius__1) border-(length:--border-width__0) border-(--theme-border-color__1) relative h-[12px] w-full overflow-hidden border-solid"
+      class="relative h-[12px] w-full overflow-hidden rounded-(--border-radius__1) border-(length:--border-width__0) border-solid border-(--theme-border-color__1)"
     >
       <div
-        class="bg-(--color-green__0) absolute h-full"
+        class="absolute h-full bg-(--color-green__0)"
         :style="{
           width: `${goalsStore.completePercent * 100}%`,
         }"
@@ -29,7 +27,7 @@
       >
         <div
           v-if="i !== goalsStore.selectedGoal.steps.length - 1"
-          class="bg-(--theme-border-color__1) h-full w-[1px]"
+          class="h-full w-[1px] bg-(--theme-border-color__1)"
         ></div>
       </div>
     </div>

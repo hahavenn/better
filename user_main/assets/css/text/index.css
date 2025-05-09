@@ -26,15 +26,6 @@
   --line-height__6: calc(var(--font-size__6) * 1.5);
 }
 
-@theme {
-  --text-*: initial;
-  --font-*: initial;
-  --font-weight-*: initial;
-  --leading-*: initial;
-  --tracking-*: initial;
-  --text-decoration-color-*: initial;
-}
-
 .text-xxs {
   font-size: var(--font-size__0);
   font-weight: var(--font-weight__0);

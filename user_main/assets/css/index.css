@@ -21,6 +21,12 @@
   --aspect-*: initial;
   --ease-*: initial;
   --animate-*: initial;
+  --text-*: initial;
+  --font-*: initial;
+  --font-weight-*: initial;
+  --leading-*: initial;
+  --tracking-*: initial;
+  --text-decoration-color-*: initial;
 }
 
 * {
