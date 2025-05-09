@@ -3,6 +3,7 @@
 @import url("./border/index.css");
 @import url("./offsets/index.css");
 @import url("./transitions/index.css");
+@import url("./text/index.css");
 
 @import "tailwindcss";
 
@@ -10,6 +11,16 @@
   --breakpoint-*: initial;
   --breakpoint-tablet: 768px;
   --breakpoint-desktop: 1280px;
+
+  --container-*: initial;
+  --shadow-*: initial;
+  --inset-shadow-*: initial;
+  --drop-shadow-*: initial;
+  --blur-*: initial;
+  --perspective-*: initial;
+  --aspect-*: initial;
+  --ease-*: initial;
+  --animate-*: initial;
 }
 
 * {

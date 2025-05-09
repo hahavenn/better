@@ -3,16 +3,11 @@
     <UiContainer
       :responsive="true"
       :attachedTo="'attachment__top'"
+      :fullWidth="true"
     >
-      <header class="flex w-full flex-row items-center gap-[var(--offset__3)]">
+      <header class="flex w-full flex-row items-center gap-(--offset__3)">
         <UiLink :preset="'home'">
-          <UiText
-            :type="'link'"
-            :fontSize="'size__m'"
-            :hoverStyles="true"
-          >
-            better
-          </UiText>
+          <span class="text-m text-hover underline">better</span>
         </UiLink>
 
         <AppSearch />

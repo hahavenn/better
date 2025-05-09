@@ -1,2 +1,10 @@
-@import url("./radius/index.css");
-@import url("./width/index.css");
+/* border-radius */
+:root {
+  --border-radius__0: 10px;
+  --border-radius__1: 4px;
+}
+
+/* border-width */
+:root {
+  --border-width__0: 1px;
+}

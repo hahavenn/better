@@ -1,1 +1,29 @@
-@import url("./gray/index.css");
+@import "tailwindcss";
+
+@theme {
+  --color-*: initial;
+}
+
+/* gray palette */
+:root {
+  --color-white: #ffffff;
+  --color-gray__0: #f0f0f0;
+  --color-gray__1: #e1e1e1;
+  --color-gray__2: #d2d2d2;
+  --color-gray__3: #c1c1c1;
+  --color-gray__4: #a4a4a4;
+  --color-gray__5: #7d7d7d;
+  --color-gray__6: #646464;
+  --color-gray__7: #4a4a4a;
+  --color-gray__8: #333333;
+  --color-gray__9: #222222;
+  --color-gray__10: #181818;
+  --color-gray__11: #121212;
+  --color-gray__12: #0c0c0c;
+  --color-black: #000000;
+}
+
+/* green palette */
+:root {
+  --color-green__0: #2bd02b;
+}

@@ -1,6 +1,6 @@
 <template>
   <div
-    class="ui-container flex w-full flex-col justify-center rounded-[var(--border-radius__0)] border-[length:var(--border-width__0)] border-solid border-[color:var(--theme-border-color__0)] bg-[var(--theme-bg-color__1)] p-[var(--offset__1)]"
+    class="ui-container flex flex-col justify-center rounded-(--border-radius__0) border-(length:--border-width__0) border-solid border-(--theme-border-color__0) bg-(--theme-bg-color__1) p-(--offset__1)"
     :style="styles"
     :class="classes"
   >
@@ -14,13 +14,44 @@ import type { CSSProperties } from "vue";
 const props = withDefaults(
   defineProps<{
     /**
-     * Does container should be full height of parent component
+     * `height` CSS-property
+     * @description If `true` -> `height: 100%`
+     * @default `fit-content`
      */
     fullHeight?: boolean;
+
+    /**
+     * `width: 100%`
+     * @default false
+     *
+     * @description
+     * Should not be set with `width`
+     */
+    fullWidth?: boolean;
+    /**
+     * Width of container in `px`
+     *
+     * @description
+     * Should not be set with `fullWidth`
+     */
+    width?: number;
+
+    /**
+     * `flex-grow: 1`
+     * @default false
+     */
+    grow?: boolean;
+    /**
+     * `flex-shrink: 0`
+     * @default false
+     */
+    noShrink?: boolean;
+
     /**
      * Does container should be responsive to media-query
      */
     responsive?: boolean;
+
     /**
      * Which side of parent component container is attached to
      */
@@ -36,7 +67,15 @@ const props = withDefaults(
 const styles = computed<CSSProperties>(() => {
   const styles: CSSProperties = {};
 
-  styles.height = props.fullHeight ? "100%" : "fit-content";
+  styles.minHeight = props.fullHeight ? "100%" : "fit-content";
+  styles.width = props.fullWidth
+    ? "100%"
+    : props.width !== undefined
+      ? `${props.width}px`
+      : "fit-content";
+
+  if (props.grow) styles.flexGrow = 1;
+  if (props.noShrink) styles.flexShrink = 0;
 
   return styles;
 });
@@ -54,20 +93,22 @@ const classes = computed(() => [
     }
   }
 
+  --br: var(--border-radius__0);
+
   &.attachment__top {
-    border-radius: 0 0 var(--border-radius__0) var(--border-radius__0);
+    border-radius: 0 0 var(--br) var(--br);
     border-top-width: 0;
   }
   &.attachment__bottom {
-    border-radius: var(--border-radius__0) var(--border-radius__0) 0 0;
+    border-radius: var(--br) var(--br) 0 0;
     border-bottom-width: 0;
   }
   &.attachment__left {
-    border-radius: var(--border-radius__0) 0 0 var(--border-radius__0);
+    border-radius: var(--br) 0 0 var(--br);
     border-left-width: 0;
   }
   &.attachment__right {
-    border-radius: 0 var(--border-radius__0) var(--border-radius__0) 0;
+    border-radius: 0 var(--br) var(--br) 0;
     border-right-width: 0;
   }
 }

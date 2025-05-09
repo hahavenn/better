@@ -35,7 +35,7 @@ export default defineNuxtConfig({
 
   css: ["~/assets/css/index.css"],
 
-  modules: ["@vueuse/nuxt", "@nuxtjs/color-mode"],
+  modules: ["@vueuse/nuxt", "@nuxtjs/color-mode", "@pinia/nuxt"],
   vite: {
     plugins: [tailwindcss()],
   },

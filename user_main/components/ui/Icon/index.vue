@@ -1,6 +1,6 @@
 <template>
   <div
-    class="icon flex h-fit w-fit [&>*]:fill-[var(--theme-icon__default)]"
+    class="icon flex h-fit w-fit [&>*]:fill-(--theme-icon__default)"
     :class="classes"
   >
     <component :is="IconMap.get(props.icon)"></component>

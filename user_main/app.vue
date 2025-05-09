@@ -2,22 +2,12 @@
   <AppHeader ref="headerRef" />
 
   <main
-    class="flex w-full flex-col items-center justify-start"
-    :style="mainStyles"
+    class="desktop:max-w-[1280px] flex w-full flex-row flex-wrap items-center justify-start gap-(--offset__0) pt-[calc(61px_+_var(--offset__0))]"
   >
     <NuxtPage />
   </main>
 </template>
 
-<script setup lang="ts">
-import type { CSSProperties } from "vue";
-
-const headerRef = useTemplateRef("headerRef");
-const { height } = useElementSize(headerRef);
-
-const mainStyles = computed<CSSProperties>(() => ({
-  paddingTop: `calc(${height.value}px + var(--offset__0))`,
-}));
-</script>
+<script setup lang="ts"></script>
 
 <style scoped></style>
