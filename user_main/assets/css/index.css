@@ -31,6 +31,7 @@
 
 * {
   font-family: Arial, Helvetica, sans-serif;
+  color: var(--theme-font-color__0);
 }
 
 /* base layout styles */
