@@ -25,7 +25,7 @@
       >
         <div
           v-if="i !== goalsStore.selectedGoal.steps.length - 1"
-          class="h-full w-[1px] bg-(--theme-border-color__1)"
+          class="h-full w-(--border-width__0) bg-(--theme-border-color__1)"
         ></div>
       </div>
     </div>
