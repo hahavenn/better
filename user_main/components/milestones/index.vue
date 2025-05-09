@@ -1,8 +1,6 @@
 <template>
   <section class="flex flex-col gap-(--offset__2)">
-    <h1 class="text-l">
-      {{ goalsStore.selectedGoal.name }}
-    </h1>
+    <h1 class="text-l">Goal: {{ goalsStore.selectedGoal.name }}</h1>
 
     <p class="text-s">
       {{ goalsStore.selectedGoal.description }}
