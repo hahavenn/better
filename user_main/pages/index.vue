@@ -4,7 +4,7 @@
       :grow="true"
       :fullWidth="true"
     >
-      <Milestones />
+      <UserGoal />
     </UiContainer>
     <template #fallback> </template>
   </ClientOnly>
