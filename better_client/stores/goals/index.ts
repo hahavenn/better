@@ -85,15 +85,13 @@ const useGoalsStore = defineStore("goalsStore", () => {
   /**
    * How much percent completed
    */
-  const completePercent = computed(
-    () => steps.value.completed / steps.value.total
-  );
+  const completed = computed(() => steps.value.completed / steps.value.total);
 
   return {
     goals,
     selectedGoal,
     steps,
-    completePercent,
+    completed,
   };
 });
 

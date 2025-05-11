@@ -12,7 +12,7 @@
       <div
         class="absolute h-full bg-(--color-green__0)"
         :style="{
-          width: `${goalsStore.completePercent * 100}%`,
+          width: `${goalsStore.completed * 100}%`,
         }"
       ></div>
 
