@@ -2,9 +2,16 @@ type Step = {
   name: string;
   description: string;
   complete: boolean;
+  subSteps: SubStep[];
 };
 
-export type Goal = {
+type SubStep = {
+  name: string;
+  description: string;
+  complete: boolean;
+};
+
+export type UserGoal = {
   name: string;
   description: string;
   complete: boolean;

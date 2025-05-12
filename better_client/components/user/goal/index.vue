@@ -1,9 +1,9 @@
 <template>
   <section class="flex flex-col gap-(--offset__2)">
-    <h1 class="text-l">Goal: {{ goalsStore.selectedGoal.name }}</h1>
+    <h1 class="text-l">Goal: {{ goalsStore.goals[0].name }}</h1>
 
     <p class="text-s">
-      {{ goalsStore.selectedGoal.description }}
+      {{ goalsStore.goals[0].description }}
     </p>
 
     <div
@@ -12,19 +12,19 @@
       <div
         class="absolute h-full bg-(--color-green__0)"
         :style="{
-          width: `${goalsStore.completed * 100}%`,
+          width: `${(goalsStore.calcCompletedParts(goalsStore.goals[0]) / goalsStore.calcTotalParts(goalsStore.goals[0])) * 100}%`,
         }"
       ></div>
 
       <div
-        v-for="(s, i) in goalsStore.selectedGoal.steps"
+        v-for="i in goalsStore.calcTotalParts(goalsStore.goals[0])"
         class="absolute flex h-full px-[3px]"
         :style="{
-          left: `calc(${((i + 1) / goalsStore.steps.total) * 100}% - 3px)`,
+          left: `calc(${((i + 1) / goalsStore.calcTotalParts(goalsStore.goals[0])) * 100}% - 3px)`,
         }"
       >
         <div
-          v-if="i !== goalsStore.selectedGoal.steps.length - 1"
+          v-if="i !== goalsStore.calcTotalParts(goalsStore.goals[0]) - 1"
           class="h-full w-(--border-width__0) bg-(--theme-border-color__1)"
         ></div>
       </div>
@@ -38,7 +38,9 @@ import useGoalsStore from "~/stores/goals";
 const goalsStore = useGoalsStore();
 
 onMounted(() => {
-  console.log("goalsStore.steps", goalsStore.steps);
+  console.log("goalsStore.goals", goalsStore.goals);
+  console.log("total", goalsStore.calcTotalParts(goalsStore.goals[0]));
+  console.log("completed", goalsStore.calcCompletedParts(goalsStore.goals[0]));
 });
 </script>
 

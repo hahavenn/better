@@ -1,9 +1,9 @@
-import type { Goal } from "./types";
+import type { UserGoal } from "./types";
 
 /**
  * Test goal
  */
-const goal: Goal = {
+const goal: UserGoal = {
   name: "Become a better developer",
   description: "some description about goal",
   complete: false,
@@ -12,86 +12,118 @@ const goal: Goal = {
       name: "Learn React",
       description: "some description about react",
       complete: true,
-    },
-    {
-      name: "react_1",
-      description: "description react_1",
-      complete: true,
-    },
-    {
-      name: "react_2",
-      description: "description react_2",
-      complete: true,
-    },
-    {
-      name: "react_3",
-      description: "description react_3",
-      complete: true,
-    },
-    {
-      name: "react_4",
-      description: "description react_4",
-      complete: true,
+      subSteps: [
+        {
+          name: "react_1",
+          description: "description react_1",
+          complete: true,
+        },
+        {
+          name: "react_2",
+          description: "description react_2",
+          complete: true,
+        },
+        {
+          name: "react_3",
+          description: "description react_3",
+          complete: true,
+        },
+        {
+          name: "react_4",
+          description: "description react_4",
+          complete: true,
+        },
+      ],
     },
     {
       name: "pwa",
       description: "some description about pwa",
       complete: true,
+      subSteps: [],
     },
     {
       name: "Learn vue",
       description: "some description about vue",
-      complete: true,
-    },
-    {
-      name: "vue_1",
-      description: "description vue_1",
-      complete: true,
-    },
-    {
-      name: "vue_2",
-      description: "description vue_2",
       complete: false,
+      subSteps: [
+        {
+          name: "vue_1",
+          description: "description vue_1",
+          complete: true,
+        },
+        {
+          name: "vue_2",
+          description: "description vue_2",
+          complete: false,
+        },
+      ],
     },
     {
-      name: "pwa_1",
-      description: "some description about pwa_1",
+      name: "bun_1",
+      description: "some description about bun_1",
       complete: false,
+      subSteps: [],
     },
     {
-      name: "pwa_2",
-      description: "some description about pwa_2",
+      name: "bun_2",
+      description: "some description about bun_2",
       complete: false,
+      subSteps: [],
     },
     {
-      name: "pwa_3",
-      description: "some description about pwa_3",
+      name: "bun_3",
+      description: "some description about bun_3",
       complete: false,
+      subSteps: [],
     },
   ],
 };
 
 const useGoalsStore = defineStore("goalsStore", () => {
-  const _goals = ref<Goal[]>([goal]);
+  const _goals = ref<UserGoal[]>([goal]);
+  /**
+   * All user goals
+   */
   const goals = computed(() => _goals.value);
 
-  const selectedGoal = computed(() => goals.value[0]);
-
-  const steps = computed(() => ({
-    completed: selectedGoal.value.steps.filter((step) => step.complete).length,
-    total: selectedGoal.value.steps.length,
-  }));
-
   /**
-   * How much percent completed
+   * How much total parts of user goal.
+   * If step has zero subSteps - than `+1` part.
+   * If step has subSteps - than `+subSteps.length`.
+   *
+   * @returns total parts of user goal
    */
-  const completed = computed(() => steps.value.completed / steps.value.total);
+  function calcTotalParts(goal: UserGoal) {
+    return goal.steps.reduce(
+      (acc, step) =>
+        acc + (step.subSteps.length > 0 ? step.subSteps.length : 1),
+      0
+    );
+  }
+  /**
+   * How much completed parts of user goal.
+   * If step has zero subSteps - looking for `step.complete`.
+   * If step has subSteps - look how much of subSteps are completed.
+   *
+   * @returns amount of completed parts of user goal
+   */
+  function calcCompletedParts(goal: UserGoal) {
+    return goal.steps.reduce(
+      (acc, step) =>
+        acc +
+        (step.subSteps.length > 0
+          ? step.subSteps.filter((s) => s.complete).length
+          : step.complete
+            ? 1
+            : 0),
+      0
+    );
+  }
 
   return {
     goals,
-    selectedGoal,
-    steps,
-    completed,
+    calcTotalParts,
+    calcCompletedParts,
   };
 });
 
