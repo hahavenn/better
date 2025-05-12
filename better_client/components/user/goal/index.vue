@@ -12,7 +12,7 @@
     />
 
     <UserGoalProgress
-      :goalId="goalId"
+      :goalId
       :goal="goalsStore.goals[0]"
       :progress="{
         completed: goalsStore.calcCompletedParts(goalsStore.goals[0]),
