@@ -8,6 +8,7 @@
     class="relative h-[12px] w-full overflow-hidden rounded-(--border-radius__1) border-(length:--border-width__0) border-solid border-(--theme-border-color__1)"
   >
     <div
+      aria-hidden="true"
       class="absolute h-full bg-(--color-green__0)"
       :style="{
         width: `${(props.progress.completed / props.progress.total) * 100}%`,
@@ -15,6 +16,7 @@
     ></div>
 
     <div
+      aria-hidden="true"
       v-for="i in props.progress.total"
       class="absolute flex h-full px-[3px]"
       :style="{
