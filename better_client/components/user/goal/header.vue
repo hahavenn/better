@@ -1,5 +1,10 @@
 <template>
-  <h1 class="text-l">Goal: {{ props.name }}</h1>
+  <h1
+    :id="props.goalId"
+    class="text-l"
+  >
+    Goal: {{ props.name }} ({{ props.completePercent }}%)
+  </h1>
 
   <p
     v-if="props.description !== undefined"
@@ -12,6 +17,10 @@
 <script lang="ts" setup>
 const props = defineProps<{
   /**
+   * Id for head element (a11y)
+   */
+  goalId: string;
+  /**
    * Name of user goal
    */
   name: string;
@@ -19,6 +28,10 @@ const props = defineProps<{
    * Description of user goal
    */
   description?: string;
+  /**
+   * Percent of goal completion
+   */
+  completePercent: number;
 }>();
 </script>
 

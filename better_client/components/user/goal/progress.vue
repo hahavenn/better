@@ -1,23 +1,28 @@
 <template>
   <div
+    role="progressbar"
+    :aria-valuemin="0"
+    :aria-valuemax="100"
+    :aria-valuenow="(props.progress.completed / props.progress.total) * 100"
+    :aria-labelledby="props.goalId"
     class="relative h-[12px] w-full overflow-hidden rounded-(--border-radius__1) border-(length:--border-width__0) border-solid border-(--theme-border-color__1)"
   >
     <div
       class="absolute h-full bg-(--color-green__0)"
       :style="{
-        width: `${(goalsStore.calcCompletedParts(props.goal) / goalsStore.calcTotalParts(props.goal)) * 100}%`,
+        width: `${(props.progress.completed / props.progress.total) * 100}%`,
       }"
     ></div>
 
     <div
-      v-for="i in goalsStore.calcTotalParts(props.goal)"
+      v-for="i in props.progress.total"
       class="absolute flex h-full px-[3px]"
       :style="{
-        left: `calc(${((i + 1) / goalsStore.calcTotalParts(props.goal)) * 100}% - 3px)`,
+        left: `calc(${((i + 1) / props.progress.total) * 100}% - 3px)`,
       }"
     >
       <div
-        v-if="i !== goalsStore.calcTotalParts(props.goal) - 1"
+        v-if="i !== props.progress.total - 1"
         class="h-full w-(--border-width__0) bg-(--theme-border-color__1)"
       ></div>
     </div>
@@ -25,15 +30,25 @@
 </template>
 
 <script lang="ts" setup>
-import useGoalsStore from "~/stores/goals";
-
 import type { UserGoal } from "~/stores/goals/types";
 
 const props = defineProps<{
+  /**
+   * Id of head element with goal name (a11y)
+   */
+  goalId: string;
+  /**
+   * User goal to display progress for
+   */
   goal: UserGoal;
+  /**
+   * Info about progress of goal
+   */
+  progress: {
+    completed: number;
+    total: number;
+  };
 }>();
-
-const goalsStore = useGoalsStore();
 </script>
 
 <style scoped></style>
