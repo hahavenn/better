@@ -20,6 +20,12 @@
     "body": ["--border-width__0"],
     "description": "1px"
   },
+  "--border-width__1": {
+    "scope": "css,typescript,javascript,html,vue",
+    "prefix": "--border-width__1",
+    "body": ["--border-width__1"],
+    "description": "1px"
+  },
 
   /* offsets */
   "--offset__0": {
@@ -45,6 +51,12 @@
     "prefix": "--offset__3",
     "body": ["--offset__3"],
     "description": "20px"
+  },
+  "--offset__4": {
+    "scope": "css,typescript,javascript,html,vue",
+    "prefix": "--offset__4",
+    "body": ["--offset__4"],
+    "description": "6px"
   },
 
   /* gray palette */
@@ -129,6 +141,38 @@
     "scope": "css,typescript,javascript,html,vue",
     "prefix": "--color-green__0",
     "body": ["--color-green__0"]
+  },
+
+  /* purple palette */
+  "--color-purple__0": {
+    "scope": "css,typescript,javascript,html,vue",
+    "prefix": "--color-purple__0",
+    "body": ["--color-purple__0"]
+  },
+  "--color-purple__1": {
+    "scope": "css,typescript,javascript,html,vue",
+    "prefix": "--color-purple__1",
+    "body": ["--color-purple__1"]
+  },
+  "--color-purple__2": {
+    "scope": "css,typescript,javascript,html,vue",
+    "prefix": "--color-purple__2",
+    "body": ["--color-purple__2"]
+  },
+  "--color-purple__3": {
+    "scope": "css,typescript,javascript,html,vue",
+    "prefix": "--color-purple__3",
+    "body": ["--color-purple__3"]
+  },
+  "--color-purple__4": {
+    "scope": "css,typescript,javascript,html,vue",
+    "prefix": "--color-purple__4",
+    "body": ["--color-purple__4"]
+  },
+  "--color-purple__5": {
+    "scope": "css,typescript,javascript,html,vue",
+    "prefix": "--color-purple__5",
+    "body": ["--color-purple__5"]
   },
 
   /* states */
