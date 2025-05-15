@@ -4,26 +4,17 @@
     :aria-labelledby="props.goalId"
     class="flex flex-row justify-start gap-(--offset__3)"
   >
-    <li
-      v-for="s in props.steps"
-      class="rounded-(--border-radius__0) border-(length:--border-width__0) border-solid border-(--color-purple__4) bg-(--color-purple__3) px-(--offset__0) py-(--offset__4) dark:border-(--color-purple__2) dark:bg-(--color-purple__0)"
-    >
-      <h2
-        class="text-m text-(--color-purple__5)! dark:text-(--color-purple__1)!"
-      >
-        {{ s.name }}
-      </h2>
-      <ul v-for="sub in s.subSteps">
-        <li class="text-(--color-purple__5)! dark:text-(--color-purple__1)!">
-          {{ sub.name }}
-        </li>
-      </ul>
-    </li>
+    <UserGoalStep
+      v-for="step in props.steps"
+      :step
+      :colors="colors[0]"
+    />
   </ul>
 </template>
 
 <script lang="ts" setup>
 import type { UserGoal } from "~/stores/goals/types";
+import type { StepColors } from "./types";
 
 const props = defineProps<{
   /**
@@ -35,6 +26,18 @@ const props = defineProps<{
    */
   steps: UserGoal["steps"];
 }>();
+
+const colors: StepColors[] = [
+  // purple
+  {
+    border: "border-(--color-purple__4) dark:border-(--color-purple__2)",
+    bg: "bg-(--color-purple__3) dark:bg-(--color-purple__0)",
+    text: "text-(--color-purple__5)! dark:text-(--color-purple__1)!",
+  },
+];
+function getStepColor() {
+  return colors[0];
+}
 </script>
 
 <style scoped></style>
