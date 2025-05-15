@@ -27,6 +27,17 @@ const props = defineProps<{
   steps: UserGoal["steps"];
 }>();
 
+/**
+ * **On light theme:**
+ * - `border`- medium
+ * - `bg` - light
+ * - `text` - dark
+ * ------
+ * **On dark theme:**
+ * - `border`- medium
+ * - `bg` - dark
+ * - `text` - light
+ */
 const colors: StepColors[] = [
   // purple
   {
