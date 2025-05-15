@@ -1,6 +1,6 @@
 <template>
   <div
-    class="ui-container flex flex-col justify-center rounded-(--border-radius__0) border-(length:--border-width__0) border-solid border-(--theme-border-color__0) bg-(--theme-bg-color__1) p-(--offset__1)"
+    class="ui-container flex flex-col justify-center rounded-(--border-radius__0) border-(length:--border-width__2) border-solid border-(--theme-border-color__0) bg-(--theme-bg-color__1) p-(--offset__1)"
     :style="styles"
     :class="classes"
   >

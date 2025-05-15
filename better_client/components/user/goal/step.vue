@@ -1,6 +1,6 @@
 <template>
   <li
-    class="rounded-(--border-radius__0) border-(length:--border-width__2) border-solid border-(--color-purple__4) bg-(--color-purple__3) px-(--offset__0) py-(--offset__4) dark:border-(--color-purple__2) dark:bg-(--color-purple__0)"
+    class="rounded-(--border-radius__0) border-(length:--border-width__0) border-solid border-(--color-purple__4) bg-(--color-purple__3) px-(--offset__0) py-(--offset__4) dark:border-(--color-purple__2) dark:bg-(--color-purple__0)"
     :class="[props.colors.bg, props.colors.border]"
   >
     <h2
