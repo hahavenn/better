@@ -1,9 +1,5 @@
 @import "tailwindcss";
 
-@theme {
-  --color-*: initial;
-}
-
 /* gray palette */
 :root {
   --color-white: #ffffff;
@@ -30,5 +26,10 @@
 
 /* purple palette */
 :root {
-  --color-purple__0: #9f009f;
+  --color-purple__0: #2a1e3a;
+  --color-purple__1: #b393ff;
+  --color-purple__2: #503e7c;
+  --color-purple__3: #d9bdff;
+  --color-purple__4: #a686f1;
+  --color-purple__5: #483e60;
 }

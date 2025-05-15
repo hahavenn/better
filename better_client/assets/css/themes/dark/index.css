@@ -2,6 +2,7 @@
 html.dark-mode {
   --theme-bg-color__0: var(--color-gray__11);
   --theme-bg-color__1: var(--color-gray__9);
+  --theme-bg-color__2: var(--color-gray__8);
 }
 
 /* border */
