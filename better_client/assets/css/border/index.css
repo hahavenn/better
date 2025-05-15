@@ -7,4 +7,5 @@
 /* border-width */
 :root {
   --border-width__0: 1px;
+  --border-width__1: 4px;
 }
