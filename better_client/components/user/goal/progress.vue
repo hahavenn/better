@@ -17,14 +17,14 @@
 
     <div
       aria-hidden="true"
-      v-for="i in props.progress.total"
+      v-for="i in props.progress.total - 1"
       class="absolute flex h-full px-[3px]"
       :style="{
-        left: `calc(${((i + 1) / props.progress.total) * 100}% - 3px)`,
+        left: `calc(${(i / props.progress.total) * 100}% - 3px)`,
       }"
     >
       <div
-        v-if="i !== props.progress.total - 1"
+        v-if="i !== props.progress.total"
         class="h-full w-(--border-width__0) bg-(--theme-border-color__1)"
       ></div>
     </div>
