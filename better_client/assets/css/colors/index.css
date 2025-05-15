@@ -22,6 +22,12 @@
 /* green palette */
 :root {
   --color-green__0: #2bd02b;
+  --color-green__1: #a8e6c3;
+  --color-green__2: #4a8f6e;
+  --color-green__3: #d4f3e0;
+  --color-green__4: #7dcc9a;
+  --color-green__5: #3a5c48;
+  --color-green__6: #1a2e22;
 }
 
 /* purple palette */
@@ -32,4 +38,54 @@
   --color-purple__3: #d9bdff;
   --color-purple__4: #a686f1;
   --color-purple__5: #483e60;
+}
+
+/* red palette */
+:root {
+  --color-red__0: #2e1a1d;
+  --color-red__1: #ffb3b8;
+  --color-red__2: #8f4a54;
+  --color-red__3: #ffd4d7;
+  --color-red__4: #cc7d85;
+  --color-red__5: #5c3a3e;
+}
+
+/* teal palette */
+:root {
+  --color-teal__0: #1a2d2e;
+  --color-teal__1: #a8e6e0;
+  --color-teal__2: #4a8f8a;
+  --color-teal__3: #d4f3f1;
+  --color-teal__4: #7dccc5;
+  --color-teal__5: #3a5c5a;
+}
+
+/* blue palette */
+:root {
+  --color-blue__0: #1a243e;
+  --color-blue__1: #a8c8ff;
+  --color-blue__2: #4a6bb5;
+  --color-blue__3: #d4e2ff;
+  --color-blue__4: #7da3f1;
+  --color-blue__5: #3a4a6c;
+}
+
+/* yellow palette */
+:root {
+  --color-yellow__0: #2e2a1a;
+  --color-yellow__1: #ffe7a8;
+  --color-yellow__2: #8f814a;
+  --color-yellow__3: #fff3d4;
+  --color-yellow__4: #ccb87d;
+  --color-yellow__5: #5c543a;
+}
+
+/* pink palette */
+:root {
+  --color-pink__0: #2e1a28;
+  --color-pink__1: #ffb3e6;
+  --color-pink__2: #8f4a7a;
+  --color-pink__3: #ffd4f3;
+  --color-pink__4: #cc7db3;
+  --color-pink__5: #5c3a52;
 }
