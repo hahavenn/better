@@ -20,7 +20,10 @@
       }"
     />
 
-    <UserGoalSteps :steps="goalsStore.goals[0].steps" />
+    <UserGoalSteps
+      :goalId
+      :steps="goalsStore.goals[0].steps"
+    />
   </article>
 </template>
 
