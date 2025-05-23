@@ -10,7 +10,7 @@
   @apply text-neutral-800 dark:text-neutral-300;
 }
 .text_link {
-  @apply underline hover:text-neutral-600 dark:hover:text-neutral-500;
+  @apply underline hover:text-neutral-600 dark:hover:text-neutral-400;
 }
 body {
   @apply bg-neutral-200 dark:bg-neutral-950;
