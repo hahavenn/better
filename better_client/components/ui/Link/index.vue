@@ -1,6 +1,5 @@
 <template>
   <NuxtLink
-    class="link"
     :target
     :to
     :rel
@@ -36,6 +35,6 @@ const title = computed<string>(() =>
   props.preset ? LinkUIPresets[props.preset].title : props.title
 );
 const ariaLabel = computed<string>(() =>
-  props.preset ? LinkUIPresets[props.preset].ariaLabel : props.ariaLabel ?? ""
+  props.preset ? LinkUIPresets[props.preset].ariaLabel : (props.ariaLabel ?? "")
 );
 </script>

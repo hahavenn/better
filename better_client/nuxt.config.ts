@@ -22,6 +22,10 @@ export default defineNuxtConfig({
         },
       ],
       title: "Better",
+
+      bodyAttrs: {
+        class: "text_plain",
+      },
     },
     rootAttrs: {
       id: "__better",
@@ -33,9 +37,10 @@ export default defineNuxtConfig({
     port: 3000,
   },
 
-  css: ["~/assets/css/index.css"],
+  css: ["~/assets/css/index.css", "~/assets/css/text/index.css"],
 
-  modules: ["@vueuse/nuxt", "@nuxtjs/color-mode", "@pinia/nuxt"],
+  modules: ["@vueuse/nuxt", "@pinia/nuxt"],
+
   vite: {
     plugins: [tailwindcss()],
   },

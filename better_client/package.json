@@ -10,17 +10,18 @@
     "postinstall": "nuxt prepare"
   },
   "dependencies": {
-    "@nuxtjs/color-mode": "3.5.2",
-    "@tailwindcss/vite": "^4.1.5",
-    "@pinia/nuxt": "0.11.0",
-    "@vueuse/nuxt": "^13.1.0",
-    "nuxt": "^3.17.2",
-    "pinia": "^3.0.2",
+    "@nuxt/kit": "latest",
+    "@pinia/nuxt": "latest",
+    "@tailwindcss/vite": "latest",
+    "@vueuse/nuxt": "latest",
+    "nuxt": "latest",
+    "pinia": "latest",
+    "tailwindcss": "latest",
     "vue": "latest",
     "vue-router": "latest"
   },
   "devDependencies": {
-    "prettier": "^3.5.3",
-    "prettier-plugin-tailwindcss": "^0.6.11"
+    "prettier": "latest",
+    "prettier-plugin-tailwindcss": "latest"
   }
 }

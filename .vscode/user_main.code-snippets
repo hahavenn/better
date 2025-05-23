@@ -65,122 +65,6 @@
     "description": "6px"
   },
 
-  /* gray palette */
-  "--color-white": {
-    "scope": "css,typescript,javascript,html,vue",
-    "prefix": "--color-white",
-    "body": ["--color-white"]
-  },
-  "--color-gray__0": {
-    "scope": "css,typescript,javascript,html,vue",
-    "prefix": "--color-gray__0",
-    "body": ["--color-gray__0"]
-  },
-  "--color-gray__1": {
-    "scope": "css,typescript,javascript,html,vue",
-    "prefix": "--color-gray__1",
-    "body": ["--color-gray__1"]
-  },
-  "--color-gray__2": {
-    "scope": "css,typescript,javascript,html,vue",
-    "prefix": "--color-gray__2",
-    "body": ["--color-gray__2"]
-  },
-  "--color-gray__3": {
-    "scope": "css,typescript,javascript,html,vue",
-    "prefix": "--color-gray__3",
-    "body": ["--color-gray__3"]
-  },
-  "--color-gray__4": {
-    "scope": "css,typescript,javascript,html,vue",
-    "prefix": "--color-gray__4",
-    "body": ["--color-gray__4"]
-  },
-  "--color-gray__5": {
-    "scope": "css,typescript,javascript,html,vue",
-    "prefix": "--color-gray__5",
-    "body": ["--color-gray__5"]
-  },
-  "--color-gray__6": {
-    "scope": "css,typescript,javascript,html,vue",
-    "prefix": "--color-gray__6",
-    "body": ["--color-gray__6"]
-  },
-  "--color-gray__7": {
-    "scope": "css,typescript,javascript,html,vue",
-    "prefix": "--color-gray__7",
-    "body": ["--color-gray__7"]
-  },
-  "--color-gray__8": {
-    "scope": "css,typescript,javascript,html,vue",
-    "prefix": "--color-gray__8",
-    "body": ["--color-gray__8"]
-  },
-  "--color-gray__9": {
-    "scope": "css,typescript,javascript,html,vue",
-    "prefix": "--color-gray__9",
-    "body": ["--color-gray__9"]
-  },
-  "--color-gray__10": {
-    "scope": "css,typescript,javascript,html,vue",
-    "prefix": "--color-gray__10",
-    "body": ["--color-gray__10"]
-  },
-  "--color-gray__11": {
-    "scope": "css,typescript,javascript,html,vue",
-    "prefix": "--color-gray__11",
-    "body": ["--color-gray__11"]
-  },
-  "--color-gray__12": {
-    "scope": "css,typescript,javascript,html,vue",
-    "prefix": "--color-gray__12",
-    "body": ["--color-gray__12"]
-  },
-  "--color-black": {
-    "scope": "css,typescript,javascript,html,vue",
-    "prefix": "--color-black",
-    "body": ["--color-black"]
-  },
-
-  /* green palette */
-  "--color-green__0": {
-    "scope": "css,typescript,javascript,html,vue",
-    "prefix": "--color-green__0",
-    "body": ["--color-green__0"]
-  },
-
-  /* purple palette */
-  "--color-purple__0": {
-    "scope": "css,typescript,javascript,html,vue",
-    "prefix": "--color-purple__0",
-    "body": ["--color-purple__0"]
-  },
-  "--color-purple__1": {
-    "scope": "css,typescript,javascript,html,vue",
-    "prefix": "--color-purple__1",
-    "body": ["--color-purple__1"]
-  },
-  "--color-purple__2": {
-    "scope": "css,typescript,javascript,html,vue",
-    "prefix": "--color-purple__2",
-    "body": ["--color-purple__2"]
-  },
-  "--color-purple__3": {
-    "scope": "css,typescript,javascript,html,vue",
-    "prefix": "--color-purple__3",
-    "body": ["--color-purple__3"]
-  },
-  "--color-purple__4": {
-    "scope": "css,typescript,javascript,html,vue",
-    "prefix": "--color-purple__4",
-    "body": ["--color-purple__4"]
-  },
-  "--color-purple__5": {
-    "scope": "css,typescript,javascript,html,vue",
-    "prefix": "--color-purple__5",
-    "body": ["--color-purple__5"]
-  },
-
   /* states */
   "state__default": {
     "scope": "css,typescript,javascript,html,vue",
@@ -281,43 +165,6 @@
     "description": "all 0.1s"
   },
 
-  /* theme variables */
-  "--theme-bg-color__0": {
-    "scope": "css,typescript,javascript,html,vue",
-    "prefix": "--theme-bg-color__0",
-    "body": ["--theme-bg-color__0"]
-  },
-  "--theme-bg-color__1": {
-    "scope": "css,typescript,javascript,html,vue",
-    "prefix": "--theme-bg-color__1",
-    "body": ["--theme-bg-color__1"]
-  },
-  "--theme-border-color__0": {
-    "scope": "css,typescript,javascript,html,vue",
-    "prefix": "--theme-border-color__0",
-    "body": ["--theme-border-color__0"]
-  },
-  "--theme-border-color__1": {
-    "scope": "css,typescript,javascript,html,vue",
-    "prefix": "--theme-border-color__1",
-    "body": ["--theme-border-color__1"]
-  },
-  "--theme-font-color__0": {
-    "scope": "css,typescript,javascript,html,vue",
-    "prefix": "--theme-font-color__0",
-    "body": ["--theme-font-color__0"]
-  },
-  "--theme-font-color__1": {
-    "scope": "css,typescript,javascript,html,vue",
-    "prefix": "--theme-font-color__1",
-    "body": ["--theme-font-color__1"]
-  },
-  "--theme-font-color__2": {
-    "scope": "css,typescript,javascript,html,vue",
-    "prefix": "--theme-font-color__2",
-    "body": ["--theme-font-color__2"]
-  },
-
   /* text types */
   "text-xxs": {
     "scope": "css,typescript,javascript,html,vue",
@@ -353,12 +200,5 @@
     "scope": "css,typescript,javascript,html,vue",
     "prefix": "text-xxl",
     "body": ["text-xxl"]
-  },
-
-  /* styles for hover text */
-  "text-hover": {
-    "scope": "css,typescript,javascript,html,vue",
-    "prefix": "text-hover",
-    "body": ["text-hover"]
   }
 }

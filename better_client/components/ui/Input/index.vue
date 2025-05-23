@@ -1,6 +1,6 @@
 <template>
   <div
-    class="group relative flex h-full w-full transition-(--transition__0)"
+    class="group relative flex h-full w-full"
     style="--border-width: var(--border-width__0)"
   >
     <label
@@ -16,13 +16,13 @@
       :placeholder
       :autocapitalize
       :autocomplete
-      class="peer h-full w-full rounded-(--border-radius__1) border-(length:--border-width) border-solid border-(--theme-border-color__0) bg-transparent px-(--offset__0) py-0 text-(--theme-font-color__0) outline-none group-hover:border-(--theme-border-color__1) placeholder:text-(--theme-font-color__2) focus:border-(--theme-border-color__1) active:border-(--theme-border-color__1)"
+      class="peer h-full w-full rounded-(--border-radius__1) border-(length:--border-width) border-solid border-neutral-400 bg-transparent px-(--offset__0) py-0 outline-none group-hover:border-neutral-500 placeholder:text-neutral-400 focus:border-neutral-500 active:border-neutral-500 dark:border-neutral-600 dark:placeholder:text-neutral-500"
     />
     <button
       v-if="icon !== undefined"
       :type="buttonType"
       style="height: calc(100% - 2 * var(--border-width))"
-      class="border-l-solid absolute top-(--border-width) right-(--border-width) flex w-[32px] items-center justify-center border-t-0 border-r-0 border-b-0 border-l-(length:--border-width) border-l-(--theme-border-color__0) bg-transparent group-hover:border-(--theme-border-color__1) peer-focus:border-(--theme-border-color__1) peer-active:border-(--theme-border-color__1) hover:cursor-pointer"
+      class="border-l-solid absolute top-(--border-width) right-(--border-width) flex w-[32px] items-center justify-center border-t-0 border-r-0 border-b-0 border-l-(length:--border-width) border-l-neutral-400 bg-transparent group-hover:border-neutral-500 peer-focus:border-neutral-500 peer-active:border-neutral-500 hover:cursor-pointer dark:border-l-neutral-600"
     >
       <UiIcon :icon />
     </button>
