@@ -26,6 +26,36 @@
   --tracking-*: initial;
 }
 
+/* palette red */
+@theme inline {
+  --plt-red-border-l-default: var(--color-red-400);
+  --plt-red-border-d-default: var(--color-red-600);
+  --plt-red-border-l-hover: var(--color-red-500);
+  --plt-red-border-d-hover: var(--color-red-700);
+  --plt-red-border-l-active: var(--color-red-700);
+  --plt-red-border-d-active: var(--color-red-800);
+  --plt-red-border-l-focus: var(--color-red-700);
+  --plt-red-border-d-focus: var(--color-red-800);
+
+  --plt-red-bg-l-default: var(--color-red-200);
+  --plt-red-bg-d-default: var(--color-red-950);
+  --plt-red-bg-l-hover: var(--color-red-300);
+  --plt-red-bg-d-hover: var(--color-red-900);
+  --plt-red-bg-l-active: var(--color-red-400);
+  --plt-red-bg-d-active: var(--color-red-800);
+  --plt-red-bg-l-focus: var(--color-red-400);
+  --plt-red-bg-d-focus: var(--color-red-800);
+
+  --plt-red-text-l-default: var(--color-red-600);
+  --plt-red-text-d-default: var(--color-red-400);
+  --plt-red-text-l-hover: var(--color-red-700);
+  --plt-red-text-d-hover: var(--color-red-300);
+  --plt-red-text-l-active: var(--color-red-800);
+  --plt-red-text-d-active: var(--color-red-300);
+  --plt-red-text-l-focus: var(--color-red-800);
+  --plt-red-text-d-focus: var(--color-red-300);
+}
+
 .text_plain {
   @apply text-neutral-800 dark:text-neutral-300;
 }
