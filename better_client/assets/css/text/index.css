@@ -1,3 +1,12 @@
+@import "tailwindcss";
+
+.text_plain {
+  @apply text-neutral-800 dark:text-neutral-300;
+}
+.text_link {
+  @apply underline hover:text-neutral-600 dark:hover:text-neutral-400;
+}
+
 :root {
   --font-weight__0: 400;
   --font-weight__1: 400;

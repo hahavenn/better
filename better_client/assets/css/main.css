@@ -1,0 +1,47 @@
+@import url("./border/index.css");
+@import url("./offsets/index.css");
+@import url("./transitions/index.css");
+
+@import "tailwindcss";
+
+@theme {
+  --breakpoint-*: initial;
+  --breakpoint-tablet: 768px;
+  --breakpoint-desktop: 1280px;
+
+  --container-*: initial;
+  --shadow-*: initial;
+  --inset-shadow-*: initial;
+  --drop-shadow-*: initial;
+  --blur-*: initial;
+  --perspective-*: initial;
+  --aspect-*: initial;
+  --ease-*: initial;
+  --animate-*: initial;
+  --text-*: initial;
+  --font-*: initial;
+  --font-weight-*: initial;
+  --leading-*: initial;
+  --tracking-*: initial;
+}
+
+* {
+  font-family: Arial, Helvetica, sans-serif;
+  transition: var(--transition__0);
+}
+
+html {
+  @apply h-fit w-full;
+}
+
+body {
+  @apply h-fit w-full bg-neutral-200 dark:bg-neutral-950;
+}
+
+#__better {
+  @apply flex h-fit w-full flex-col items-center justify-start;
+}
+#__better {
+  gap: var(--offset__0);
+  padding: 0 var(--offset__0) var(--offset__0);
+}
