@@ -1,0 +1,14 @@
+{
+  "--border-radius__0": {
+    "scope": "css,typescript,javascript,html,vue",
+    "prefix": "--border-radius__0",
+    "body": ["--border-radius__0"],
+    "description": "10px"
+  },
+  "--border-radius__1": {
+    "scope": "css,typescript,javascript,html,vue",
+    "prefix": "--border-radius__1",
+    "body": ["--border-radius__1"],
+    "description": "4px"
+  }
+}

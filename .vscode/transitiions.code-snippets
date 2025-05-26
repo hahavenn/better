@@ -1,0 +1,8 @@
+{
+  "--transition__0": {
+    "scope": "css,typescript,javascript,html,vue",
+    "prefix": "--transition__0",
+    "body": ["--transition__0"],
+    "description": "all 0.1s"
+  }
+}

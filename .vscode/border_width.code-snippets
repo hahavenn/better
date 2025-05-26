@@ -1,0 +1,20 @@
+{
+  "--border-width__0": {
+    "scope": "css,typescript,javascript,html,vue",
+    "prefix": "--border-width__0",
+    "body": ["--border-width__0"],
+    "description": "1px"
+  },
+  "--border-width__1": {
+    "scope": "css,typescript,javascript,html,vue",
+    "prefix": "--border-width__1",
+    "body": ["--border-width__1"],
+    "description": "4px"
+  },
+  "--border-width__2": {
+    "scope": "css,typescript,javascript,html,vue",
+    "prefix": "--border-width__2",
+    "body": ["--border-width__2"],
+    "description": "2px"
+  }
+}

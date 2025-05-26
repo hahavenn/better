@@ -1,0 +1,92 @@
+{
+  "state__default": {
+    "scope": "css,typescript,javascript,html,vue",
+    "prefix": "state__default",
+    "body": ["state__default"]
+  },
+  "state__hover": {
+    "scope": "css,typescript,javascript,html,vue",
+    "prefix": "state__hover",
+    "body": ["state__hover"]
+  },
+  "state__active": {
+    "scope": "css,typescript,javascript,html,vue",
+    "prefix": "state__active",
+    "body": ["state__active"]
+  },
+  "state__focus": {
+    "scope": "css,typescript,javascript,html,vue",
+    "prefix": "state__focus",
+    "body": ["state__focus"]
+  },
+  "state__disabled": {
+    "scope": "css,typescript,javascript,html,vue",
+    "prefix": "state__disabled",
+    "body": ["state__disabled"]
+  },
+  "state__visited": {
+    "scope": "css,typescript,javascript,html,vue",
+    "prefix": "state__visited",
+    "body": ["state__visited"]
+  },
+  "state__checked": {
+    "scope": "css,typescript,javascript,html,vue",
+    "prefix": "state__checked",
+    "body": ["state__checked"]
+  },
+  "state__selected": {
+    "scope": "css,typescript,javascript,html,vue",
+    "prefix": "state__selected",
+    "body": ["state__selected"]
+  },
+  "state__expanded": {
+    "scope": "css,typescript,javascript,html,vue",
+    "prefix": "state__expanded",
+    "body": ["state__expanded"]
+  },
+  "state__collapsed": {
+    "scope": "css,typescript,javascript,html,vue",
+    "prefix": "state__collapsed",
+    "body": ["state__collapsed"]
+  },
+  "state__open": {
+    "scope": "css,typescript,javascript,html,vue",
+    "prefix": "state__open",
+    "body": ["state__open"]
+  },
+  "state__closed": {
+    "scope": "css,typescript,javascript,html,vue",
+    "prefix": "state__closed",
+    "body": ["state__closed"]
+  },
+  "state__loading": {
+    "scope": "css,typescript,javascript,html,vue",
+    "prefix": "state__loading",
+    "body": ["state__loading"]
+  },
+  "state__error": {
+    "scope": "css,typescript,javascript,html,vue",
+    "prefix": "state__error",
+    "body": ["state__error"]
+  },
+  "state__success": {
+    "scope": "css,typescript,javascript,html,vue",
+    "prefix": "state__success",
+    "body": ["state__success"]
+  },
+  "state__warning": {
+    "scope": "css,typescript,javascript,html,vue",
+    "prefix": "state__warning",
+    "body": ["state__warning"]
+  },
+  "state__info": {
+    "scope": "css,typescript,javascript,html,vue",
+    "prefix": "state__info",
+    "body": ["state__info"]
+  },
+  "state__danger": {
+    "scope": "css,typescript,javascript,html,vue",
+    "prefix": "state__danger",
+    "body": ["state__danger"]
+  }
+}
