@@ -1,5 +1,3 @@
-import tailwindcss from "@tailwindcss/vite";
-
 export default defineNuxtConfig({
   compatibilityDate: "2024-11-01",
   devtools: { enabled: false },
@@ -43,9 +41,5 @@ export default defineNuxtConfig({
     "~/assets/css/text/index.css",
   ],
 
-  modules: ["@vueuse/nuxt", "@pinia/nuxt"],
-
-  vite: {
-    plugins: [tailwindcss()],
-  },
+  modules: ["@vueuse/nuxt", "@pinia/nuxt", "@nuxtjs/tailwindcss"],
 });
