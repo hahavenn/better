@@ -3,7 +3,7 @@
     role="progressbar"
     :aria-valuemin="0"
     :aria-valuemax="100"
-    :aria-valuenow="(props.progress.completed / props.progress.total) * 100"
+    :aria-valuenow="progressValue * 100"
     :aria-labelledby="props.goalId"
     class="relative h-[12px] w-full overflow-hidden rounded-(--border-radius__1) border-(length:--border-width__0) border-solid border-neutral-500"
   >
@@ -11,23 +11,25 @@
       aria-hidden="true"
       class="absolute h-full bg-green-500"
       :style="{
-        width: `${(props.progress.completed / props.progress.total) * 100}%`,
+        width: `${progressValue * 100}%`,
       }"
     ></div>
 
-    <div
-      aria-hidden="true"
-      v-for="i in props.progress.total - 1"
-      class="absolute flex h-full px-[3px]"
-      :style="{
-        left: `calc(${(i / props.progress.total) * 100}% - 3px)`,
-      }"
-    >
+    <template v-if="props.progress.total !== 0">
       <div
-        v-if="i !== props.progress.total"
-        class="h-full w-(--border-width__0) bg-neutral-500"
-      ></div>
-    </div>
+        aria-hidden="true"
+        v-for="i in props.progress.total - 1"
+        class="absolute flex h-full px-[3px]"
+        :style="{
+          left: `calc(${(i / props.progress.total) * 100}% - 3px)`,
+        }"
+      >
+        <div
+          v-if="i !== props.progress.total"
+          class="h-full w-(--border-width__0) bg-neutral-500"
+        ></div>
+      </div>
+    </template>
   </div>
 </template>
 
@@ -35,22 +37,24 @@
 import type { UserGoal } from "~/stores/goals/types";
 
 const props = defineProps<{
-  /**
-   * Id of head element with goal name (a11y)
-   */
+  /** Id of head element with goal name (a11y) */
   goalId: string;
-  /**
-   * User goal to display progress for
-   */
+  /** User goal to display progress for */
   goal: UserGoal;
-  /**
-   * Info about progress of goal
-   */
+  /** Info about progress of goal */
   progress: {
+    /** Amount of completed steps */
     completed: number;
+    /** Total amount of steps */
     total: number;
   };
 }>();
+
+const progressValue = computed(() =>
+  props.progress.total !== 0
+    ? props.progress.completed / props.progress.total
+    : 0
+);
 </script>
 
 <style scoped></style>
