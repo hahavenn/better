@@ -35,11 +35,7 @@ export default defineNuxtConfig({
     port: 3000,
   },
 
-  css: [
-    "~/assets/css/main.css",
-    "~/assets/css/colors/index.css",
-    "~/assets/css/text/index.css",
-  ],
+  css: ["~/assets/css/main.css", "~/assets/css/colors/index.css"],
 
   modules: ["@vueuse/nuxt", "@pinia/nuxt", "@nuxtjs/tailwindcss"],
 });

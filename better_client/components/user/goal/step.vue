@@ -3,11 +3,11 @@
     class="rounded-(--border-radius__0) border-(length:--border-width__0) border-solid px-(--offset__0) py-(--offset__4)"
     :class="liClasses"
   >
-    <h2 class="text-m">
+    <h2 class="text-2xl font-semibold">
       {{ props.step.name }}
     </h2>
     <ul v-for="sub in step.subSteps">
-      <li class="text-xs">
+      <li class="text-base">
         {{ sub.name }}
       </li>
     </ul>

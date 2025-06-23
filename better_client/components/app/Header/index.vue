@@ -7,7 +7,7 @@
     >
       <header class="flex w-full flex-row items-center gap-(--offset__3)">
         <UiLink :preset="'home'">
-          <span class="text-m text_link"> better </span>
+          <span class="text_link text-2xl font-bold underline"> better </span>
         </UiLink>
 
         <AppSearch />

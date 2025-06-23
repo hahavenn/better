@@ -1,14 +1,14 @@
 <template>
   <h1
     :id="props.goalId"
-    class="text-l"
+    class="text-3xl font-bold"
   >
     Goal: {{ props.name }} ({{ props.completePercent }}%)
   </h1>
 
   <p
     v-if="props.description !== undefined"
-    class="text-s"
+    class="text-xl"
   >
     {{ props.description }}
   </p>
