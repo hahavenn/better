@@ -6,8 +6,6 @@
 
 @theme {
   --breakpoint-*: initial;
-  --breakpoint-tablet: 768px;
-  --breakpoint-desktop: 1280px;
 
   --container-*: initial;
   --shadow-*: initial;

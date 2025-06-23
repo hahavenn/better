@@ -4,7 +4,7 @@ import type { UserGoal } from "./types";
  * Test goal
  */
 const goal: UserGoal = {
-  name: "Become a better developer",
+  name: "Some user goal",
   description: "some description about goal",
   complete: false,
   steps: [

@@ -9,9 +9,7 @@
     <template #fallback> </template>
   </ClientOnly>
 
-  <div
-    class="desktop:w-[360px] max-tablet:w-full max-desktop:grow flex shrink-0"
-  >
+  <div class="flex shrink-0 max-xl:grow max-md:w-full xl:w-[360px]">
     <UiContainer :fullWidth="true"> planned to learn </UiContainer>
   </div>
 

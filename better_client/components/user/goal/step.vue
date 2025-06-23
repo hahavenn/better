@@ -38,4 +38,11 @@ const liClasses = [
 ];
 </script>
 
-<style scoped></style>
+<style scoped>
+li:nth-child(odd) {
+  grid-row: auto / span 3;
+}
+li:nth-child(even) {
+  grid-row: auto / span 2;
+}
+</style>
