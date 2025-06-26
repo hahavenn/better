@@ -1,16 +1,39 @@
+import type { ColorPalettes } from "~/types/color_palettes";
+import COLOR_BORDER_ACTIVE from "./color_border_active";
+
+type ColorPaletteStyles = {
+  BORDER: {
+    DEFAULT: string;
+    HOVER: string;
+    ACTIVE: string;
+    FOCUS: string;
+  };
+  BG: {
+    DEFAULT: string;
+    HOVER: string;
+    ACTIVE: string;
+    FOCUS: string;
+  };
+  TEXT: {
+    DEFAULT: string;
+    HOVER: string;
+    ACTIVE: string;
+    FOCUS: string;
+  };
+};
+
 /**
  * All color palettes, that used in project.
  * @see https://tailwindcss.com/docs/colors
  */
-const COLOR_PALETTES = {
+const COLOR_PALETTES_STYLES: { [key in ColorPalettes]: ColorPaletteStyles } = {
   RED: {
     BORDER: {
       DEFAULT:
         "border-(--plt-red-border-l-default) dark:border-(--plt-red-border-d-default)",
       HOVER:
         "hover:border-(--plt-red-border-l-hover) dark:hover:border-(--plt-red-border-d-hover)",
-      ACTIVE:
-        "active:border-(--plt-red-border-l-active) dark:active:border-(--plt-red-border-d-active)",
+      ACTIVE: `active:border-(${COLOR_BORDER_ACTIVE.RED.LIGHT}) dark:active:border-(${COLOR_BORDER_ACTIVE.RED.DARK})`,
       FOCUS:
         "focus:border-(--plt-red-border-l-focus) dark:focus:border-(--plt-red-border-d-focus)",
     },
@@ -40,8 +63,7 @@ const COLOR_PALETTES = {
         "border-(--plt-orange-border-l-default) dark:border-(--plt-orange-border-d-default)",
       HOVER:
         "hover:border-(--plt-orange-border-l-hover) dark:hover:border-(--plt-orange-border-d-hover)",
-      ACTIVE:
-        "active:border-(--plt-orange-border-l-active) dark:active:border-(--plt-orange-border-d-active)",
+      ACTIVE: `active:border-(${COLOR_BORDER_ACTIVE.ORANGE.LIGHT}) dark:active:border-(${COLOR_BORDER_ACTIVE.ORANGE.DARK})`,
       FOCUS:
         "focus:border-(--plt-orange-border-l-focus) dark:focus:border-(--plt-orange-border-d-focus)",
     },
@@ -72,8 +94,7 @@ const COLOR_PALETTES = {
         "border-(--plt-amber-border-l-default) dark:border-(--plt-amber-border-d-default)",
       HOVER:
         "hover:border-(--plt-amber-border-l-hover) dark:hover:border-(--plt-amber-border-d-hover)",
-      ACTIVE:
-        "active:border-(--plt-amber-border-l-active) dark:active:border-(--plt-amber-border-d-active)",
+      ACTIVE: `active:border-(${COLOR_BORDER_ACTIVE.AMBER.LIGHT}) dark:active:border-(${COLOR_BORDER_ACTIVE.AMBER.DARK})`,
       FOCUS:
         "focus:border-(--plt-amber-border-l-focus) dark:focus:border-(--plt-amber-border-d-focus)",
     },
@@ -104,8 +125,7 @@ const COLOR_PALETTES = {
         "border-(--plt-yellow-border-l-default) dark:border-(--plt-yellow-border-d-default)",
       HOVER:
         "hover:border-(--plt-yellow-border-l-hover) dark:hover:border-(--plt-yellow-border-d-hover)",
-      ACTIVE:
-        "active:border-(--plt-yellow-border-l-active) dark:active:border-(--plt-yellow-border-d-active)",
+      ACTIVE: `active:border-(${COLOR_BORDER_ACTIVE.YELLOW.LIGHT}) dark:active:border-(${COLOR_BORDER_ACTIVE.YELLOW.DARK})`,
       FOCUS:
         "focus:border-(--plt-yellow-border-l-focus) dark:focus:border-(--plt-yellow-border-d-focus)",
     },
@@ -136,8 +156,7 @@ const COLOR_PALETTES = {
         "border-(--plt-lime-border-l-default) dark:border-(--plt-lime-border-d-default)",
       HOVER:
         "hover:border-(--plt-lime-border-l-hover) dark:hover:border-(--plt-lime-border-d-hover)",
-      ACTIVE:
-        "active:border-(--plt-lime-border-l-active) dark:active:border-(--plt-lime-border-d-active)",
+      ACTIVE: `active:border-(${COLOR_BORDER_ACTIVE.LIME.LIGHT}) dark:active:border-(${COLOR_BORDER_ACTIVE.LIME.DARK})`,
       FOCUS:
         "focus:border-(--plt-lime-border-l-focus) dark:focus:border-(--plt-lime-border-d-focus)",
     },
@@ -167,8 +186,7 @@ const COLOR_PALETTES = {
         "border-(--plt-green-border-l-default) dark:border-(--plt-green-border-d-default)",
       HOVER:
         "hover:border-(--plt-green-border-l-hover) dark:hover:border-(--plt-green-border-d-hover)",
-      ACTIVE:
-        "active:border-(--plt-green-border-l-active) dark:active:border-(--plt-green-border-d-active)",
+      ACTIVE: `active:border-(${COLOR_BORDER_ACTIVE.GREEN.LIGHT}) dark:active:border-(${COLOR_BORDER_ACTIVE.GREEN.DARK})`,
       FOCUS:
         "focus:border-(--plt-green-border-l-focus) dark:focus:border-(--plt-green-border-d-focus)",
     },
@@ -199,8 +217,7 @@ const COLOR_PALETTES = {
         "border-(--plt-emerald-border-l-default) dark:border-(--plt-emerald-border-d-default)",
       HOVER:
         "hover:border-(--plt-emerald-border-l-hover) dark:hover:border-(--plt-emerald-border-d-hover)",
-      ACTIVE:
-        "active:border-(--plt-emerald-border-l-active) dark:active:border-(--plt-emerald-border-d-active)",
+      ACTIVE: `active:border-(${COLOR_BORDER_ACTIVE.EMERALD.LIGHT}) dark:active:border-(${COLOR_BORDER_ACTIVE.EMERALD.DARK})`,
       FOCUS:
         "focus:border-(--plt-emerald-border-l-focus) dark:focus:border-(--plt-emerald-border-d-focus)",
     },
@@ -231,8 +248,7 @@ const COLOR_PALETTES = {
         "border-(--plt-teal-border-l-default) dark:border-(--plt-teal-border-d-default)",
       HOVER:
         "hover:border-(--plt-teal-border-l-hover) dark:hover:border-(--plt-teal-border-d-hover)",
-      ACTIVE:
-        "active:border-(--plt-teal-border-l-active) dark:active:border-(--plt-teal-border-d-active)",
+      ACTIVE: `active:border-(${COLOR_BORDER_ACTIVE.TEAL.LIGHT}) dark:active:border-(${COLOR_BORDER_ACTIVE.TEAL.DARK})`,
       FOCUS:
         "focus:border-(--plt-teal-border-l-focus) dark:focus:border-(--plt-teal-border-d-focus)",
     },
@@ -262,8 +278,7 @@ const COLOR_PALETTES = {
         "border-(--plt-cyan-border-l-default) dark:border-(--plt-cyan-border-d-default)",
       HOVER:
         "hover:border-(--plt-cyan-border-l-hover) dark:hover:border-(--plt-cyan-border-d-hover)",
-      ACTIVE:
-        "active:border-(--plt-cyan-border-l-active) dark:active:border-(--plt-cyan-border-d-active)",
+      ACTIVE: `active:border-(${COLOR_BORDER_ACTIVE.CYAN.LIGHT}) dark:active:border-(${COLOR_BORDER_ACTIVE.CYAN.DARK})`,
       FOCUS:
         "focus:border-(--plt-cyan-border-l-focus) dark:focus:border-(--plt-cyan-border-d-focus)",
     },
@@ -293,8 +308,7 @@ const COLOR_PALETTES = {
         "border-(--plt-sky-border-l-default) dark:border-(--plt-sky-border-d-default)",
       HOVER:
         "hover:border-(--plt-sky-border-l-hover) dark:hover:border-(--plt-sky-border-d-hover)",
-      ACTIVE:
-        "active:border-(--plt-sky-border-l-active) dark:active:border-(--plt-sky-border-d-active)",
+      ACTIVE: `active:border-(${COLOR_BORDER_ACTIVE.SKY.LIGHT}) dark:active:border-(${COLOR_BORDER_ACTIVE.SKY.DARK})`,
       FOCUS:
         "focus:border-(--plt-sky-border-l-focus) dark:focus:border-(--plt-sky-border-d-focus)",
     },
@@ -324,8 +338,7 @@ const COLOR_PALETTES = {
         "border-(--plt-blue-border-l-default) dark:border-(--plt-blue-border-d-default)",
       HOVER:
         "hover:border-(--plt-blue-border-l-hover) dark:hover:border-(--plt-blue-border-d-hover)",
-      ACTIVE:
-        "active:border-(--plt-blue-border-l-active) dark:active:border-(--plt-blue-border-d-active)",
+      ACTIVE: `active:border-(${COLOR_BORDER_ACTIVE.BLUE.LIGHT}) dark:active:border-(${COLOR_BORDER_ACTIVE.BLUE.DARK})`,
       FOCUS:
         "focus:border-(--plt-blue-border-l-focus) dark:focus:border-(--plt-blue-border-d-focus)",
     },
@@ -355,8 +368,7 @@ const COLOR_PALETTES = {
         "border-(--plt-indigo-border-l-default) dark:border-(--plt-indigo-border-d-default)",
       HOVER:
         "hover:border-(--plt-indigo-border-l-hover) dark:hover:border-(--plt-indigo-border-d-hover)",
-      ACTIVE:
-        "active:border-(--plt-indigo-border-l-active) dark:active:border-(--plt-indigo-border-d-active)",
+      ACTIVE: `active:border-(${COLOR_BORDER_ACTIVE.INDIGO.LIGHT}) dark:active:border-(${COLOR_BORDER_ACTIVE.INDIGO.DARK})`,
       FOCUS:
         "focus:border-(--plt-indigo-border-l-focus) dark:focus:border-(--plt-indigo-border-d-focus)",
     },
@@ -387,8 +399,7 @@ const COLOR_PALETTES = {
         "border-(--plt-violet-border-l-default) dark:border-(--plt-violet-border-d-default)",
       HOVER:
         "hover:border-(--plt-violet-border-l-hover) dark:hover:border-(--plt-violet-border-d-hover)",
-      ACTIVE:
-        "active:border-(--plt-violet-border-l-active) dark:active:border-(--plt-violet-border-d-active)",
+      ACTIVE: `active:border-(${COLOR_BORDER_ACTIVE.VIOLET.LIGHT}) dark:active:border-(${COLOR_BORDER_ACTIVE.VIOLET.DARK})`,
       FOCUS:
         "focus:border-(--plt-violet-border-l-focus) dark:focus:border-(--plt-violet-border-d-focus)",
     },
@@ -419,8 +430,7 @@ const COLOR_PALETTES = {
         "border-(--plt-purple-border-l-default) dark:border-(--plt-purple-border-d-default)",
       HOVER:
         "hover:border-(--plt-purple-border-l-hover) dark:hover:border-(--plt-purple-border-d-hover)",
-      ACTIVE:
-        "active:border-(--plt-purple-border-l-active) dark:active:border-(--plt-purple-border-d-active)",
+      ACTIVE: `active:border-(${COLOR_BORDER_ACTIVE.PURPLE.LIGHT}) dark:active:border-(${COLOR_BORDER_ACTIVE.PURPLE.DARK})`,
       FOCUS:
         "focus:border-(--plt-purple-border-l-focus) dark:focus:border-(--plt-purple-border-d-focus)",
     },
@@ -451,8 +461,7 @@ const COLOR_PALETTES = {
         "border-(--plt-fuchsia-border-l-default) dark:border-(--plt-fuchsia-border-d-default)",
       HOVER:
         "hover:border-(--plt-fuchsia-border-l-hover) dark:hover:border-(--plt-fuchsia-border-d-hover)",
-      ACTIVE:
-        "active:border-(--plt-fuchsia-border-l-active) dark:active:border-(--plt-fuchsia-border-d-active)",
+      ACTIVE: `active:border-(${COLOR_BORDER_ACTIVE.FUCHSIA.LIGHT}) dark:active:border-(${COLOR_BORDER_ACTIVE.FUCHSIA.DARK})`,
       FOCUS:
         "focus:border-(--plt-fuchsia-border-l-focus) dark:focus:border-(--plt-fuchsia-border-d-focus)",
     },
@@ -483,8 +492,7 @@ const COLOR_PALETTES = {
         "border-(--plt-pink-border-l-default) dark:border-(--plt-pink-border-d-default)",
       HOVER:
         "hover:border-(--plt-pink-border-l-hover) dark:hover:border-(--plt-pink-border-d-hover)",
-      ACTIVE:
-        "active:border-(--plt-pink-border-l-active) dark:active:border-(--plt-pink-border-d-active)",
+      ACTIVE: `active:border-(${COLOR_BORDER_ACTIVE.PINK.LIGHT}) dark:active:border-(${COLOR_BORDER_ACTIVE.PINK.DARK})`,
       FOCUS:
         "focus:border-(--plt-pink-border-l-focus) dark:focus:border-(--plt-pink-border-d-focus)",
     },
@@ -514,8 +522,7 @@ const COLOR_PALETTES = {
         "border-(--plt-rose-border-l-default) dark:border-(--plt-rose-border-d-default)",
       HOVER:
         "hover:border-(--plt-rose-border-l-hover) dark:hover:border-(--plt-rose-border-d-hover)",
-      ACTIVE:
-        "active:border-(--plt-rose-border-l-active) dark:active:border-(--plt-rose-border-d-active)",
+      ACTIVE: `active:border-(${COLOR_BORDER_ACTIVE.ROSE.LIGHT}) dark:active:border-(${COLOR_BORDER_ACTIVE.ROSE.DARK})`,
       FOCUS:
         "focus:border-(--plt-rose-border-l-focus) dark:focus:border-(--plt-rose-border-d-focus)",
     },
@@ -545,8 +552,7 @@ const COLOR_PALETTES = {
         "border-(--plt-slate-border-l-default) dark:border-(--plt-slate-border-d-default)",
       HOVER:
         "hover:border-(--plt-slate-border-l-hover) dark:hover:border-(--plt-slate-border-d-hover)",
-      ACTIVE:
-        "active:border-(--plt-slate-border-l-active) dark:active:border-(--plt-slate-border-d-active)",
+      ACTIVE: `active:border-(${COLOR_BORDER_ACTIVE.SLATE.LIGHT}) dark:active:border-(${COLOR_BORDER_ACTIVE.SLATE.DARK})`,
       FOCUS:
         "focus:border-(--plt-slate-border-l-focus) dark:focus:border-(--plt-slate-border-d-focus)",
     },
@@ -577,8 +583,7 @@ const COLOR_PALETTES = {
         "border-(--plt-gray-border-l-default) dark:border-(--plt-gray-border-d-default)",
       HOVER:
         "hover:border-(--plt-gray-border-l-hover) dark:hover:border-(--plt-gray-border-d-hover)",
-      ACTIVE:
-        "active:border-(--plt-gray-border-l-active) dark:active:border-(--plt-gray-border-d-active)",
+      ACTIVE: `active:border-(${COLOR_BORDER_ACTIVE.GRAY.LIGHT}) dark:active:border-(${COLOR_BORDER_ACTIVE.GRAY.DARK})`,
       FOCUS:
         "focus:border-(--plt-gray-border-l-focus) dark:focus:border-(--plt-gray-border-d-focus)",
     },
@@ -608,8 +613,7 @@ const COLOR_PALETTES = {
         "border-(--plt-zinc-border-l-default) dark:border-(--plt-zinc-border-d-default)",
       HOVER:
         "hover:border-(--plt-zinc-border-l-hover) dark:hover:border-(--plt-zinc-border-d-hover)",
-      ACTIVE:
-        "active:border-(--plt-zinc-border-l-active) dark:active:border-(--plt-zinc-border-d-active)",
+      ACTIVE: `active:border-(${COLOR_BORDER_ACTIVE.ZINC.LIGHT}) dark:active:border-(${COLOR_BORDER_ACTIVE.ZINC.DARK})`,
       FOCUS:
         "focus:border-(--plt-zinc-border-l-focus) dark:focus:border-(--plt-zinc-border-d-focus)",
     },
@@ -639,8 +643,7 @@ const COLOR_PALETTES = {
         "border-(--plt-neutral-border-l-default) dark:border-(--plt-neutral-border-d-default)",
       HOVER:
         "hover:border-(--plt-neutral-border-l-hover) dark:hover:border-(--plt-neutral-border-d-hover)",
-      ACTIVE:
-        "active:border-(--plt-neutral-border-l-active) dark:active:border-(--plt-neutral-border-d-active)",
+      ACTIVE: `active:border-(${COLOR_BORDER_ACTIVE.NEUTRAL.LIGHT}) dark:active:border-(${COLOR_BORDER_ACTIVE.NEUTRAL.DARK})`,
       FOCUS:
         "focus:border-(--plt-neutral-border-l-focus) dark:focus:border-(--plt-neutral-border-d-focus)",
     },
@@ -671,8 +674,7 @@ const COLOR_PALETTES = {
         "border-(--plt-stone-border-l-default) dark:border-(--plt-stone-border-d-default)",
       HOVER:
         "hover:border-(--plt-stone-border-l-hover) dark:hover:border-(--plt-stone-border-d-hover)",
-      ACTIVE:
-        "active:border-(--plt-stone-border-l-active) dark:active:border-(--plt-stone-border-d-active)",
+      ACTIVE: `active:border-(${COLOR_BORDER_ACTIVE.STONE.LIGHT}) dark:active:border-(${COLOR_BORDER_ACTIVE.STONE.DARK})`,
       FOCUS:
         "focus:border-(--plt-stone-border-l-focus) dark:focus:border-(--plt-stone-border-d-focus)",
     },
@@ -698,4 +700,4 @@ const COLOR_PALETTES = {
     },
   },
 } as const;
-export { COLOR_PALETTES };
+export { COLOR_PALETTES_STYLES };
