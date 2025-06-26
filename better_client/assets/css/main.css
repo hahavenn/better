@@ -24,6 +24,13 @@
   transition: var(--transition__0);
 }
 
+.text_plain {
+  @apply text-neutral-800 dark:text-neutral-300;
+}
+.text_link {
+  @apply underline hover:text-neutral-600 dark:hover:text-neutral-400;
+}
+
 html {
   @apply h-fit w-full;
 }
