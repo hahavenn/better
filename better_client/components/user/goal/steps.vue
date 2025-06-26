@@ -13,7 +13,7 @@
 </template>
 
 <script lang="ts" setup>
-import { COLOR_PALETTES } from "~/constants/colors";
+import { COLOR_PALETTES_STYLES } from "~/constants/color_palettes_styles";
 import type { UserGoal } from "~/stores/goals/types";
 
 const props = defineProps<{
@@ -28,9 +28,9 @@ const props = defineProps<{
 }>();
 
 function pickPalette() {
-  return Object.keys(COLOR_PALETTES)[
-    Math.floor(Math.random() * Object.keys(COLOR_PALETTES).length)
-  ] as keyof typeof COLOR_PALETTES;
+  return Object.keys(COLOR_PALETTES_STYLES)[
+    Math.floor(Math.random() * Object.keys(COLOR_PALETTES_STYLES).length)
+  ] as keyof typeof COLOR_PALETTES_STYLES;
 }
 </script>
 

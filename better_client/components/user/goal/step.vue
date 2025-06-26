@@ -15,7 +15,7 @@
 </template>
 
 <script lang="ts" setup>
-import { COLOR_PALETTES } from "~/constants/colors";
+import { COLOR_PALETTES_STYLES } from "~/constants/color_palettes_styles";
 import type { UserStep } from "~/stores/goals/types";
 
 const props = defineProps<{
@@ -23,18 +23,18 @@ const props = defineProps<{
   step: UserStep;
 
   /** Palette to use for colorful step */
-  palette: keyof typeof COLOR_PALETTES;
+  palette: keyof typeof COLOR_PALETTES_STYLES;
 }>();
 
 const liClasses = [
-  COLOR_PALETTES[props.palette].BORDER.DEFAULT,
-  COLOR_PALETTES[props.palette].BORDER.HOVER,
+  COLOR_PALETTES_STYLES[props.palette].BORDER.DEFAULT,
+  COLOR_PALETTES_STYLES[props.palette].BORDER.HOVER,
 
-  COLOR_PALETTES[props.palette].BG.DEFAULT,
-  COLOR_PALETTES[props.palette].BG.HOVER,
+  COLOR_PALETTES_STYLES[props.palette].BG.DEFAULT,
+  COLOR_PALETTES_STYLES[props.palette].BG.HOVER,
 
-  COLOR_PALETTES[props.palette].TEXT.DEFAULT,
-  COLOR_PALETTES[props.palette].TEXT.HOVER,
+  COLOR_PALETTES_STYLES[props.palette].TEXT.DEFAULT,
+  COLOR_PALETTES_STYLES[props.palette].TEXT.HOVER,
 ];
 </script>
 
