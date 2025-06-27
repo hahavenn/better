@@ -13,7 +13,8 @@
 </template>
 
 <script lang="ts" setup>
-import { COLOR_PALETTES_STYLES } from "~/constants/color_palettes_styles";
+import COLOR_PALETTES_STYLES from "~/constants/color_palettes_styles";
+
 import type { UserGoal } from "~/stores/goals/types";
 
 const props = defineProps<{

@@ -15,8 +15,9 @@
 </template>
 
 <script lang="ts" setup>
-import { COLOR_PALETTES_STYLES } from "~/constants/color_palettes_styles";
 import type { UserStep } from "~/stores/goals/types";
+
+import COLOR_PALETTES_STYLES from "~/constants/color_palettes_styles";
 
 const props = defineProps<{
   /** Step of goal to complete */

@@ -700,4 +700,4 @@ const COLOR_PALETTES_STYLES: { [key in ColorPalettes]: ColorPaletteStyles } = {
     },
   },
 } as const;
-export { COLOR_PALETTES_STYLES };
+export default COLOR_PALETTES_STYLES;

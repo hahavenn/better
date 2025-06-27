@@ -24,6 +24,11 @@
       :goalId
       :steps="goalsStore.goals[0].steps"
     />
+
+    <UiCheckbox
+      :ariaLabel="'Test'"
+      :palette="'GREEN'"
+    />
   </article>
 </template>
 
