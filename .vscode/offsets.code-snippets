@@ -28,5 +28,17 @@
     "prefix": "--offset__4",
     "body": ["--offset__4"],
     "description": "6px"
+  },
+  "--offset__5": {
+    "scope": "css,typescript,javascript,html,vue",
+    "prefix": "--offset__5",
+    "body": ["--offset__5"],
+    "description": "4px"
+  },
+  "--offset__6": {
+    "scope": "css,typescript,javascript,html,vue",
+    "prefix": "--offset__6",
+    "body": ["--offset__6"],
+    "description": "8px"
   }
 }
