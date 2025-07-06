@@ -1,18 +1,22 @@
-type SubStep = {
+export type UserGoalSubStep = {
+  id: number;
   name: string;
   description: string;
   complete: boolean;
 };
 
-export type UserStep = {
+/** Steps of goal to complete */
+export type UserGoalStep = {
+  id: number;
   name: string;
   description: string;
   complete: boolean;
-  subSteps: SubStep[];
+  subSteps: UserGoalSubStep[];
 };
 export type UserGoal = {
+  id: number;
   name: string;
   description: string;
   complete: boolean;
-  steps: UserStep[];
+  steps: UserGoalStep[];
 };

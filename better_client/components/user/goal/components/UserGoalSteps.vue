@@ -1,7 +1,7 @@
 <template>
   <ul
     :aria-label="'Steps to complete your goal'"
-    :aria-labelledby="props.goalId"
+    :aria-labelledby="goalIdInject.toString()"
     class="grid-rows-masonry grid w-full grid-flow-row-dense grid-cols-1 gap-(--offset__3) md:grid-cols-3 xl:grid-cols-5"
   >
     <UserGoalStep
@@ -16,22 +16,21 @@
 import COLOR_PALETTES_STYLES from "~/constants/color_palettes_styles";
 
 import type { UserGoal } from "~/stores/goals/types";
+import type { ColorPalettes } from "~/types/color_palettes";
+
+import { goalIdKey } from "~/components/user/goal/provide_inject";
+
+import UserGoalStep from "./UserGoalStep.vue";
 
 const props = defineProps<{
-  /**
-   * Id of head element with goal name (a11y)
-   */
-  goalId: string;
-  /**
-   * Steps of goal to complete
-   */
   steps: UserGoal["steps"];
 }>();
+const goalIdInject = inject(goalIdKey) as UserGoal["id"];
 
 function pickPalette() {
   return Object.keys(COLOR_PALETTES_STYLES)[
     Math.floor(Math.random() * Object.keys(COLOR_PALETTES_STYLES).length)
-  ] as keyof typeof COLOR_PALETTES_STYLES;
+  ] as ColorPalettes;
 }
 </script>
 

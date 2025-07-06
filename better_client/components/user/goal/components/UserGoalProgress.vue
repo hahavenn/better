@@ -4,7 +4,7 @@
     :aria-valuemin="0"
     :aria-valuemax="100"
     :aria-valuenow="progressValue * 100"
-    :aria-labelledby="props.goalId"
+    :aria-labelledby="goalIdInject.toString()"
     class="relative h-[12px] w-full overflow-hidden rounded-(--border-radius__1) border-(length:--border-width__0) border-solid border-neutral-500"
   >
     <div
@@ -35,20 +35,15 @@
 
 <script lang="ts" setup>
 import type { UserGoal } from "~/stores/goals/types";
+import { goalIdKey } from "~/components/user/goal/provide_inject";
 
 const props = defineProps<{
-  /** Id of head element with goal name (a11y) */
-  goalId: string;
-  /** User goal to display progress for */
-  goal: UserGoal;
-  /** Info about progress of goal */
   progress: {
-    /** Amount of completed steps */
     completed: number;
-    /** Total amount of steps */
     total: number;
   };
 }>();
+const goalIdInject = inject(goalIdKey) as UserGoal["id"];
 
 const progressValue = computed(() =>
   props.progress.total !== 0

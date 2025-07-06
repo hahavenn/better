@@ -4,7 +4,10 @@
       :grow="true"
       :fullWidth="true"
     >
-      <UserGoal />
+      <UserGoal
+        v-for="g in goalsStore.goals"
+        :goalId="g.id"
+      />
     </UiContainer>
     <template #fallback> </template>
   </ClientOnly>
@@ -16,6 +19,13 @@
   <UiContainer :grow="true"> todo list with calendar </UiContainer>
 </template>
 
-<script lang="ts" setup></script>
+<script lang="ts" setup>
+import useGoalsStore from "~/stores/goals";
+
+import UiContainer from "~/components/ui/Container/UiContainer.vue";
+import UserGoal from "~/components/user/goal/UserGoal.vue";
+
+const goalsStore = useGoalsStore();
+</script>
 
 <style scoped></style>

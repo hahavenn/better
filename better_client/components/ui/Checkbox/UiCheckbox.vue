@@ -5,7 +5,7 @@
     @mouseenter="!isHover && (isHover = true)"
     @mouseleave="isHover && (isHover = false)"
     @click="isChecked = !isChecked"
-    class="text_plain flex max-w-fit cursor-pointer items-center items-start gap-2 text-sm"
+    class="text_plain flex max-w-fit cursor-pointer items-start gap-2 text-sm"
   >
     <span v-if="(props.label?.length ?? 0) > 0 && props.labelAlign === 'left'">
       {{ props.label }}
@@ -61,7 +61,7 @@ const props = withDefaults(
 
 const isDark = useDark();
 
-const isChecked = defineModel<boolean>({ default: false });
+const isChecked = defineModel<boolean>({ required: true });
 const isPressed = ref(false);
 const isFocused = ref(false);
 const isHover = ref(false);

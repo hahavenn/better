@@ -1,6 +1,6 @@
 <template>
   <h1
-    :id="props.goalId"
+    :id="goalIdInject.toString()"
     class="text-3xl font-bold"
   >
     Goal: {{ props.name }} ({{ props.completePercent.toFixed(2) }}%)
@@ -15,24 +15,16 @@
 </template>
 
 <script lang="ts" setup>
+import { goalIdKey } from "~/components/user/goal/provide_inject";
+import type { UserGoal } from "~/stores/goals/types";
+
 const props = defineProps<{
-  /**
-   * Id for head element (a11y)
-   */
-  goalId: string;
-  /**
-   * Name of user goal
-   */
-  name: string;
-  /**
-   * Description of user goal
-   */
-  description?: string;
-  /**
-   * Percent of goal completion
-   */
+  name: UserGoal["name"];
+  description?: UserGoal["description"];
   completePercent: number;
 }>();
+
+const goalIdInject = inject(goalIdKey) as UserGoal["id"];
 </script>
 
 <style scoped></style>
