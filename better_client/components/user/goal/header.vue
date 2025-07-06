@@ -3,7 +3,7 @@
     :id="props.goalId"
     class="text-3xl font-bold"
   >
-    Goal: {{ props.name }} ({{ props.completePercent }}%)
+    Goal: {{ props.name }} ({{ props.completePercent.toFixed(2) }}%)
   </h1>
 
   <p
