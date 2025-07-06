@@ -1,10 +1,5 @@
 import type { ColorPalettes } from "~/types/color_palettes";
 
-type Theme = {
-  /** Tailwind class */
-  CLASS: string;
-  VARIABLE: string;
-};
 type ColorBorderHover = {
   [key in ColorPalettes]: {
     LIGHT: string;
