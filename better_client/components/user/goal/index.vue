@@ -24,11 +24,6 @@
       :goalId
       :steps="goalsStore.goals[0].steps"
     />
-
-    <UiCheckbox
-      :ariaLabel="'Test'"
-      :palette="'GREEN'"
-    />
   </article>
 </template>
 
@@ -38,12 +33,6 @@ import useGoalsStore from "~/stores/goals";
 const goalsStore = useGoalsStore();
 
 const goalId = useId();
-
-onMounted(() => {
-  console.log("goalsStore.goals", goalsStore.goals);
-  console.log("total", goalsStore.calcTotalParts(goalsStore.goals[0]));
-  console.log("completed", goalsStore.calcCompletedParts(goalsStore.goals[0]));
-});
 </script>
 
 <style scoped></style>

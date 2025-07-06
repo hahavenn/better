@@ -1,29 +1,40 @@
 <template>
-  <div class="flex items-center gap-2">
+  <div
+    @mousedown="!isPressed && (isPressed = true)"
+    @mouseup="isPressed && (isPressed = false)"
+    @mouseenter="!isHover && (isHover = true)"
+    @mouseleave="isHover && (isHover = false)"
+    @click="isChecked = !isChecked"
+    class="text_plain flex max-w-fit cursor-pointer items-center gap-2 text-sm"
+  >
     <span v-if="props.leftText">
       {{ props.leftText }}
     </span>
+
     <label
-      @mousedown="isPressed = true"
-      @mouseup="isPressed = false"
-      @mouseenter="isHover = true"
-      @mouseleave="isHover = false"
-      class="relative flex cursor-pointer items-center"
+      @keydown.enter.prevent="isChecked = !isChecked"
+      tabindex="0"
+      :ariaLabel="props.ariaLabel"
+      role="checkbox"
+      class="relative flex items-center"
     >
       <input
         v-model="isChecked"
         @focus="isFocused = true"
         @blur="isFocused = false"
         class="hidden"
+        aria-hidden="true"
         type="checkbox"
         :checked="isChecked"
-        :ariaLabel="props.ariaLabel"
+        :disabled="props.disabled"
       />
       <span
+        @click.stop.prevent="isChecked = !isChecked"
         class="checkmark aspect-square w-[20px] rounded-(--border-radius__1) border-(length:--border-width__0) border-solid"
         :class="checkmarkClasses"
       ></span>
     </label>
+
     <span v-if="props.rightText">
       {{ props.rightText }}
     </span>
@@ -31,8 +42,8 @@
 </template>
 
 <script setup lang="ts">
-import COLOR_BORDER_ACTIVE from "~/constants/color_border_active";
-import { COLOR_PALETTES_STYLES } from "~/constants/color_palettes_styles";
+import COLOR_BORDER_HOVER from "~/constants/color_border_hover";
+import COLOR_PALETTES_STYLES from "~/constants/color_palettes_styles";
 
 const props = withDefaults(
   defineProps<{
@@ -48,7 +59,6 @@ const props = withDefaults(
 );
 
 const isDark = useDark();
-watch(isDark, (v) => console.log("isDark", v));
 
 const isChecked = defineModel<boolean>({ default: false });
 const isPressed = ref(false);
@@ -59,14 +69,14 @@ const checkmarkClasses = computed(() => [
   COLOR_PALETTES_STYLES[props.palette].BORDER.DEFAULT,
   COLOR_PALETTES_STYLES[props.palette].BG.DEFAULT,
 
-  isChecked.value ? COLOR_PALETTES_STYLES[props.palette].BORDER.ACTIVE : "",
-  isChecked.value ? COLOR_PALETTES_STYLES[props.palette].BG.ACTIVE : "",
+  isHover.value ? COLOR_PALETTES_STYLES[props.palette].BORDER.HOVER : "",
+  isHover.value ? COLOR_PALETTES_STYLES[props.palette].BG.HOVER : "",
 
-  isPressed.value || isHover.value
-    ? COLOR_PALETTES_STYLES[props.palette].BORDER.HOVER
+  isChecked.value || isPressed.value
+    ? COLOR_PALETTES_STYLES[props.palette].BORDER.ACTIVE
     : "",
-  isPressed.value || isHover.value
-    ? COLOR_PALETTES_STYLES[props.palette].BG.HOVER
+  isChecked.value || isPressed.value
+    ? COLOR_PALETTES_STYLES[props.palette].BG.ACTIVE
     : "",
 
   isFocused.value ? COLOR_PALETTES_STYLES[props.palette].BORDER.FOCUS : "",
@@ -74,26 +84,25 @@ const checkmarkClasses = computed(() => [
 ]);
 
 const checkmarkCheckedColor = computed(
-  () => `var(${COLOR_BORDER_ACTIVE[props.palette][isDark ? "DARK" : "LIGHT"]})`
+  () => `var(${COLOR_BORDER_HOVER[props.palette][isDark ? "DARK" : "LIGHT"]})`
 );
 </script>
 
 <style scoped>
 .checkmark::after {
   content: "";
-  /* Hide the checkmark by default */
   display: none;
 }
 
 input:checked + .checkmark::after {
-  display: block; /* Show the checkmark when checked */
-  width: 5px; /* Width of the checkmark */
-  height: 10px; /* Height of the checkmark */
-  border: solid v-bind("checkmarkCheckedColor"); /* Color of the checkmark */
-  border-width: 0 2px 2px 0; /* Create a checkmark shape */
-  position: absolute; /* Position the checkmark */
-  left: 7px; /* Position from the left */
-  top: 2px; /* Position from the top */
-  transform: rotate(45deg); /* Rotate to form a checkmark */
+  display: block;
+  width: 6px;
+  height: 12px;
+  border: solid v-bind("checkmarkCheckedColor");
+  border-width: 0 2px 2px 0;
+  position: absolute;
+  left: 7px;
+  top: 2px;
+  transform: rotate(45deg);
 }
 </style>
