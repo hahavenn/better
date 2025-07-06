@@ -5,10 +5,10 @@
     @mouseenter="!isHover && (isHover = true)"
     @mouseleave="isHover && (isHover = false)"
     @click="isChecked = !isChecked"
-    class="text_plain flex max-w-fit cursor-pointer items-center gap-2 text-sm"
+    class="text_plain flex max-w-fit cursor-pointer items-center items-start gap-2 text-sm"
   >
-    <span v-if="props.leftText">
-      {{ props.leftText }}
+    <span v-if="(props.label?.length ?? 0) > 0 && props.labelAlign === 'left'">
+      {{ props.label }}
     </span>
 
     <label
@@ -30,13 +30,13 @@
       />
       <span
         @click.stop.prevent="isChecked = !isChecked"
-        class="checkmark aspect-square w-[20px] rounded-(--border-radius__1) border-(length:--border-width__0) border-solid"
+        class="checkmark aspect-square w-[20px] cursor-pointer rounded-(--border-radius__1) border-(length:--border-width__0) border-solid"
         :class="checkmarkClasses"
       ></span>
     </label>
 
-    <span v-if="props.rightText">
-      {{ props.rightText }}
+    <span v-if="(props.label?.length ?? 0) > 0 && props.labelAlign === 'right'">
+      {{ props.label }}
     </span>
   </div>
 </template>
@@ -47,14 +47,15 @@ import COLOR_PALETTES_STYLES from "~/constants/color_palettes_styles";
 
 const props = withDefaults(
   defineProps<{
-    leftText?: string;
-    rightText?: string;
+    label?: string;
+    labelAlign?: "left" | "right";
     ariaLabel: string;
     disabled?: boolean;
     palette?: keyof typeof COLOR_PALETTES_STYLES;
   }>(),
   {
     palette: "NEUTRAL",
+    labelAlign: "right",
   }
 );
 

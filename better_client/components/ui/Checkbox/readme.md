@@ -9,8 +9,8 @@ This component is used to check values with additional left/right text relative 
   v-model="checkbox"
   :ariaLabel="'Test'"
   :palette="'GREEN'"
-  :leftText="'left_1'"
-  :rightText="'right_1'"
+  :label="'label_text'"
+  :labelAlign="'left'"
 />
 ```
 
@@ -20,3 +20,7 @@ watch(checkbox, (v) => console.log("checkbox", v));
 ```
 
 `checkbox` is bound value to checked state inside `<UiCheckbox>`
+
+## Todo
+
+- Disabled state with props.disabled
