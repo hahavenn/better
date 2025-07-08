@@ -13,6 +13,7 @@
           <UserGoalSubStep
             :subStep="sub"
             :palette="props.palette"
+            :stepId="props.step.id"
           />
         </li>
       </ul>
