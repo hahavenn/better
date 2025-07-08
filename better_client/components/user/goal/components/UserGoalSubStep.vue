@@ -12,9 +12,11 @@
 import type { UserGoalStep, UserGoalSubStep } from "~/stores/goals/types";
 import type { ColorPalettes } from "~/types/color_palettes";
 
-import UiCheckbox from "~/components/ui/Checkbox/UiCheckbox.vue";
 import useGoalsStore from "~/stores/goals";
+
 import { goalIdKey } from "~/components/user/goal/provide_inject";
+
+import UiCheckbox from "~/components/ui/Checkbox/UiCheckbox.vue";
 
 const props = defineProps<{
   stepId: UserGoalStep["id"];
