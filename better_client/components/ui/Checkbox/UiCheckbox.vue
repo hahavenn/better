@@ -7,7 +7,12 @@
     @click="isChecked = !isChecked"
     class="text_plain flex max-w-fit cursor-pointer items-start gap-2 text-sm"
   >
-    <span v-if="(props.label?.length ?? 0) > 0 && props.labelAlign === 'left'">
+    <span
+      v-if="(props.label?.length ?? 0) > 0 && props.labelAlign === 'left'"
+      :style="{
+        textDecoration: props.crossOut && isChecked ? 'line-through' : '',
+      }"
+    >
       {{ props.label }}
     </span>
 
@@ -35,7 +40,12 @@
       ></span>
     </label>
 
-    <span v-if="(props.label?.length ?? 0) > 0 && props.labelAlign === 'right'">
+    <span
+      v-if="(props.label?.length ?? 0) > 0 && props.labelAlign === 'right'"
+      :style="{
+        textDecoration: props.crossOut && isChecked ? 'line-through' : '',
+      }"
+    >
       {{ props.label }}
     </span>
   </div>
@@ -52,6 +62,8 @@ const props = withDefaults(
     ariaLabel: string;
     disabled?: boolean;
     palette?: keyof typeof COLOR_PALETTES_STYLES;
+    /** should checkbox be crossed out when checked */
+    crossOut?: boolean;
   }>(),
   {
     palette: "NEUTRAL",
