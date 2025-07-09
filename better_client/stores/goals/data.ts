@@ -10,7 +10,7 @@ const goal: UserGoal = {
       id: 1,
       name: "Learn React",
       description: "some description about react",
-      complete: true,
+      complete: false,
       subSteps: [
         {
           id: 1,
