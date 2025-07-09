@@ -59,9 +59,9 @@ const useGoalsStore = defineStore("goalsStore", () => {
     },
     state = false
   ) {
-    for (const goal of _goals.value) {
+    _goals.value.forEach((goal) => {
       // wrong goal
-      if (goal.id !== params.goalId) continue;
+      if (goal.id !== params.goalId) return;
 
       // whole goal should be changed
       if (params.stepId === undefined) {
@@ -69,43 +69,43 @@ const useGoalsStore = defineStore("goalsStore", () => {
 
         // these cycles updates whole goal, so we don't need to check all steps and subSteps
         goal.steps.forEach((step) => {
-          step.subSteps.forEach((subStep) => {
-            subStep.complete = state;
+          step.subSteps.forEach((sub) => {
+            if (sub.complete !== state) sub.complete = state;
           });
           step.complete = state;
         });
       } else {
-        for (const step of goal.steps) {
+        goal.steps.forEach((step) => {
           // wrong step
-          if (step.id !== params.stepId) continue;
+          if (step.id !== params.stepId) return;
 
           // whole step should be updated
           if (params.subStepId === undefined) {
             step.complete = state;
 
-            step.subSteps.forEach((subStep) => {
-              subStep.complete = state;
+            step.subSteps.forEach((sub) => {
+              if (sub.complete !== state) sub.complete = state;
             });
           } else {
-            for (const subStep of step.subSteps) {
+            step.subSteps.forEach((sub) => {
               // wrong subStep
-              if (subStep.id !== params.subStepId) continue;
+              if (sub.id !== params.subStepId) return;
 
               // update subStep
-              subStep.complete = state;
-            }
+              sub.complete = state;
+            });
           }
 
           // check for whole step completed
-          step.complete = !Boolean(
-            step.subSteps.find((subStep) => !subStep.complete)
-          );
-        }
+          const newStepState = step.subSteps.every((sub) => sub.complete);
+          if (newStepState !== step.complete) step.complete = newStepState;
+        });
 
         // check for whole goal completed
-        goal.complete = !Boolean(goal.steps.find((step) => !step.complete));
+        const newGoalState = goal.steps.every((step) => step.complete);
+        if (goal.complete !== newGoalState) goal.complete = newGoalState;
       }
-    }
+    });
   }
 
   return {
