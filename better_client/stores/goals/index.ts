@@ -97,15 +97,13 @@ const useGoalsStore = defineStore("goalsStore", () => {
           }
 
           // check for whole step completed
-          if (!Boolean(step.subSteps.find((subStep) => !subStep.complete))) {
-            step.complete = true;
-          }
+          step.complete = !Boolean(
+            step.subSteps.find((subStep) => !subStep.complete)
+          );
         }
 
         // check for whole goal completed
-        if (!Boolean(goal.steps.find((step) => !step.complete))) {
-          goal.complete = true;
-        }
+        goal.complete = !Boolean(goal.steps.find((step) => !step.complete));
       }
     }
   }
