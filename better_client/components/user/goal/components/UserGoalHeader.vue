@@ -3,28 +3,39 @@
     :id="goalIdInject.toString()"
     class="text-3xl font-bold"
   >
-    Goal: {{ props.name }} ({{ props.completePercent.toFixed(2) }}%)
+    Goal: {{ currGoal.name }} ({{ completePercent }}%)
   </h1>
 
   <p
-    v-if="props.description !== undefined"
+    v-if="currGoal.description !== undefined"
     class="text-xl"
   >
-    {{ props.description }}
+    {{ currGoal.description }}
   </p>
 </template>
 
 <script lang="ts" setup>
 import { goalIdKey } from "~/components/user/goal/provide_inject";
+
+import useGoalsStore from "~/stores/goals";
+
 import type { UserGoal } from "~/stores/goals/types";
 
-const props = defineProps<{
-  name: UserGoal["name"];
-  description?: UserGoal["description"];
-  completePercent: number;
-}>();
+const goalsStore = useGoalsStore();
 
 const goalIdInject = inject(goalIdKey) as UserGoal["id"];
+
+const currGoal = computed(
+  () => goalsStore.goals.find((g) => g.id === goalIdInject)!
+);
+
+const completePercent = computed(() =>
+  (
+    (goalsStore.calcCompletedParts(currGoal.value) /
+      goalsStore.calcTotalParts(currGoal.value)) *
+    100
+  ).toFixed(2)
+);
 </script>
 
 <style scoped></style>

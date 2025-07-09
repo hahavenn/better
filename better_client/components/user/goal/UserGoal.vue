@@ -3,22 +3,9 @@
     v-if="currGoal"
     class="flex flex-col gap-(--offset__2)"
   >
-    <UserGoalHeader
-      :name="currGoal.name"
-      :description="currGoal.description"
-      :completePercent="
-        (goalsStore.calcCompletedParts(currGoal) /
-          goalsStore.calcTotalParts(currGoal)) *
-        100
-      "
-    />
+    <UserGoalHeader />
 
-    <UserGoalProgress
-      :progress="{
-        completed: goalsStore.calcCompletedParts(currGoal),
-        total: goalsStore.calcTotalParts(currGoal),
-      }"
-    />
+    <UserGoalProgress />
 
     <UserGoalSteps :steps="currGoal.steps" />
   </article>

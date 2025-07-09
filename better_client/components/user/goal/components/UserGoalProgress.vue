@@ -15,17 +15,17 @@
       }"
     ></div>
 
-    <template v-if="props.progress.total !== 0">
+    <template v-if="total !== 0">
       <div
         aria-hidden="true"
-        v-for="i in props.progress.total - 1"
+        v-for="i in total - 1"
         class="absolute flex h-full px-[3px]"
         :style="{
-          left: `calc(${(i / props.progress.total) * 100}% - 3px)`,
+          left: `calc(${(i / total) * 100}% - 3px)`,
         }"
       >
         <div
-          v-if="i !== props.progress.total"
+          v-if="i !== total"
           class="h-full w-(--border-width__0) bg-neutral-500"
         ></div>
       </div>
@@ -35,21 +35,24 @@
 
 <script lang="ts" setup>
 import type { UserGoal } from "~/stores/goals/types";
+
 import { goalIdKey } from "~/components/user/goal/provide_inject";
 
-const props = defineProps<{
-  progress: {
-    completed: number;
-    total: number;
-  };
-}>();
+import useGoalsStore from "~/stores/goals";
+
 const goalIdInject = inject(goalIdKey) as UserGoal["id"];
 
 const progressValue = computed(() =>
-  props.progress.total !== 0
-    ? props.progress.completed / props.progress.total
-    : 0
+  total.value !== 0 ? completed.value / total.value : 0
 );
+
+const goalsStore = useGoalsStore();
+
+const currGoal = computed(
+  () => goalsStore.goals.find((g) => g.id === goalIdInject)!
+);
+const completed = computed(() => goalsStore.calcCompletedParts(currGoal.value));
+const total = computed(() => goalsStore.calcTotalParts(currGoal.value));
 </script>
 
 <style scoped></style>
