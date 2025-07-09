@@ -50,7 +50,7 @@ const { pause, resume } = watch(
 function syncDoneWithGoal() {
   pause();
   isDone.value = props.subStep.complete;
-  resume;
+  resume();
 }
 </script>
 

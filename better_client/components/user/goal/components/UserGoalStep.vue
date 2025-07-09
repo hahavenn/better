@@ -82,7 +82,7 @@ const { pause, resume } = watch(
 function syncDoneWithGoal() {
   pause();
   isDone.value = props.step.complete;
-  resume;
+  resume();
 }
 </script>
 
