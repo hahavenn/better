@@ -6,6 +6,7 @@
     >
       <UserGoal
         v-for="g in goalsStore.goals"
+        :key="g.id"
         :goalId="g.id"
       />
     </UiContainer>

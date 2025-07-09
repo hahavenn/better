@@ -17,7 +17,10 @@
 
     <UiCustomScroll :palette="props.palette">
       <ul class="flex max-h-[200px] flex-col gap-(--offset__5) overflow-auto">
-        <li v-for="sub in step.subSteps">
+        <li
+          v-for="sub in step.subSteps"
+          :key="sub.id"
+        >
           <UserGoalSubStep
             :subStep="sub"
             :palette="props.palette"

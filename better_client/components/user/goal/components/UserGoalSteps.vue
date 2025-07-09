@@ -6,6 +6,7 @@
   >
     <UserGoalStep
       v-for="step in props.steps"
+      :key="step.id"
       :step
       :palette="pickPalette()"
     />
