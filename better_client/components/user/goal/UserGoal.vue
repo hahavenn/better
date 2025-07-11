@@ -29,7 +29,6 @@
         v-for="step in currGoal.steps"
         :key="step.id"
         :step
-        :palette="pickPalette()"
       />
     </ul>
   </article>
@@ -39,10 +38,6 @@
 import useGoalsStore from "~/stores/goals";
 
 import type { UserGoal } from "~/stores/goals/types";
-import type { ColorPalettes } from "~/types/color_palettes";
-
-import COLOR_PALETTES_STYLES from "~/constants/color_palettes_styles";
-
 import { goalIdKey } from "./provide_inject";
 
 import UserGoalHeader from "./components/UserGoalHeader.vue";
@@ -59,12 +54,6 @@ const goalsStore = useGoalsStore();
 const currGoal = computed(() =>
   goalsStore.goals.find((g) => g.id === props.goalId)
 );
-
-function pickPalette() {
-  return Object.keys(COLOR_PALETTES_STYLES)[
-    Math.floor(Math.random() * Object.keys(COLOR_PALETTES_STYLES).length)
-  ] as ColorPalettes;
-}
 </script>
 
 <style scoped></style>

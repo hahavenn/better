@@ -11,11 +11,11 @@
       <UiCheckbox
         v-model="isDone"
         :ariaLabel="props.step.name"
-        :palette="props.palette"
+        :palette="palette"
       />
     </header>
 
-    <UiCustomScroll :palette="props.palette">
+    <UiCustomScroll :palette="palette">
       <ul class="flex max-h-[200px] flex-col gap-(--offset__5) overflow-auto">
         <li
           v-for="sub in step.subSteps"
@@ -23,7 +23,7 @@
         >
           <UserGoalSubStep
             :subStep="sub"
-            :palette="props.palette"
+            :palette="palette"
             :stepId="props.step.id"
           />
         </li>
@@ -36,7 +36,6 @@
 import type { UserGoalStep } from "~/stores/goals/types";
 
 import COLOR_PALETTES_STYLES from "~/constants/color_palettes_styles";
-import type { ColorPalettes } from "~/types/color_palettes";
 
 import useGoalsStore from "~/stores/goals";
 
@@ -47,18 +46,19 @@ import UiCheckbox from "~/components/ui/Checkbox/UiCheckbox.vue";
 
 const props = defineProps<{
   step: UserGoalStep;
-  palette: ColorPalettes;
 }>();
 const goalIdInject = inject(goalIdKey);
 
 const store = useGoalsStore();
 
+const palette = pickPalette();
+
 const liClasses = [
-  COLOR_PALETTES_STYLES[props.palette].BORDER.DEFAULT,
+  COLOR_PALETTES_STYLES[palette].BORDER.DEFAULT,
 
-  COLOR_PALETTES_STYLES[props.palette].BG.DEFAULT,
+  COLOR_PALETTES_STYLES[palette].BG.DEFAULT,
 
-  COLOR_PALETTES_STYLES[props.palette].TEXT.DEFAULT,
+  COLOR_PALETTES_STYLES[palette].TEXT.DEFAULT,
 ];
 
 const isDone = ref(props.step.complete);
