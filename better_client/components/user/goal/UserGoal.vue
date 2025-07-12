@@ -3,10 +3,10 @@
     v-if="currGoal"
     class="flex flex-col gap-(--offset__2)"
   >
-    <UserGoalHeader
-      :name="currGoal.name"
+    <SectionHeader
+      :headerId="props.goalId.toString()"
+      :header="`Goal: ${currGoal.name} (${completePercent}%)`"
       :description="currGoal.description"
-      :completePercent="(completed / total) * 100"
     />
 
     <ProgressBar
@@ -35,9 +35,9 @@ import useGoalsStore from "~/stores/goals";
 import type { UserGoal } from "~/stores/goals/types";
 import { goalIdKey } from "./provide_inject";
 
-import UserGoalHeader from "./components/UserGoalHeader.vue";
 import UserGoalStep from "./components/UserGoalStep.vue";
 import ProgressBar from "~/components/shared/ProgressBar/ProgressBar.vue";
+import SectionHeader from "~/components/shared/SectionHeader/SectionHeader.vue";
 
 const props = defineProps<{
   goalId: UserGoal["id"];
@@ -55,6 +55,9 @@ const completed = computed(() =>
 );
 const total = computed(() =>
   currGoal.value ? goalsStore.calcTotalParts(currGoal.value) : 0
+);
+const completePercent = computed(() =>
+  ((completed.value / total.value) * 100).toFixed(2)
 );
 </script>
 
