@@ -104,14 +104,18 @@ const useGoalsStore = defineStore("goalsStore", () => {
             });
           }
 
-          // check for whole step completed
-          const newStepState = step.subSteps.every((sub) => sub.complete);
-          if (newStepState !== step.complete) step.complete = newStepState;
+          // check for whole step completed with subSteps
+          if (step.subSteps.length > 0) {
+            const newStepState = step.subSteps.every((sub) => sub.complete);
+            if (newStepState !== step.complete) step.complete = newStepState;
+          }
         });
 
-        // check for whole goal completed
-        const newGoalState = goal.steps.every((step) => step.complete);
-        if (goal.complete !== newGoalState) goal.complete = newGoalState;
+        // check for whole goal completed with steps
+        if (goal.steps.length > 0) {
+          const newGoalState = goal.steps.every((step) => step.complete);
+          if (goal.complete !== newGoalState) goal.complete = newGoalState;
+        }
       }
     });
   }
