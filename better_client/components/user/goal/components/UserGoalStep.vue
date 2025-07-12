@@ -36,7 +36,7 @@
 <script lang="ts" setup>
 import type { UserGoalStep } from "~/stores/goals/types";
 
-import COLOR_PALETTES_STYLES from "~/constants/color_palettes_styles";
+import COLOR_PALETTES_STYLES from "~/constants/color_palettes";
 
 import useGoalsStore from "~/stores/goals";
 

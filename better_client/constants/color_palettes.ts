@@ -701,3 +701,5 @@ const COLOR_PALETTES_STYLES: { [key in ColorPalettes]: ColorPaletteStyles } = {
   },
 } as const;
 export default COLOR_PALETTES_STYLES;
+
+export const COLOR_PALETTE_DEFAULT: ColorPalettes = "NEUTRAL";

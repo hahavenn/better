@@ -53,7 +53,9 @@
 
 <script setup lang="ts">
 import COLOR_BORDER_HOVER from "~/constants/color_border_hover";
-import COLOR_PALETTES_STYLES from "~/constants/color_palettes_styles";
+import COLOR_PALETTES_STYLES, {
+  COLOR_PALETTE_DEFAULT,
+} from "~/constants/color_palettes";
 
 const props = withDefaults(
   defineProps<{
@@ -66,7 +68,7 @@ const props = withDefaults(
     crossOut?: boolean;
   }>(),
   {
-    palette: "NEUTRAL",
+    palette: COLOR_PALETTE_DEFAULT,
     labelAlign: "right",
   }
 );
