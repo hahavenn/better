@@ -9,7 +9,8 @@
       </h2>
 
       <UiCheckbox
-        v-model="isDone"
+        v-model="completeState"
+        @toggle="toggleHandler"
         :ariaLabel="props.step.name"
         :palette="palette"
       />
@@ -49,42 +50,34 @@ const props = defineProps<{
   step: UserGoalStep;
 }>();
 const goalIdInject = inject(goalIdKey);
-
 const store = useGoalsStore();
-
 const palette = pickPalette();
-
 const liClasses = [
   COLOR_PALETTES_STYLES[palette].BORDER.DEFAULT,
-
   COLOR_PALETTES_STYLES[palette].BG.DEFAULT,
-
   COLOR_PALETTES_STYLES[palette].TEXT.DEFAULT,
 ];
 
-const isDone = ref(props.step.complete);
-watch(isDone, (v, o) => {
-  if (v !== o && goalIdInject !== undefined) {
-    store.updateGoalCompleteness(
-      {
-        goalId: goalIdInject,
-        stepId: props.step.id,
-      },
-      v
-    );
-  }
-});
-const { pause, resume } = watch(
+const completeState = ref(props.step.complete);
+function toggleHandler(state: boolean) {
+  if (goalIdInject === undefined) return;
+
+  store.updateGoalCompleteness(
+    {
+      goalId: goalIdInject,
+      stepId: props.step.id,
+    },
+    state
+  );
+}
+watch(
   () => props.step.complete,
   (v, o) => {
-    if (v !== o) syncDoneWithGoal();
+    if (v !== o) {
+      completeState.value = v;
+    }
   }
 );
-function syncDoneWithGoal() {
-  pause();
-  isDone.value = props.step.complete;
-  resume();
-}
 </script>
 
 <style scoped>

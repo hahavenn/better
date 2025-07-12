@@ -59,20 +59,28 @@ const useGoalsStore = defineStore("goalsStore", () => {
     },
     state = false
   ) {
+    if (import.meta.dev) {
+      console.debug(
+        `[updateGoalCompleteness] called with params`,
+        params,
+        state
+      );
+    }
+
     _goals.value.forEach((goal) => {
       // wrong goal
       if (goal.id !== params.goalId) return;
 
       // whole goal should be changed
       if (params.stepId === undefined) {
-        goal.complete = state;
+        if (goal.complete !== state) goal.complete = state;
 
         // these cycles updates whole goal, so we don't need to check all steps and subSteps
         goal.steps.forEach((step) => {
           step.subSteps.forEach((sub) => {
             if (sub.complete !== state) sub.complete = state;
           });
-          step.complete = state;
+          if (step.complete !== state) step.complete = state;
         });
       } else {
         goal.steps.forEach((step) => {
@@ -81,7 +89,7 @@ const useGoalsStore = defineStore("goalsStore", () => {
 
           // whole step should be updated
           if (params.subStepId === undefined) {
-            step.complete = state;
+            if (step.complete !== state) step.complete = state;
 
             step.subSteps.forEach((sub) => {
               if (sub.complete !== state) sub.complete = state;
@@ -92,7 +100,7 @@ const useGoalsStore = defineStore("goalsStore", () => {
               if (sub.id !== params.subStepId) return;
 
               // update subStep
-              sub.complete = state;
+              if (sub.complete !== state) sub.complete = state;
             });
           }
 

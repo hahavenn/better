@@ -1,40 +1,40 @@
 <template>
   <div
-    @mousedown="!isPressed && (isPressed = true)"
-    @mouseup="isPressed && (isPressed = false)"
-    @mouseenter="!isHover && (isHover = true)"
-    @mouseleave="isHover && (isHover = false)"
-    @click="isChecked = !isChecked"
+    @mousedown="!pressed && (pressed = true)"
+    @mouseup="pressed && (pressed = false)"
+    @mouseenter="!hover && (hover = true)"
+    @mouseleave="hover && (hover = false)"
+    @click="checkHandler"
     class="text_plain flex max-w-fit cursor-pointer items-start gap-2 text-sm"
   >
     <span
       v-if="(props.label?.length ?? 0) > 0 && props.labelAlign === 'left'"
       :style="{
-        textDecoration: props.crossOut && isChecked ? 'line-through' : '',
+        textDecoration: props.crossOut && check ? 'line-through' : '',
       }"
     >
       {{ props.label }}
     </span>
 
     <label
-      @keydown.enter.prevent="isChecked = !isChecked"
+      @keydown.enter.prevent="checkHandler"
       tabindex="0"
       :ariaLabel="props.ariaLabel"
       role="checkbox"
       class="relative flex items-center"
     >
       <input
-        v-model="isChecked"
-        @focus="isFocused = true"
-        @blur="isFocused = false"
+        v-model="check"
+        @focus="focused = true"
+        @blur="focused = false"
         class="hidden"
         aria-hidden="true"
         type="checkbox"
-        :checked="isChecked"
+        :checked="check"
         :disabled="props.disabled"
       />
       <span
-        @click.stop.prevent="isChecked = !isChecked"
+        @click.stop.prevent="checkHandler"
         class="checkmark aspect-square w-[20px] cursor-pointer rounded-(--border-radius__1) border-(length:--border-width__0) border-solid"
         :class="checkmarkClasses"
       ></span>
@@ -43,7 +43,7 @@
     <span
       v-if="(props.label?.length ?? 0) > 0 && props.labelAlign === 'right'"
       :style="{
-        textDecoration: props.crossOut && isChecked ? 'line-through' : '',
+        textDecoration: props.crossOut && check ? 'line-through' : '',
       }"
     >
       {{ props.label }}
@@ -71,29 +71,46 @@ const props = withDefaults(
   }
 );
 
+const emit = defineEmits<{
+  /** when checkbox value is changed */
+  toggle: [check: boolean];
+}>();
+
 const isDark = useDark();
 
-const isChecked = defineModel<boolean>({ required: true });
-const isPressed = ref(false);
-const isFocused = ref(false);
-const isHover = ref(false);
+const check = defineModel<boolean>({ required: true });
+const pressed = ref(false);
+const focused = ref(false);
+const hover = ref(false);
+
+async function checkHandler() {
+  check.value = !check.value;
+
+  /* 
+    need to wait until vue updates v-model value 
+    for passing correct value to emit argument
+  */
+  await nextTick();
+
+  emit("toggle", check.value);
+}
 
 const checkmarkClasses = computed(() => [
   COLOR_PALETTES_STYLES[props.palette].BORDER.DEFAULT,
   COLOR_PALETTES_STYLES[props.palette].BG.DEFAULT,
 
-  isHover.value ? COLOR_PALETTES_STYLES[props.palette].BORDER.HOVER : "",
-  isHover.value ? COLOR_PALETTES_STYLES[props.palette].BG.HOVER : "",
+  hover.value ? COLOR_PALETTES_STYLES[props.palette].BORDER.HOVER : "",
+  hover.value ? COLOR_PALETTES_STYLES[props.palette].BG.HOVER : "",
 
-  isChecked.value || isPressed.value
+  check.value || pressed.value
     ? COLOR_PALETTES_STYLES[props.palette].BORDER.ACTIVE
     : "",
-  isChecked.value || isPressed.value
+  check.value || pressed.value
     ? COLOR_PALETTES_STYLES[props.palette].BG.ACTIVE
     : "",
 
-  isFocused.value ? COLOR_PALETTES_STYLES[props.palette].BORDER.FOCUS : "",
-  isFocused.value ? COLOR_PALETTES_STYLES[props.palette].BG.FOCUS : "",
+  focused.value ? COLOR_PALETTES_STYLES[props.palette].BORDER.FOCUS : "",
+  focused.value ? COLOR_PALETTES_STYLES[props.palette].BG.FOCUS : "",
 ]);
 
 const checkmarkCheckedColor = computed(

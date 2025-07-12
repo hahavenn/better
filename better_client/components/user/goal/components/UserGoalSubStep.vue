@@ -1,6 +1,7 @@
 <template>
   <UiCheckbox
-    v-model="isDone"
+    v-model="completeState"
+    @toggle="toggleHandler"
     :ariaLabel="props.subStep.name"
     :label="props.subStep.name"
     :palette="props.palette"
@@ -23,35 +24,30 @@ const props = defineProps<{
   subStep: UserGoalSubStep;
   palette: ColorPalettes;
 }>();
-
 const goalIdInject = inject(goalIdKey);
-
 const store = useGoalsStore();
 
-const isDone = ref(props.subStep.complete);
-watch(isDone, (v, o) => {
-  if (v !== o && goalIdInject !== undefined) {
-    store.updateGoalCompleteness(
-      {
-        goalId: goalIdInject,
-        stepId: props.stepId,
-        subStepId: props.subStep.id,
-      },
-      v
-    );
-  }
-});
-const { pause, resume } = watch(
+const completeState = ref(props.subStep.complete);
+function toggleHandler(state: boolean) {
+  if (goalIdInject === undefined) return;
+
+  store.updateGoalCompleteness(
+    {
+      goalId: goalIdInject,
+      stepId: props.stepId,
+      subStepId: props.subStep.id,
+    },
+    state
+  );
+}
+watch(
   () => props.subStep.complete,
   (v, o) => {
-    if (v !== o) syncDoneWithGoal();
+    if (v !== o) {
+      completeState.value = v;
+    }
   }
 );
-function syncDoneWithGoal() {
-  pause();
-  isDone.value = props.subStep.complete;
-  resume();
-}
 </script>
 
 <style scoped></style>
