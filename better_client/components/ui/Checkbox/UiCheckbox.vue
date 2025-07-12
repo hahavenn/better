@@ -52,7 +52,7 @@
 </template>
 
 <script setup lang="ts">
-import COLOR_BORDER_HOVER from "~/constants/color_border_hover";
+import { COLOR_BORDER_HOVER } from "~/constants/color_border";
 import COLOR_PALETTES_STYLES, {
   COLOR_PALETTE_DEFAULT,
 } from "~/constants/color_palettes";

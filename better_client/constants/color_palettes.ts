@@ -1,5 +1,5 @@
 import type { ColorPalettes } from "~/types/color_palettes";
-import COLOR_BORDER_ACTIVE from "./color_border_active";
+import { COLOR_BORDER_ACTIVE } from "./color_border";
 
 type ColorPaletteStyles = {
   BORDER: {

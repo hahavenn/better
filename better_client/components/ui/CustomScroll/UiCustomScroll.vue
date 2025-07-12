@@ -5,7 +5,7 @@
 </template>
 
 <script lang="ts" setup>
-import COLOR_BORDER_ACTIVE from "~/constants/color_border_active";
+import { COLOR_BORDER_ACTIVE } from "~/constants/color_border";
 import type { ColorPalettes } from "~/types/color_palettes";
 
 const props = defineProps<{
