@@ -6,18 +6,13 @@
     <UserGoalHeader
       :name="currGoal.name"
       :description="currGoal.description"
-      :completePercent="
-        (goalsStore.calcCompletedParts(currGoal) /
-          goalsStore.calcTotalParts(currGoal)) *
-        100
-      "
+      :completePercent="(completed / total) * 100"
     />
 
-    <UserGoalProgress
-      :progress="{
-        completed: goalsStore.calcCompletedParts(currGoal),
-        total: goalsStore.calcTotalParts(currGoal),
-      }"
+    <ProgressBar
+      :ariaLabelledBy="props.goalId.toString()"
+      :total
+      :completed
     />
 
     <ul
@@ -41,8 +36,8 @@ import type { UserGoal } from "~/stores/goals/types";
 import { goalIdKey } from "./provide_inject";
 
 import UserGoalHeader from "./components/UserGoalHeader.vue";
-import UserGoalProgress from "./components/UserGoalProgress.vue";
 import UserGoalStep from "./components/UserGoalStep.vue";
+import ProgressBar from "~/components/shared/ProgressBar/ProgressBar.vue";
 
 const props = defineProps<{
   goalId: UserGoal["id"];
@@ -53,6 +48,13 @@ const goalsStore = useGoalsStore();
 
 const currGoal = computed(() =>
   goalsStore.goals.find((g) => g.id === props.goalId)
+);
+
+const completed = computed(() =>
+  currGoal.value ? goalsStore.calcCompletedParts(currGoal.value) : 0
+);
+const total = computed(() =>
+  currGoal.value ? goalsStore.calcTotalParts(currGoal.value) : 0
 );
 </script>
 
