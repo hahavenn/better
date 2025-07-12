@@ -51,7 +51,9 @@ const props = defineProps<{
 }>();
 const goalIdInject = inject(goalIdKey);
 const store = useGoalsStore();
-const palette = pickPalette();
+const palette = pickPalette({
+  exclude: ["SLATE", "GRAY", "ZINC", "NEUTRAL", "STONE"],
+});
 const liClasses = [
   COLOR_PALETTES_STYLES[palette].BORDER.DEFAULT,
   COLOR_PALETTES_STYLES[palette].BG.DEFAULT,
