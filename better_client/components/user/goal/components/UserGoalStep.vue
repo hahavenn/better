@@ -21,7 +21,10 @@
       />
     </header>
 
-    <UiCustomScroll :palette="palette">
+    <UiCustomScroll
+      v-if="step.subSteps.length > 0"
+      :palette="palette"
+    >
       <ul class="flex max-h-[200px] flex-col gap-(--offset__5) overflow-auto">
         <li
           v-for="sub in step.subSteps"
