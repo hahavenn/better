@@ -3,7 +3,7 @@
     class="flex flex-col gap-(--offset__6) rounded-(--border-radius__0) border-(length:--border-width__0) border-solid px-(--offset__0) py-(--offset__4)"
     :class="liClasses"
   >
-    <header class="flex w-full items-center gap-(--offset__6)">
+    <header class="flex w-full items-center justify-between gap-(--offset__6)">
       <h2 class="line-clamp-1 text-2xl font-semibold">
         {{ props.step.name }}
       </h2>
