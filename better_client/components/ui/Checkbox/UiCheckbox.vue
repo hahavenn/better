@@ -62,6 +62,7 @@ const props = withDefaults(
     label?: string;
     labelAlign?: "left" | "right";
     ariaLabel: string;
+    /** @todo styles and behavior */
     disabled?: boolean;
     palette?: keyof typeof COLOR_PALETTES_STYLES;
     /** should checkbox be crossed out when checked */
