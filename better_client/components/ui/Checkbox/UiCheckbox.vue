@@ -8,16 +8,17 @@
     class="text_plain flex max-w-fit cursor-pointer items-start gap-2 text-sm"
   >
     <span
-      v-if="(props.label?.length ?? 0) > 0 && props.labelAlign === 'left'"
+      v-if="(props.label?.length ?? 0) > 0"
       :style="{
         textDecoration: props.crossOut && check ? 'line-through' : '',
+        order: props.labelAlign === 'left' ? 0 : 1,
       }"
     >
       {{ props.label }}
     </span>
 
     <label
-      @keydown.enter.prevent="checkHandler"
+      @keydown.enter.stop.prevent="checkHandler"
       tabindex="0"
       :ariaLabel="props.ariaLabel"
       role="checkbox"
@@ -39,15 +40,6 @@
         :class="checkmarkClasses"
       ></span>
     </label>
-
-    <span
-      v-if="(props.label?.length ?? 0) > 0 && props.labelAlign === 'right'"
-      :style="{
-        textDecoration: props.crossOut && check ? 'line-through' : '',
-      }"
-    >
-      {{ props.label }}
-    </span>
   </div>
 </template>
 
@@ -62,15 +54,18 @@ const props = withDefaults(
     label?: string;
     labelAlign?: "left" | "right";
     ariaLabel: string;
+    /** should label be crossed out when checked */
+    crossOut?: boolean;
+
     /** @todo styles and behavior */
     disabled?: boolean;
+
     palette?: keyof typeof COLOR_PALETTES_STYLES;
-    /** should checkbox be crossed out when checked */
-    crossOut?: boolean;
   }>(),
   {
-    palette: COLOR_PALETTE_DEFAULT,
     labelAlign: "right",
+
+    palette: COLOR_PALETTE_DEFAULT,
   }
 );
 
