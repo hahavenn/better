@@ -3,7 +3,7 @@
     role="progressbar"
     :aria-valuemin="0"
     :aria-valuemax="100"
-    :aria-valuenow="progressValue * 100"
+    :aria-valuenow="(progressValue * 100).toFixed(2)"
     :aria-labelledby="props.ariaLabelledBy"
     class="relative h-[12px] w-full overflow-hidden rounded-(--border-radius__1) border-(length:--border-width__0) border-solid border-neutral-500"
   >
