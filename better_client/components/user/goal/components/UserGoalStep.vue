@@ -50,9 +50,14 @@ import useGoalsStore from "~/stores/goals";
 
 import { goalIdKey } from "~/components/user/goal/provide_inject";
 
-import UiCustomScroll from "~/components/ui/CustomScroll/UiCustomScroll.vue";
 import UiCheckbox from "~/components/ui/Checkbox/UiCheckbox.vue";
-import UserGoalSubStep from "./UserGoalSubStep.vue";
+
+const UiCustomScroll = defineAsyncComponent(
+  () => import("~/components/ui/CustomScroll/UiCustomScroll.vue")
+);
+const UserGoalSubStep = defineAsyncComponent(
+  () => import("./UserGoalSubStep.vue")
+);
 
 const props = defineProps<{
   step: UserGoalStep;
