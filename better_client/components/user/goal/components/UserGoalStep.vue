@@ -4,7 +4,7 @@
     :class="liClasses"
   >
     <header class="flex w-full items-center gap-(--offset__6)">
-      <h2 class="text-2xl font-semibold">
+      <h2 class="line-clamp-1 text-2xl font-semibold">
         {{ props.step.name }}
       </h2>
 
