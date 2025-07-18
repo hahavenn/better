@@ -36,7 +36,7 @@ html {
 }
 
 body {
-  @apply h-fit w-full bg-neutral-200 dark:bg-neutral-950;
+  @apply h-fit w-full bg-neutral-100 dark:bg-neutral-950;
 }
 
 #__better {
