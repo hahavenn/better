@@ -18,7 +18,7 @@
     <ul
       :aria-label="'Steps to complete your goal'"
       :aria-labelledby="props.goalId.toString()"
-      class="grid-rows-masonry grid w-full grid-flow-row-dense grid-cols-1 gap-(--offset__3) md:grid-cols-3 xl:grid-cols-5"
+      class="grid-rows-masonry grid w-full grid-flow-row-dense grid-cols-1 gap-(--offset__3) md:grid-cols-3 xl:grid-cols-4"
     >
       <UserGoalStep
         v-for="step in currGoal.steps"
