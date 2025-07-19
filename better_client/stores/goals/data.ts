@@ -8,7 +8,7 @@ const goal: UserGoal = {
   steps: [
     {
       id: 1,
-      name: "Learn React",
+      name: "Learn Reac j j j j j j t",
       description: "some description about react",
       complete: false,
       subSteps: [
