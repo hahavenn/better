@@ -1,5 +1,7 @@
 import type { ColorPalettes } from "~/types/color_palettes";
+
 import { COLOR_BORDER_ACTIVE } from "./color_border";
+import { COLOR_BG_ACTIVE } from "./color_bg";
 
 type ColorPaletteStyles = {
   BORDER: {
@@ -41,8 +43,7 @@ const COLOR_PALETTES_STYLES: { [key in ColorPalettes]: ColorPaletteStyles } = {
       DEFAULT: "bg-(--plt-red-bg-l-default) dark:bg-(--plt-red-bg-d-default)",
       HOVER:
         "hover:bg-(--plt-red-bg-l-hover) dark:hover:bg-(--plt-red-bg-d-hover)",
-      ACTIVE:
-        "active:bg-(--plt-red-bg-l-active) dark:active:bg-(--plt-red-bg-d-active)",
+      ACTIVE: `active:bg-(${COLOR_BG_ACTIVE.RED.LIGHT}) dark:active:bg-(${COLOR_BG_ACTIVE.RED.DARK})`,
       FOCUS:
         "focus:bg-(--plt-red-bg-l-focus) dark:focus:bg-(--plt-red-bg-d-focus)",
     },
@@ -72,8 +73,7 @@ const COLOR_PALETTES_STYLES: { [key in ColorPalettes]: ColorPaletteStyles } = {
         "bg-(--plt-orange-bg-l-default) dark:bg-(--plt-orange-bg-d-default)",
       HOVER:
         "hover:bg-(--plt-orange-bg-l-hover) dark:hover:bg-(--plt-orange-bg-d-hover)",
-      ACTIVE:
-        "active:bg-(--plt-orange-bg-l-active) dark:active:bg-(--plt-orange-bg-d-active)",
+      ACTIVE: `active:bg-(${COLOR_BG_ACTIVE.ORANGE.LIGHT}) dark:active:bg-(${COLOR_BG_ACTIVE.ORANGE.DARK})`,
       FOCUS:
         "focus:bg-(--plt-orange-bg-l-focus) dark:focus:bg-(--plt-orange-bg-d-focus)",
     },
@@ -103,8 +103,7 @@ const COLOR_PALETTES_STYLES: { [key in ColorPalettes]: ColorPaletteStyles } = {
         "bg-(--plt-amber-bg-l-default) dark:bg-(--plt-amber-bg-d-default)",
       HOVER:
         "hover:bg-(--plt-amber-bg-l-hover) dark:hover:bg-(--plt-amber-bg-d-hover)",
-      ACTIVE:
-        "active:bg-(--plt-amber-bg-l-active) dark:active:bg-(--plt-amber-bg-d-active)",
+      ACTIVE: `active:bg-(${COLOR_BG_ACTIVE.AMBER.LIGHT}) dark:active:bg-(${COLOR_BG_ACTIVE.AMBER.DARK})`,
       FOCUS:
         "focus:bg-(--plt-amber-bg-l-focus) dark:focus:bg-(--plt-amber-bg-d-focus)",
     },
@@ -134,8 +133,7 @@ const COLOR_PALETTES_STYLES: { [key in ColorPalettes]: ColorPaletteStyles } = {
         "bg-(--plt-yellow-bg-l-default) dark:bg-(--plt-yellow-bg-d-default)",
       HOVER:
         "hover:bg-(--plt-yellow-bg-l-hover) dark:hover:bg-(--plt-yellow-bg-d-hover)",
-      ACTIVE:
-        "active:bg-(--plt-yellow-bg-l-active) dark:active:bg-(--plt-yellow-bg-d-active)",
+      ACTIVE: `active:bg-(${COLOR_BG_ACTIVE.YELLOW.LIGHT}) dark:active:bg-(${COLOR_BG_ACTIVE.YELLOW.DARK})`,
       FOCUS:
         "focus:bg-(--plt-yellow-bg-l-focus) dark:focus:bg-(--plt-yellow-bg-d-focus)",
     },
@@ -164,8 +162,7 @@ const COLOR_PALETTES_STYLES: { [key in ColorPalettes]: ColorPaletteStyles } = {
       DEFAULT: "bg-(--plt-lime-bg-l-default) dark:bg-(--plt-lime-bg-d-default)",
       HOVER:
         "hover:bg-(--plt-lime-bg-l-hover) dark:hover:bg-(--plt-lime-bg-d-hover)",
-      ACTIVE:
-        "active:bg-(--plt-lime-bg-l-active) dark:active:bg-(--plt-lime-bg-d-active)",
+      ACTIVE: `active:bg-(${COLOR_BG_ACTIVE.LIME.LIGHT}) dark:active:bg-(${COLOR_BG_ACTIVE.LIME.DARK})`,
       FOCUS:
         "focus:bg-(--plt-lime-bg-l-focus) dark:focus:bg-(--plt-lime-bg-d-focus)",
     },
@@ -195,8 +192,7 @@ const COLOR_PALETTES_STYLES: { [key in ColorPalettes]: ColorPaletteStyles } = {
         "bg-(--plt-green-bg-l-default) dark:bg-(--plt-green-bg-d-default)",
       HOVER:
         "hover:bg-(--plt-green-bg-l-hover) dark:hover:bg-(--plt-green-bg-d-hover)",
-      ACTIVE:
-        "active:bg-(--plt-green-bg-l-active) dark:active:bg-(--plt-green-bg-d-active)",
+      ACTIVE: `active:bg-(${COLOR_BG_ACTIVE.GREEN.LIGHT}) dark:active:bg-(${COLOR_BG_ACTIVE.GREEN.DARK})`,
       FOCUS:
         "focus:bg-(--plt-green-bg-l-focus) dark:focus:bg-(--plt-green-bg-d-focus)",
     },
@@ -226,8 +222,7 @@ const COLOR_PALETTES_STYLES: { [key in ColorPalettes]: ColorPaletteStyles } = {
         "bg-(--plt-emerald-bg-l-default) dark:bg-(--plt-emerald-bg-d-default)",
       HOVER:
         "hover:bg-(--plt-emerald-bg-l-hover) dark:hover:bg-(--plt-emerald-bg-d-hover)",
-      ACTIVE:
-        "active:bg-(--plt-emerald-bg-l-active) dark:active:bg-(--plt-emerald-bg-d-active)",
+      ACTIVE: `active:bg-(${COLOR_BG_ACTIVE.EMERALD.LIGHT}) dark:active:bg-(${COLOR_BG_ACTIVE.EMERALD.DARK})`,
       FOCUS:
         "focus:bg-(--plt-emerald-bg-l-focus) dark:focus:bg-(--plt-emerald-bg-d-focus)",
     },
@@ -256,8 +251,7 @@ const COLOR_PALETTES_STYLES: { [key in ColorPalettes]: ColorPaletteStyles } = {
       DEFAULT: "bg-(--plt-teal-bg-l-default) dark:bg-(--plt-teal-bg-d-default)",
       HOVER:
         "hover:bg-(--plt-teal-bg-l-hover) dark:hover:bg-(--plt-teal-bg-d-hover)",
-      ACTIVE:
-        "active:bg-(--plt-teal-bg-l-active) dark:active:bg-(--plt-teal-bg-d-active)",
+      ACTIVE: `active:bg-(${COLOR_BG_ACTIVE.TEAL.LIGHT}) dark:active:bg-(${COLOR_BG_ACTIVE.TEAL.DARK})`,
       FOCUS:
         "focus:bg-(--plt-teal-bg-l-focus) dark:focus:bg-(--plt-teal-bg-d-focus)",
     },
@@ -286,8 +280,7 @@ const COLOR_PALETTES_STYLES: { [key in ColorPalettes]: ColorPaletteStyles } = {
       DEFAULT: "bg-(--plt-cyan-bg-l-default) dark:bg-(--plt-cyan-bg-d-default)",
       HOVER:
         "hover:bg-(--plt-cyan-bg-l-hover) dark:hover:bg-(--plt-cyan-bg-d-hover)",
-      ACTIVE:
-        "active:bg-(--plt-cyan-bg-l-active) dark:active:bg-(--plt-cyan-bg-d-active)",
+      ACTIVE: `active:bg-(${COLOR_BG_ACTIVE.CYAN.LIGHT}) dark:active:bg-(${COLOR_BG_ACTIVE.CYAN.DARK})`,
       FOCUS:
         "focus:bg-(--plt-cyan-bg-l-focus) dark:focus:bg-(--plt-cyan-bg-d-focus)",
     },
@@ -316,8 +309,7 @@ const COLOR_PALETTES_STYLES: { [key in ColorPalettes]: ColorPaletteStyles } = {
       DEFAULT: "bg-(--plt-sky-bg-l-default) dark:bg-(--plt-sky-bg-d-default)",
       HOVER:
         "hover:bg-(--plt-sky-bg-l-hover) dark:hover:bg-(--plt-sky-bg-d-hover)",
-      ACTIVE:
-        "active:bg-(--plt-sky-bg-l-active) dark:active:bg-(--plt-sky-bg-d-active)",
+      ACTIVE: `active:bg-(${COLOR_BG_ACTIVE.SKY.LIGHT}) dark:active:bg-(${COLOR_BG_ACTIVE.SKY.DARK})`,
       FOCUS:
         "focus:bg-(--plt-sky-bg-l-focus) dark:focus:bg-(--plt-sky-bg-d-focus)",
     },
@@ -346,8 +338,7 @@ const COLOR_PALETTES_STYLES: { [key in ColorPalettes]: ColorPaletteStyles } = {
       DEFAULT: "bg-(--plt-blue-bg-l-default) dark:bg-(--plt-blue-bg-d-default)",
       HOVER:
         "hover:bg-(--plt-blue-bg-l-hover) dark:hover:bg-(--plt-blue-bg-d-hover)",
-      ACTIVE:
-        "active:bg-(--plt-blue-bg-l-active) dark:active:bg-(--plt-blue-bg-d-active)",
+      ACTIVE: `active:bg-(${COLOR_BG_ACTIVE.BLUE.LIGHT}) dark:active:bg-(${COLOR_BG_ACTIVE.BLUE.DARK})`,
       FOCUS:
         "focus:bg-(--plt-blue-bg-l-focus) dark:focus:bg-(--plt-blue-bg-d-focus)",
     },
@@ -377,8 +368,7 @@ const COLOR_PALETTES_STYLES: { [key in ColorPalettes]: ColorPaletteStyles } = {
         "bg-(--plt-indigo-bg-l-default) dark:bg-(--plt-indigo-bg-d-default)",
       HOVER:
         "hover:bg-(--plt-indigo-bg-l-hover) dark:hover:bg-(--plt-indigo-bg-d-hover)",
-      ACTIVE:
-        "active:bg-(--plt-indigo-bg-l-active) dark:active:bg-(--plt-indigo-bg-d-active)",
+      ACTIVE: `active:bg-(${COLOR_BG_ACTIVE.INDIGO.LIGHT}) dark:active:bg-(${COLOR_BG_ACTIVE.INDIGO.DARK})`,
       FOCUS:
         "focus:bg-(--plt-indigo-bg-l-focus) dark:focus:bg-(--plt-indigo-bg-d-focus)",
     },
@@ -408,8 +398,7 @@ const COLOR_PALETTES_STYLES: { [key in ColorPalettes]: ColorPaletteStyles } = {
         "bg-(--plt-violet-bg-l-default) dark:bg-(--plt-violet-bg-d-default)",
       HOVER:
         "hover:bg-(--plt-violet-bg-l-hover) dark:hover:bg-(--plt-violet-bg-d-hover)",
-      ACTIVE:
-        "active:bg-(--plt-violet-bg-l-active) dark:active:bg-(--plt-violet-bg-d-active)",
+      ACTIVE: `active:bg-(${COLOR_BG_ACTIVE.VIOLET.LIGHT}) dark:active:bg-(${COLOR_BG_ACTIVE.VIOLET.DARK})`,
       FOCUS:
         "focus:bg-(--plt-violet-bg-l-focus) dark:focus:bg-(--plt-violet-bg-d-focus)",
     },
@@ -439,8 +428,7 @@ const COLOR_PALETTES_STYLES: { [key in ColorPalettes]: ColorPaletteStyles } = {
         "bg-(--plt-purple-bg-l-default) dark:bg-(--plt-purple-bg-d-default)",
       HOVER:
         "hover:bg-(--plt-purple-bg-l-hover) dark:hover:bg-(--plt-purple-bg-d-hover)",
-      ACTIVE:
-        "active:bg-(--plt-purple-bg-l-active) dark:active:bg-(--plt-purple-bg-d-active)",
+      ACTIVE: `active:bg-(${COLOR_BG_ACTIVE.PURPLE.LIGHT}) dark:active:bg-(${COLOR_BG_ACTIVE.PURPLE.DARK})`,
       FOCUS:
         "focus:bg-(--plt-purple-bg-l-focus) dark:focus:bg-(--plt-purple-bg-d-focus)",
     },
@@ -470,8 +458,7 @@ const COLOR_PALETTES_STYLES: { [key in ColorPalettes]: ColorPaletteStyles } = {
         "bg-(--plt-fuchsia-bg-l-default) dark:bg-(--plt-fuchsia-bg-d-default)",
       HOVER:
         "hover:bg-(--plt-fuchsia-bg-l-hover) dark:hover:bg-(--plt-fuchsia-bg-d-hover)",
-      ACTIVE:
-        "active:bg-(--plt-fuchsia-bg-l-active) dark:active:bg-(--plt-fuchsia-bg-d-active)",
+      ACTIVE: `active:bg-(${COLOR_BG_ACTIVE.FUCHSIA.LIGHT}) dark:active:bg-(${COLOR_BG_ACTIVE.FUCHSIA.DARK})`,
       FOCUS:
         "focus:bg-(--plt-fuchsia-bg-l-focus) dark:focus:bg-(--plt-fuchsia-bg-d-focus)",
     },
@@ -500,8 +487,7 @@ const COLOR_PALETTES_STYLES: { [key in ColorPalettes]: ColorPaletteStyles } = {
       DEFAULT: "bg-(--plt-pink-bg-l-default) dark:bg-(--plt-pink-bg-d-default)",
       HOVER:
         "hover:bg-(--plt-pink-bg-l-hover) dark:hover:bg-(--plt-pink-bg-d-hover)",
-      ACTIVE:
-        "active:bg-(--plt-pink-bg-l-active) dark:active:bg-(--plt-pink-bg-d-active)",
+      ACTIVE: `active:bg-(${COLOR_BG_ACTIVE.PINK.LIGHT}) dark:active:bg-(${COLOR_BG_ACTIVE.PINK.DARK})`,
       FOCUS:
         "focus:bg-(--plt-pink-bg-l-focus) dark:focus:bg-(--plt-pink-bg-d-focus)",
     },
@@ -530,8 +516,7 @@ const COLOR_PALETTES_STYLES: { [key in ColorPalettes]: ColorPaletteStyles } = {
       DEFAULT: "bg-(--plt-rose-bg-l-default) dark:bg-(--plt-rose-bg-d-default)",
       HOVER:
         "hover:bg-(--plt-rose-bg-l-hover) dark:hover:bg-(--plt-rose-bg-d-hover)",
-      ACTIVE:
-        "active:bg-(--plt-rose-bg-l-active) dark:active:bg-(--plt-rose-bg-d-active)",
+      ACTIVE: `active:bg-(${COLOR_BG_ACTIVE.ROSE.LIGHT}) dark:active:bg-(${COLOR_BG_ACTIVE.ROSE.DARK})`,
       FOCUS:
         "focus:bg-(--plt-rose-bg-l-focus) dark:focus:bg-(--plt-rose-bg-d-focus)",
     },
@@ -561,8 +546,7 @@ const COLOR_PALETTES_STYLES: { [key in ColorPalettes]: ColorPaletteStyles } = {
         "bg-(--plt-slate-bg-l-default) dark:bg-(--plt-slate-bg-d-default)",
       HOVER:
         "hover:bg-(--plt-slate-bg-l-hover) dark:hover:bg-(--plt-slate-bg-d-hover)",
-      ACTIVE:
-        "active:bg-(--plt-slate-bg-l-active) dark:active:bg-(--plt-slate-bg-d-active)",
+      ACTIVE: `active:bg-(${COLOR_BG_ACTIVE.SLATE.LIGHT}) dark:active:bg-(${COLOR_BG_ACTIVE.SLATE.DARK})`,
       FOCUS:
         "focus:bg-(--plt-slate-bg-l-focus) dark:focus:bg-(--plt-slate-bg-d-focus)",
     },
@@ -591,8 +575,7 @@ const COLOR_PALETTES_STYLES: { [key in ColorPalettes]: ColorPaletteStyles } = {
       DEFAULT: "bg-(--plt-gray-bg-l-default) dark:bg-(--plt-gray-bg-d-default)",
       HOVER:
         "hover:bg-(--plt-gray-bg-l-hover) dark:hover:bg-(--plt-gray-bg-d-hover)",
-      ACTIVE:
-        "active:bg-(--plt-gray-bg-l-active) dark:active:bg-(--plt-gray-bg-d-active)",
+      ACTIVE: `active:bg-(${COLOR_BG_ACTIVE.GRAY.LIGHT}) dark:active:bg-(${COLOR_BG_ACTIVE.GRAY.DARK})`,
       FOCUS:
         "focus:bg-(--plt-gray-bg-l-focus) dark:focus:bg-(--plt-gray-bg-d-focus)",
     },
@@ -621,8 +604,7 @@ const COLOR_PALETTES_STYLES: { [key in ColorPalettes]: ColorPaletteStyles } = {
       DEFAULT: "bg-(--plt-zinc-bg-l-default) dark:bg-(--plt-zinc-bg-d-default)",
       HOVER:
         "hover:bg-(--plt-zinc-bg-l-hover) dark:hover:bg-(--plt-zinc-bg-d-hover)",
-      ACTIVE:
-        "active:bg-(--plt-zinc-bg-l-active) dark:active:bg-(--plt-zinc-bg-d-active)",
+      ACTIVE: `active:bg-(${COLOR_BG_ACTIVE.ZINC.LIGHT}) dark:active:bg-(${COLOR_BG_ACTIVE.ZINC.DARK})`,
       FOCUS:
         "focus:bg-(--plt-zinc-bg-l-focus) dark:focus:bg-(--plt-zinc-bg-d-focus)",
     },
@@ -652,8 +634,7 @@ const COLOR_PALETTES_STYLES: { [key in ColorPalettes]: ColorPaletteStyles } = {
         "bg-(--plt-neutral-bg-l-default) dark:bg-(--plt-neutral-bg-d-default)",
       HOVER:
         "hover:bg-(--plt-neutral-bg-l-hover) dark:hover:bg-(--plt-neutral-bg-d-hover)",
-      ACTIVE:
-        "active:bg-(--plt-neutral-bg-l-active) dark:active:bg-(--plt-neutral-bg-d-active)",
+      ACTIVE: `active:bg-(${COLOR_BG_ACTIVE.NEUTRAL.LIGHT}) dark:active:bg-(${COLOR_BG_ACTIVE.NEUTRAL.DARK})`,
       FOCUS:
         "focus:bg-(--plt-neutral-bg-l-focus) dark:focus:bg-(--plt-neutral-bg-d-focus)",
     },
@@ -683,8 +664,7 @@ const COLOR_PALETTES_STYLES: { [key in ColorPalettes]: ColorPaletteStyles } = {
         "bg-(--plt-stone-bg-l-default) dark:bg-(--plt-stone-bg-d-default)",
       HOVER:
         "hover:bg-(--plt-stone-bg-l-hover) dark:hover:bg-(--plt-stone-bg-d-hover)",
-      ACTIVE:
-        "active:bg-(--plt-stone-bg-l-active) dark:active:bg-(--plt-stone-bg-d-active)",
+      ACTIVE: `active:bg-(${COLOR_BG_ACTIVE.STONE.LIGHT}) dark:active:bg-(${COLOR_BG_ACTIVE.STONE.DARK})`,
       FOCUS:
         "focus:bg-(--plt-stone-bg-l-focus) dark:focus:bg-(--plt-stone-bg-d-focus)",
     },
