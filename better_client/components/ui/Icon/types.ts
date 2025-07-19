@@ -6,7 +6,7 @@ export type IconState = Extract<
 >;
 
 /** All added icons to project */
-export type Icons = "search";
+export type Icons = "search" | "expand" | "add";
 
 export type IconProps = {
   /** State type of icon for styling */
