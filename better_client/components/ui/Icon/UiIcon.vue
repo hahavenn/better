@@ -1,7 +1,7 @@
 <template>
   <div
-    class="flex h-fit w-fit [&>*]:fill-neutral-500"
-    :class="classes"
+    class="flex h-fit w-fit"
+    :class="[...computedClasses, paletteClass]"
   >
     <component :is="IconMap.get(props.icon)"></component>
   </div>
@@ -9,7 +9,11 @@
 
 <script lang="ts" setup>
 import IconMap from "./icon_map";
+
+import type { ColorPalettes } from "~/types/color_palettes";
 import type { Icons, IconState } from "./types";
+
+import COLOR_PALETTES_CLASSES from "~/constants/color/color_palettes_classes";
 
 const props = withDefaults(
   defineProps<{
@@ -21,13 +25,17 @@ const props = withDefaults(
      * What state the icon should be in
      */
     state?: IconState;
+
+    palette?: ColorPalettes;
   }>(),
   {
     state: "state__default",
+    palette: "NEUTRAL",
   }
 );
 
-const classes = computed(() => [props.state]);
+const paletteClass = COLOR_PALETTES_CLASSES[props.palette].ICON.DEFAULT;
+const computedClasses = computed(() => [props.state]);
 </script>
 
 <style scoped></style>

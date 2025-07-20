@@ -44,10 +44,10 @@
 </template>
 
 <script setup lang="ts">
-import { COLOR_BORDER_HOVER } from "~/constants/color_border";
-import COLOR_PALETTES_STYLES, {
-  COLOR_PALETTE_DEFAULT,
-} from "~/constants/color_palettes";
+import type { ColorPalettes } from "~/types/color_palettes";
+import { COLOR_BORDER_HOVER } from "~/constants/color/border";
+import COLOR_PALETTE_DEFAULT from "~/constants/color/default_palette";
+import COLOR_PALETTES_CLASSES from "~/constants/color/color_palettes_classes";
 
 const props = withDefaults(
   defineProps<{
@@ -60,7 +60,7 @@ const props = withDefaults(
     /** @todo styles and behavior */
     disabled?: boolean;
 
-    palette?: keyof typeof COLOR_PALETTES_STYLES;
+    palette?: ColorPalettes;
   }>(),
   {
     labelAlign: "right",
@@ -94,21 +94,21 @@ async function checkHandler() {
 }
 
 const checkmarkClasses = computed(() => [
-  COLOR_PALETTES_STYLES[props.palette].BORDER.DEFAULT,
-  COLOR_PALETTES_STYLES[props.palette].BG.DEFAULT,
+  COLOR_PALETTES_CLASSES[props.palette].BORDER.DEFAULT,
+  COLOR_PALETTES_CLASSES[props.palette].BG.DEFAULT,
 
-  hover.value ? COLOR_PALETTES_STYLES[props.palette].BORDER.HOVER : "",
-  hover.value ? COLOR_PALETTES_STYLES[props.palette].BG.HOVER : "",
+  hover.value ? COLOR_PALETTES_CLASSES[props.palette].BORDER.HOVER : "",
+  hover.value ? COLOR_PALETTES_CLASSES[props.palette].BG.HOVER : "",
 
   check.value || pressed.value
-    ? COLOR_PALETTES_STYLES[props.palette].BORDER.ACTIVE
+    ? COLOR_PALETTES_CLASSES[props.palette].BORDER.ACTIVE
     : "",
   check.value || pressed.value
-    ? COLOR_PALETTES_STYLES[props.palette].BG.ACTIVE
+    ? COLOR_PALETTES_CLASSES[props.palette].BG.ACTIVE
     : "",
 
-  focused.value ? COLOR_PALETTES_STYLES[props.palette].BORDER.FOCUS : "",
-  focused.value ? COLOR_PALETTES_STYLES[props.palette].BG.FOCUS : "",
+  focused.value ? COLOR_PALETTES_CLASSES[props.palette].BORDER.FOCUS : "",
+  focused.value ? COLOR_PALETTES_CLASSES[props.palette].BG.FOCUS : "",
 ]);
 
 const checkmarkCheckedColor = computed(

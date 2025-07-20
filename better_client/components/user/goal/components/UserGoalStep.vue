@@ -79,7 +79,7 @@
 <script lang="ts" setup>
 import type { UserGoalStep } from "~/stores/goals/types";
 
-import COLOR_PALETTES_STYLES from "~/constants/color_palettes";
+import COLOR_PALETTES_CLASSES from "~/constants/color/color_palettes_classes";
 
 import useGoalsStore from "~/stores/goals";
 
@@ -107,9 +107,9 @@ const palette = pickPalette({
   exclude: ["SLATE", "GRAY", "ZINC", "NEUTRAL", "STONE"],
 });
 const liClasses = [
-  COLOR_PALETTES_STYLES[palette].BORDER.DEFAULT,
-  COLOR_PALETTES_STYLES[palette].BG.DEFAULT,
-  COLOR_PALETTES_STYLES[palette].TEXT.DEFAULT,
+  COLOR_PALETTES_CLASSES[palette].BORDER.DEFAULT,
+  COLOR_PALETTES_CLASSES[palette].BG.DEFAULT,
+  COLOR_PALETTES_CLASSES[palette].TEXT.DEFAULT,
 ];
 
 const completeState = ref(props.step.complete);
@@ -142,11 +142,11 @@ const { expanded: accordionExpanded } = useAccordion(
 );
 
 const stepBtnClasses = [
-  COLOR_PALETTES_STYLES[palette].BORDER.DEFAULT,
-  COLOR_PALETTES_STYLES[palette].BG.DEFAULT,
+  COLOR_PALETTES_CLASSES[palette].BORDER.DEFAULT,
+  COLOR_PALETTES_CLASSES[palette].BG.DEFAULT,
 
-  COLOR_PALETTES_STYLES[palette].BORDER.HOVER,
-  COLOR_PALETTES_STYLES[palette].BG.HOVER,
+  COLOR_PALETTES_CLASSES[palette].BORDER.HOVER,
+  COLOR_PALETTES_CLASSES[palette].BG.HOVER,
 ];
 const stepAddBtnClasses = computed(() => [
   isExpandable.value
