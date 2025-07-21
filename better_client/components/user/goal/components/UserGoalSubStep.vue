@@ -11,7 +11,7 @@
 
 <script lang="ts" setup>
 import type { UserGoalStep, UserGoalSubStep } from "~/stores/goals/types";
-import type { ColorPalettes } from "~/types/color_palettes";
+import type { ColorGeneratedPalettes } from "~/types/color/palettes_generated";
 
 import useGoalsStore from "~/stores/goals";
 
@@ -22,7 +22,7 @@ import UiCheckbox from "~/components/ui/Checkbox/UiCheckbox.vue";
 const props = defineProps<{
   stepId: UserGoalStep["id"];
   subStep: UserGoalSubStep;
-  palette: ColorPalettes;
+  palette: ColorGeneratedPalettes;
 }>();
 const goalIdInject = inject(goalIdKey);
 const store = useGoalsStore();

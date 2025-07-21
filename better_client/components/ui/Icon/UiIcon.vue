@@ -10,10 +10,10 @@
 <script lang="ts" setup>
 import IconMap from "./icon_map";
 
-import type { ColorPalettes } from "~/types/color_palettes";
+import type { ColorGeneratedPalettes } from "~/types/color/palettes_generated";
 import type { Icons, IconState } from "./types";
 
-import COLOR_PALETTES_CLASSES from "~/constants/color/color_palettes_classes";
+import COLOR_GENERATED_PALETTES_CLASSES from "~/constants/color/generated_palettes_classes";
 
 const props = withDefaults(
   defineProps<{
@@ -26,7 +26,7 @@ const props = withDefaults(
      */
     state?: IconState;
 
-    palette?: ColorPalettes;
+    palette?: ColorGeneratedPalettes;
   }>(),
   {
     state: "state__default",
@@ -34,7 +34,8 @@ const props = withDefaults(
   }
 );
 
-const paletteClass = COLOR_PALETTES_CLASSES[props.palette].ICON.DEFAULT;
+const paletteClass =
+  COLOR_GENERATED_PALETTES_CLASSES[props.palette].FILL.DEFAULT;
 const computedClasses = computed(() => [props.state]);
 </script>
 

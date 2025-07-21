@@ -4,7 +4,7 @@
   "type": "module",
   "scripts": {
     "build": "nuxt build",
-    "dev": "nuxt dev",
+    "dev": "ts-node generators/index.ts && nuxt dev",
     "generate": "nuxt generate",
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare"
@@ -19,7 +19,6 @@
   },
   "devDependencies": {
     "@nuxtjs/tailwindcss": "^7.0.0-beta.0",
-    "concurrently": "^9.2.0",
     "prettier": "3.5.3",
     "prettier-plugin-tailwindcss": "^0.6.13",
     "ts-node": "^10.9.2"

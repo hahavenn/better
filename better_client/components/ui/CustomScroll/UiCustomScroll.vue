@@ -5,17 +5,18 @@
 </template>
 
 <script lang="ts" setup>
-import { COLOR_BORDER_ACTIVE } from "~/constants/color/color_border";
-import type { ColorPalettes } from "~/types/color_palettes";
+import { COLOR_GENERATED_BORDER_ACTIVE } from "~/constants/color/generated_border";
+import type { ColorGeneratedPalettes } from "~/types/color/palettes_generated";
 
 const props = defineProps<{
-  palette: ColorPalettes;
+  palette: ColorGeneratedPalettes;
 }>();
 
 const isDark = useDark();
 
 const scrollbarColor = computed(
-  () => `var(${COLOR_BORDER_ACTIVE[props.palette][isDark ? "DARK" : "LIGHT"]})`
+  () =>
+    `var(${COLOR_GENERATED_BORDER_ACTIVE[props.palette][isDark ? "DARK" : "LIGHT"]})`
 );
 </script>
 

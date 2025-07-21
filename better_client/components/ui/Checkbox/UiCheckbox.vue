@@ -44,10 +44,10 @@
 </template>
 
 <script setup lang="ts">
-import type { ColorPalettes } from "~/types/color_palettes";
-import { COLOR_BORDER_HOVER } from "~/constants/color/border";
+import type { ColorGeneratedPalettes } from "~/types/color/palettes_generated";
+import { COLOR_GENERATED_BORDER_HOVER } from "~/constants/color/generated_border";
 import COLOR_PALETTE_DEFAULT from "~/constants/color/default_palette";
-import COLOR_PALETTES_CLASSES from "~/constants/color/color_palettes_classes";
+import COLOR_GENERATED_PALETTES_CLASSES from "~/constants/color/generated_palettes_classes";
 
 const props = withDefaults(
   defineProps<{
@@ -60,7 +60,7 @@ const props = withDefaults(
     /** @todo styles and behavior */
     disabled?: boolean;
 
-    palette?: ColorPalettes;
+    palette?: ColorGeneratedPalettes;
   }>(),
   {
     labelAlign: "right",
@@ -84,8 +84,8 @@ const hover = ref(false);
 async function checkHandler() {
   check.value = !check.value;
 
-  /* 
-    need to wait until vue updates v-model value 
+  /*
+    need to wait until vue updates v-model value
     for passing correct value to emit argument
   */
   await nextTick();
@@ -94,25 +94,30 @@ async function checkHandler() {
 }
 
 const checkmarkClasses = computed(() => [
-  COLOR_PALETTES_CLASSES[props.palette].BORDER.DEFAULT,
-  COLOR_PALETTES_CLASSES[props.palette].BG.DEFAULT,
+  COLOR_GENERATED_PALETTES_CLASSES[props.palette].BORDER.DEFAULT,
+  COLOR_GENERATED_PALETTES_CLASSES[props.palette].BG.DEFAULT,
 
-  hover.value ? COLOR_PALETTES_CLASSES[props.palette].BORDER.HOVER : "",
-  hover.value ? COLOR_PALETTES_CLASSES[props.palette].BG.HOVER : "",
+  hover.value
+    ? COLOR_GENERATED_PALETTES_CLASSES[props.palette].BORDER.HOVER
+    : "",
+  hover.value ? COLOR_GENERATED_PALETTES_CLASSES[props.palette].BG.HOVER : "",
 
   check.value || pressed.value
-    ? COLOR_PALETTES_CLASSES[props.palette].BORDER.ACTIVE
+    ? COLOR_GENERATED_PALETTES_CLASSES[props.palette].BORDER.ACTIVE
     : "",
   check.value || pressed.value
-    ? COLOR_PALETTES_CLASSES[props.palette].BG.ACTIVE
+    ? COLOR_GENERATED_PALETTES_CLASSES[props.palette].BG.ACTIVE
     : "",
 
-  focused.value ? COLOR_PALETTES_CLASSES[props.palette].BORDER.FOCUS : "",
-  focused.value ? COLOR_PALETTES_CLASSES[props.palette].BG.FOCUS : "",
+  focused.value
+    ? COLOR_GENERATED_PALETTES_CLASSES[props.palette].BORDER.FOCUS
+    : "",
+  focused.value ? COLOR_GENERATED_PALETTES_CLASSES[props.palette].BG.FOCUS : "",
 ]);
 
 const checkmarkCheckedColor = computed(
-  () => `var(${COLOR_BORDER_HOVER[props.palette][isDark ? "DARK" : "LIGHT"]})`
+  () =>
+    `var(${COLOR_GENERATED_BORDER_HOVER[props.palette][isDark ? "DARK" : "LIGHT"]})`
 );
 </script>
 

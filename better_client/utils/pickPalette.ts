@@ -1,18 +1,18 @@
 import COLOR_PALETTE_DEFAULT from "~/constants/color/default_palette";
-import COLOR_PALETTES_CLASSES from "~/constants/color/color_palettes_classes";
-import type { ColorPalettes } from "~/types/color_palettes";
+import COLOR_GENERATED_PALETTES_CLASSES from "~/constants/color/generated_palettes_classes";
+import type { ColorGeneratedPalettes } from "~/types/color/palettes_generated";
 
 /** randomly pick color palette */
 export default function pickPalette(params?: {
   /** pick palettes only from `included` */
-  include?: ColorPalettes[];
+  include?: ColorGeneratedPalettes[];
   /** pick any other palette not in `excluded` */
-  exclude?: ColorPalettes[];
-}): ColorPalettes {
+  exclude?: ColorGeneratedPalettes[];
+}): ColorGeneratedPalettes {
   const availablePalettes = (
     Object.keys(
-      COLOR_PALETTES_CLASSES
-    ) as (keyof typeof COLOR_PALETTES_CLASSES)[]
+      COLOR_GENERATED_PALETTES_CLASSES
+    ) as (keyof typeof COLOR_GENERATED_PALETTES_CLASSES)[]
   ).filter((palette) => {
     const isIncluded = params?.include
       ? params.include.includes(palette)
