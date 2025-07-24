@@ -1,5 +1,5 @@
 <template>
-  <div class="fixed top-0 flex w-full flex-col items-center">
+  <div class="fixed top-0 z-[1] flex w-full flex-col items-center">
     <UiContainer
       :responsive="true"
       :attachedTo="'attachment__top'"
