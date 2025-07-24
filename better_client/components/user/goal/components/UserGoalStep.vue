@@ -13,7 +13,9 @@
         >
           {{ props.step.name }}
         </span>
-        <span>({{ props.step.subSteps.length }})</span>
+        <span v-if="props.step.subSteps.length > 0">
+          ({{ props.step.subSteps.length }})
+        </span>
       </h2>
 
       <UiCheckbox
