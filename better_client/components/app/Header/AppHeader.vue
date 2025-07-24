@@ -16,6 +16,8 @@
   </header>
 </template>
 
-<script lang="ts" setup></script>
+<script lang="ts" setup>
+import AppSearch from "~/components/app/Search/AppSearch.vue";
+</script>
 
 <style scoped></style>
