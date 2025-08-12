@@ -2,7 +2,7 @@
   <header class="fixed top-0 z-[1] flex w-full flex-col items-center">
     <UiContainer
       :responsive="true"
-      :attachedTo="'attachment__top'"
+      :attachedTo="'top'"
       :fullWidth="true"
     >
       <div class="flex w-full flex-row items-center gap-(--offset__3)">

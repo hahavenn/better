@@ -1,115 +1,36 @@
 <template>
   <div
-    class="ui-container flex flex-col justify-center rounded-(--border-radius__0) border-(length:--border-width__0) border-solid border-neutral-400 bg-neutral-50 p-(--offset__1) dark:border-neutral-600 dark:bg-neutral-900"
-    :style="styles"
-    :class="classes"
+    class="flex flex-col justify-center rounded-xl border-[1px] border-solid border-neutral-400 bg-neutral-50 p-3 dark:border-neutral-600 dark:bg-neutral-900"
+    :class="[
+      props.attachedTo
+        ? {
+            top: 'rounded-tl-none rounded-tr-none rounded-br-xl rounded-bl-xl border-t-0',
+            left: 'rounded-tl-none rounded-tr-xl rounded-br-xl rounded-bl-none border-l-0',
+            right:
+              'rounded-tl-xl rounded-tr-none rounded-br-none rounded-bl-xl border-r-0',
+            bottom:
+              'rounded-tl-xl rounded-tr-xl rounded-br-none rounded-bl-none border-b-0',
+          }[props.attachedTo]
+        : '',
+      props.responsive ? 'xl:max-w-7xl' : '',
+      props.fullHeight ? 'min-h-full' : 'min-h-fit',
+      props.fullWidth
+        ? 'w-full'
+        : props.width !== undefined
+          ? `w-[${props.width}rem]`
+          : 'w-fit',
+      props.grow ? 'grow' : '',
+      props.noShrink ? 'shrink-0' : '',
+    ]"
   >
     <slot></slot>
   </div>
 </template>
 
 <script setup lang="ts">
-import type { CSSProperties } from "vue";
+import type { UiContainerProps } from "./types";
 
-const props = withDefaults(
-  defineProps<{
-    /**
-     * `height` CSS-property
-     * @description If `true` -> `height: 100%`
-     * @default `fit-content`
-     */
-    fullHeight?: boolean;
-
-    /**
-     * `width: 100%`
-     * @default false
-     *
-     * @description
-     * Should not be set with `width`
-     */
-    fullWidth?: boolean;
-    /**
-     * Width of container in `px`
-     *
-     * @description
-     * Should not be set with `fullWidth`
-     */
-    width?: number;
-
-    /**
-     * `flex-grow: 1`
-     * @default false
-     */
-    grow?: boolean;
-    /**
-     * `flex-shrink: 0`
-     * @default false
-     */
-    noShrink?: boolean;
-
-    /**
-     * Does container should be responsive to media-query
-     */
-    responsive?: boolean;
-
-    /**
-     * Which side of parent component container is attached to
-     */
-    attachedTo?:
-      | "attachment__left"
-      | "attachment__top"
-      | "attachment__right"
-      | "attachment__bottom";
-  }>(),
-  {}
-);
-
-const styles = computed<CSSProperties>(() => {
-  const styles: CSSProperties = {};
-
-  styles.minHeight = props.fullHeight ? "100%" : "fit-content";
-  styles.width = props.fullWidth
-    ? "100%"
-    : props.width !== undefined
-      ? `${props.width}px`
-      : "fit-content";
-
-  if (props.grow) styles.flexGrow = 1;
-  if (props.noShrink) styles.flexShrink = 0;
-
-  return styles;
-});
-const classes = computed(() => [
-  props.responsive && "responsive",
-  props.attachedTo ?? "",
-]);
+const props = defineProps<UiContainerProps>();
 </script>
 
-<style scoped>
-.ui-container {
-  @media screen and (min-width: 1280px) {
-    &.responsive {
-      max-width: 1280px;
-    }
-  }
-
-  --br: var(--border-radius__0);
-
-  &.attachment__top {
-    border-radius: 0 0 var(--br) var(--br);
-    border-top-width: 0;
-  }
-  &.attachment__bottom {
-    border-radius: var(--br) var(--br) 0 0;
-    border-bottom-width: 0;
-  }
-  &.attachment__left {
-    border-radius: var(--br) 0 0 var(--br);
-    border-left-width: 0;
-  }
-  &.attachment__right {
-    border-radius: 0 var(--br) var(--br) 0;
-    border-right-width: 0;
-  }
-}
-</style>
+<style scoped></style>
