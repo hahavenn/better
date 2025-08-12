@@ -1,7 +1,6 @@
 <template>
   <header
-    ref="headerRef"
-    class="fixed top-0 z-[1] flex w-full flex-col items-center"
+    class="sticky top-0 left-0 z-[1] flex w-dvw flex-col items-center xl:w-full"
   >
     <UiContainer
       :responsive="true"
@@ -21,11 +20,6 @@
 
 <script lang="ts" setup>
 import AppSearch from "~/components/app/Search/AppSearch.vue";
-
-const headerRef = useTemplateRef("headerRef");
-const { height } = useElementBounding(headerRef);
-
-defineExpose({ height });
 </script>
 
 <style scoped></style>
