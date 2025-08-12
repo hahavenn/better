@@ -1,6 +1,6 @@
 <template>
   <header
-    class="sticky top-0 left-0 z-[1] flex w-dvw flex-col items-center xl:w-full"
+    class="sticky top-0 left-0 z-[1] flex w-screen flex-col items-center xl:w-full"
   >
     <UiContainer
       :responsive="true"
