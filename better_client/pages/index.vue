@@ -1,19 +1,17 @@
 <template>
-  <ClientOnly>
-    <UiContainer
-      :grow="true"
-      :fullWidth="true"
-    >
-      <UserGoal
-        v-for="g in goalsStore.goals"
-        :key="g.id"
-        :goalId="g.id"
-      />
-    </UiContainer>
-    <template #fallback> </template>
-  </ClientOnly>
+  <UiContainer
+    v-if="goalsStore.goals.length > 0"
+    :grow="true"
+    :fullWidth="true"
+  >
+    <UserGoal
+      v-for="g in goalsStore.goals"
+      :key="g.id"
+      :goalId="g.id"
+    />
+  </UiContainer>
 
-  <div class="flex shrink-0 max-xl:grow max-md:w-full xl:w-[360px]">
+  <div class="flex shrink-0 max-xl:grow max-md:w-full xl:w-80">
     <UiContainer :fullWidth="true"> planned to learn </UiContainer>
   </div>
 
