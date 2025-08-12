@@ -22,20 +22,22 @@ const scrollbarColor = computed(
 
 <style scoped>
 .custom_scroll {
+  --size: 4px;
+
   /* Firefox */
   scrollbar-width: thin;
   scrollbar-color: v-bind("scrollbarColor") transparent; /* scrollbar + bg */
 
   /* Webkit */
   &::-webkit-scrollbar {
-    width: var(--border-radius__1);
-    height: var(--border-radius__1);
+    width: var(--size);
+    height: var(--size);
     background-color: transparent;
   }
 
   &::-webkit-scrollbar-thumb {
     background-color: v-bind("scrollbarColor"); /* scrollbar */
-    border-radius: var(--border-radius__1);
+    border-radius: var(--size);
   }
 }
 </style>

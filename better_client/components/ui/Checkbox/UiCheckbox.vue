@@ -9,10 +9,10 @@
   >
     <span
       v-if="(props.label?.length ?? 0) > 0"
-      :style="{
-        textDecoration: props.crossOut && check ? 'line-through' : '',
-        order: props.labelAlign === 'left' ? 0 : 1,
-      }"
+      :class="[
+        props.crossOut && check ? 'line-through' : '',
+        props.labelAlign === 'left' ? '' : 'order-1',
+      ]"
     >
       {{ props.label }}
     </span>
@@ -36,7 +36,7 @@
       />
       <span
         @click.stop.prevent="checkHandler"
-        class="checkmark aspect-square w-[20px] cursor-pointer rounded-(--border-radius__1) border-(length:--border-width__0) border-solid"
+        class="checkmark aspect-square w-5 cursor-pointer rounded-sm border-[1px] border-solid"
         :class="checkmarkClasses"
       ></span>
     </label>

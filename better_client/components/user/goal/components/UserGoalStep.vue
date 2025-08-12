@@ -1,15 +1,13 @@
 <template>
   <li
-    class="flex h-fit flex-col gap-(--offset__6) rounded-(--border-radius__0) border-(length:--border-width__0) border-solid px-(--offset__0) py-(--offset__4)"
+    class="flex h-fit flex-col gap-2 rounded-xl border-[1px] border-solid px-2.5 py-1.5"
     :class="liClasses"
   >
-    <header class="flex w-full items-center justify-between gap-(--offset__6)">
-      <h2 class="flex items-center gap-(--offset__5) text-2xl font-semibold">
+    <header class="flex w-full items-center justify-between gap-2">
+      <h2 class="flex items-center gap-1 text-2xl font-semibold">
         <span
           class="line-clamp-1"
-          :style="{
-            textDecoration: props.step.complete ? 'line-through' : '',
-          }"
+          :class="[props.step.complete ? 'line-through' : '']"
         >
           {{ props.step.name }}
         </span>
@@ -35,7 +33,7 @@
     >
       <ul
         v-show="accordionExpanded"
-        class="flex max-h-full flex-col gap-(--offset__5) overflow-auto"
+        class="flex max-h-full flex-col gap-1 overflow-auto"
       >
         <li
           v-for="sub in props.step.subSteps"
@@ -55,7 +53,7 @@
         v-if="isExpandable"
         @click="accordionExpanded = !accordionExpanded"
         ref="stepExpandBtnRef"
-        class="flex h-full shrink-0 grow cursor-pointer items-center justify-center rounded-tl-lg rounded-bl-lg border-(length:--border-width__0) border-solid"
+        class="flex h-full shrink-0 grow cursor-pointer items-center justify-center rounded-tl-lg rounded-bl-lg border-[1px] border-solid"
         :class="stepBtnClasses"
         type="button"
       >
@@ -65,8 +63,13 @@
         />
       </button>
       <button
-        class="flex h-full shrink-0 grow cursor-pointer items-center justify-center border-(length:--border-width__0) border-solid"
-        :class="[...stepBtnClasses, ...stepAddBtnClasses]"
+        class="flex h-full shrink-0 grow cursor-pointer items-center justify-center border-[1px] border-solid"
+        :class="[
+          ...stepBtnClasses,
+          isExpandable
+            ? 'rounded-tr-lg rounded-br-lg'
+            : 'rounded-tl-lg rounded-tr-lg rounded-br-lg rounded-bl-lg',
+        ]"
         type="button"
       >
         <UiIcon
@@ -150,11 +153,6 @@ const stepBtnClasses = [
   COLOR_GENERATED_PALETTES_CLASSES[palette].BORDER.HOVER,
   COLOR_GENERATED_PALETTES_CLASSES[palette].BG.HOVER,
 ];
-const stepAddBtnClasses = computed(() => [
-  isExpandable.value
-    ? "rounded-tr-lg rounded-br-lg"
-    : "rounded-tl-lg rounded-bl-lg rounded-tr-lg rounded-br-lg",
-]);
 </script>
 
 <style scoped></style>

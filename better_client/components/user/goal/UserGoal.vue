@@ -1,7 +1,7 @@
 <template>
   <article
     v-if="currGoal"
-    class="flex flex-col gap-(--offset__2)"
+    class="flex flex-col gap-4"
   >
     <SectionHeader
       :headerId="props.goalId.toString()"
@@ -18,7 +18,7 @@
     <ul
       :aria-label="'Steps to complete your goal'"
       :aria-labelledby="props.goalId.toString()"
-      class="grid-rows-masonry grid w-full grid-flow-row-dense grid-cols-1 gap-(--offset__3) md:grid-cols-3 xl:grid-cols-4"
+      class="grid-rows-masonry grid w-full grid-flow-row-dense grid-cols-1 gap-4 md:grid-cols-3 xl:grid-cols-4"
     >
       <UserGoalStep
         v-for="step in currGoal.steps"

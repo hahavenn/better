@@ -1,7 +1,7 @@
 <template>
   <div
     class="group relative flex h-full w-full"
-    style="--border-width: var(--border-width__0)"
+    style="--size: 1px"
   >
     <label
       v-if="label && label.length > 0"
@@ -16,13 +16,13 @@
       :placeholder
       :autocapitalize
       :autocomplete
-      class="peer h-full w-full rounded-(--border-radius__1) border-(length:--border-width) border-solid border-neutral-400 bg-transparent px-(--offset__0) py-0 outline-none group-hover:border-neutral-500 placeholder:text-neutral-400 focus:border-neutral-500 active:border-neutral-500 dark:border-neutral-600 dark:placeholder:text-neutral-500"
+      class="peer h-full w-full rounded-sm border-(length:--size) border-solid border-neutral-400 bg-transparent px-2.5 py-0 outline-none group-hover:border-neutral-500 placeholder:text-neutral-400 focus:border-neutral-500 active:border-neutral-500 dark:border-neutral-600 dark:placeholder:text-neutral-500"
     />
     <button
       v-if="icon !== undefined"
       :type="buttonType"
-      style="height: calc(100% - 2 * var(--border-width))"
-      class="border-l-solid absolute top-(--border-width) right-(--border-width) flex w-[32px] items-center justify-center border-t-0 border-r-0 border-b-0 border-l-(length:--border-width) border-l-neutral-400 bg-transparent group-hover:border-neutral-500 peer-focus:border-neutral-500 peer-active:border-neutral-500 hover:cursor-pointer dark:border-l-neutral-600"
+      style="height: calc(100% - 2 * var(--size))"
+      class="border-l-solid absolute top-(--size) right-(--size) flex w-8 cursor-pointer items-center justify-center border-t-0 border-r-0 border-b-0 border-l-(length:--size) border-l-neutral-400 bg-transparent group-hover:border-neutral-500 peer-focus:border-neutral-500 peer-active:border-neutral-500 dark:border-l-neutral-600"
     >
       <UiIcon :icon />
     </button>
