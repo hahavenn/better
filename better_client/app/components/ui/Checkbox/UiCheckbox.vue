@@ -44,10 +44,10 @@
 </template>
 
 <script setup lang="ts">
-import type { ColorGeneratedPalettes } from "~/types/color/palettes_generated";
-import { COLOR_GENERATED_BORDER_HOVER } from "~/constants/color/generated_border";
-import COLOR_PALETTE_DEFAULT from "~/constants/color/default_palette";
-import COLOR_GENERATED_PALETTES_CLASSES from "~/constants/color/generated_palettes_classes";
+import type { ColorGeneratedPalettes } from "~/types/color/generatedPalettes";
+import { COLOR_GENERATED_BORDER_HOVER } from "~/constants/color/generatedBorder";
+import COLOR_PALETTE_DEFAULT from "~/constants/color/defaultPalette";
+import COLOR_GENERATED_PALETTES_CLASSES from "~/constants/color/generatedPalettesClasses";
 
 const props = withDefaults(
   defineProps<{

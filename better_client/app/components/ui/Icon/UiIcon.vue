@@ -8,12 +8,12 @@
 </template>
 
 <script lang="ts" setup>
-import IconMap from "./icon_map";
+import IconMap from "./iconMap";
 
-import type { ColorGeneratedPalettes } from "~/types/color/palettes_generated";
+import type { ColorGeneratedPalettes } from "~/types/color/generatedPalettes";
 import type { Icons, IconState } from "./types";
 
-import COLOR_GENERATED_PALETTES_CLASSES from "~/constants/color/generated_palettes_classes";
+import COLOR_GENERATED_PALETTES_CLASSES from "~/constants/color/generatedPalettesClasses";
 
 const props = withDefaults(
   defineProps<{

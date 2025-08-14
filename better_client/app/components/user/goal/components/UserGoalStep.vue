@@ -84,14 +84,14 @@
 <script lang="ts" setup>
 import type { UserGoalStep } from "~/stores/goals/types";
 
-import COLOR_GENERATED_PALETTES_CLASSES from "~/constants/color/generated_palettes_classes";
+import COLOR_GENERATED_PALETTES_CLASSES from "~/constants/color/generatedPalettesClasses";
 
 import useGoalsStore from "~/stores/goals";
 
 import type { UiAccordionType } from "~/components/ui/Accordion/types";
 import useAccordion from "~/components/ui/Accordion/useAccordion";
 
-import { goalIdKey } from "~/components/user/goal/provide_inject";
+import { goalIdKey } from "~/components/user/goal/provideInject";
 
 import UiCheckbox from "~/components/ui/Checkbox/UiCheckbox.vue";
 import UiIcon from "~/components/ui/Icon/UiIcon.vue";

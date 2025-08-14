@@ -11,11 +11,11 @@
 
 <script lang="ts" setup>
 import type { UserGoalStep, UserGoalSubStep } from "~/stores/goals/types";
-import type { ColorGeneratedPalettes } from "~/types/color/palettes_generated";
+import type { ColorGeneratedPalettes } from "~/types/color/generatedPalettes";
 
 import useGoalsStore from "~/stores/goals";
 
-import { goalIdKey } from "~/components/user/goal/provide_inject";
+import { goalIdKey } from "~/components/user/goal/provideInject";
 
 import UiCheckbox from "~/components/ui/Checkbox/UiCheckbox.vue";
 

@@ -1,4 +1,4 @@
-import type { LinkRelAttribute } from "~/types/link_rel_attribute";
+import type { LinkRelAttribute } from "~/types/linkRelAttribute";
 
 /**
  * All possible link types' presets in project, that can be re-used

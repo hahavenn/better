@@ -17,7 +17,7 @@ export default function generateColorEntity(
       "app",
       "constants",
       "color",
-      `generated_${e}.ts`
+      `generated${e.charAt(0).toUpperCase().concat(e.slice(1))}.ts`
     );
 
     const content = states

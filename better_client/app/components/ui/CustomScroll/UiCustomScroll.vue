@@ -5,8 +5,8 @@
 </template>
 
 <script lang="ts" setup>
-import { COLOR_GENERATED_BORDER_ACTIVE } from "~/constants/color/generated_border";
-import type { ColorGeneratedPalettes } from "~/types/color/palettes_generated";
+import { COLOR_GENERATED_BORDER_ACTIVE } from "~/constants/color/generatedBorder";
+import type { ColorGeneratedPalettes } from "~/types/color/generatedPalettes";
 
 const props = defineProps<{
   palette: ColorGeneratedPalettes;

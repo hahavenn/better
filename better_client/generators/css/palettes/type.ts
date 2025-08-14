@@ -9,7 +9,7 @@ const fileToGenerate = path.join(
   "app",
   "types",
   "color",
-  "palettes_generated.ts"
+  "generatedPalettes.ts"
 );
 
 /** used to generate color palettes as types for usage in project */

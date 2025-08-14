@@ -1,6 +1,6 @@
-import COLOR_PALETTE_DEFAULT from "~/constants/color/default_palette";
-import COLOR_GENERATED_PALETTES_CLASSES from "~/constants/color/generated_palettes_classes";
-import type { ColorGeneratedPalettes } from "~/types/color/palettes_generated";
+import COLOR_PALETTE_DEFAULT from "~/constants/color/defaultPalette";
+import COLOR_GENERATED_PALETTES_CLASSES from "~/constants/color/generatedPalettesClasses";
+import type { ColorGeneratedPalettes } from "~/types/color/generatedPalettes";
 
 /** randomly pick color palette */
 export default function pickPalette(params?: {

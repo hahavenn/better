@@ -45,7 +45,7 @@ export default function generatePalettesStyles(
     "app",
     "constants",
     "color",
-    "generated_palettes_classes.ts"
+    "generatedPalettesClasses.ts"
   );
 
   const palettesFormatted = palettes
