@@ -14,6 +14,7 @@ export default function generateColorEntity(
       "..",
       "..",
       "..",
+      "app",
       "constants",
       "color",
       `generated_${e}.ts`

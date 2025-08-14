@@ -12,6 +12,7 @@ export default function runPalettesGenerators() {
       "..",
       "..",
       "..",
+      "app",
       "assets",
       "css",
       "colors",

@@ -6,6 +6,7 @@ const fileToGenerate = path.join(
   "..",
   "..",
   "..",
+  "app",
   "types",
   "color",
   "palettes_generated.ts"
