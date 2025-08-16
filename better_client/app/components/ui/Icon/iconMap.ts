@@ -1,10 +1,9 @@
 import type { Icons } from "./types";
 
-import Expand from "./icons/Expand.vue";
-import Search from "./icons/Search.vue";
-import Add from "./icons/Add.vue";
+const Expand = defineAsyncComponent(() => import("./icons/Expand.vue"));
+const Search = defineAsyncComponent(() => import("./icons/Search.vue"));
+const Add = defineAsyncComponent(() => import("./icons/Add.vue"));
 
-/** @todo make async */
 const IconMap = new Map<Icons, Component>([
   ["search", Search],
   ["expand", Expand],
