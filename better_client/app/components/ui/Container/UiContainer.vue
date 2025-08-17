@@ -1,6 +1,6 @@
 <template>
   <div
-    class="flex flex-col justify-center rounded-xl border-[1px] border-solid border-neutral-400 bg-neutral-50 p-3 dark:border-neutral-600 dark:bg-neutral-900"
+    class="flex flex-col justify-center rounded-xl border-[1px] border-solid border-neutral-400 bg-neutral-50 p-3 dark:border-neutral-600 dark:bg-neutral-800"
     :class="[
       props.attachedTo
         ? {
