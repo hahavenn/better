@@ -3,5 +3,5 @@
  */
 const SITE_LINKS = {
   HOME: "/",
-};
+} as const;
 export default SITE_LINKS;
