@@ -1,7 +1,6 @@
 <template>
-  <ClientOnly>
+  <ClientOnly v-if="goalsStore.goals.length > 0">
     <UiContainer
-      v-if="goalsStore.goals.length > 0"
       :grow="true"
       :fullWidth="true"
     >
@@ -11,6 +10,8 @@
         :goalId="g.id"
       />
     </UiContainer>
+
+    <template #fallback></template>
   </ClientOnly>
 
   <div class="flex shrink-0 max-xl:grow max-md:w-full xl:w-80">
