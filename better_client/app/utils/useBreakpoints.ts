@@ -16,7 +16,7 @@ const breakpoints = {
 
 const { width } = useWindowSize();
 
-const activeBreakpoint = computed(
+const active = computed(
   () =>
     Object.entries(breakpoints)
       .toReversed()
@@ -24,7 +24,7 @@ const activeBreakpoint = computed(
         (b) => width.value >= b[1] * getDocumentFontSize()
       )?.[0] as keyof typeof breakpoints
 );
-const activeBreakpointPx = computed(
+const activePx = computed(
   () =>
     breakpoints[
       Object.entries(breakpoints)
@@ -44,9 +44,9 @@ export default function () {
     breakpoints,
 
     /** Active breakpoint (minimal) */
-    activeBreakpoint,
+    active,
 
     /** Active breakpoint (minimal) in `px`*/
-    activeBreakpointPx,
+    activePx,
   };
 }
