@@ -24,16 +24,10 @@
       />
     </header>
 
-    <UiAccordion
-      v-show="isExpandable && accordionExpanded"
-      v-model="accordionExpanded"
-      ref="accordionRef"
-      :label="'step'"
-      :accordionId="`step_${props.step.id}`"
-    >
+    <UiCustomScroll :palette>
       <ul
-        v-show="accordionExpanded"
-        class="flex max-h-full flex-col gap-1 overflow-auto"
+        ref="accordionElRef"
+        class="flex flex-col gap-1 overflow-auto"
       >
         <li
           v-for="sub in props.step.subSteps"
@@ -46,12 +40,12 @@
           />
         </li>
       </ul>
-    </UiAccordion>
+    </UiCustomScroll>
 
     <div class="flex h-9 w-full items-center gap-1">
       <button
         v-if="isExpandable"
-        @click="accordionExpanded = !accordionExpanded"
+        @click="subStepsExpanded = !subStepsExpanded"
         ref="stepExpandBtnRef"
         class="flex h-full shrink-0 grow cursor-pointer items-center justify-center rounded-tl-lg rounded-bl-lg border-[1px] border-solid"
         :class="stepBtnClasses"
@@ -88,17 +82,12 @@ import COLOR_GENERATED_PALETTES_CLASSES from "~/constants/color/generatedPalette
 
 import useGoalsStore from "~/stores/goals";
 
-import type { UiAccordionType } from "~/components/ui/Accordion/types";
-import useAccordion from "~/components/ui/Accordion/useAccordion";
-
 import { goalIdKey } from "~/components/user/goal/provideInject";
 
 import UiCheckbox from "~/components/ui/Checkbox/UiCheckbox.vue";
 import UiIcon from "~/components/ui/Icon/UiIcon.vue";
+import UiCustomScroll from "~/components/ui/CustomScroll/UiCustomScroll.vue";
 
-const UiAccordion = defineAsyncComponent(
-  () => import("~/components/ui/Accordion/UiAccordion.vue")
-);
 const UserGoalSubStep = defineAsyncComponent(
   () => import("./UserGoalSubStep.vue")
 );
@@ -108,6 +97,7 @@ const props = defineProps<{
 }>();
 const goalIdInject = inject(goalIdKey);
 const store = useGoalsStore();
+
 const palette = pickPalette({
   exclude: ["SLATE", "GRAY", "ZINC", "NEUTRAL", "STONE"],
 });
@@ -138,14 +128,7 @@ watch(
   }
 );
 
-const isExpandable = computed(() => props.step.subSteps.length > 0);
-const accordionRef = useTemplateRef<UiAccordionType>("accordion");
 const stepExpandBtnRef = useTemplateRef<HTMLButtonElement>("stepExpandBtnRef");
-const { expanded: accordionExpanded } = useAccordion(
-  accordionRef,
-  stepExpandBtnRef
-);
-
 const stepBtnClasses = [
   COLOR_GENERATED_PALETTES_CLASSES[palette].BORDER.DEFAULT,
   COLOR_GENERATED_PALETTES_CLASSES[palette].BG.DEFAULT,
@@ -153,6 +136,17 @@ const stepBtnClasses = [
   COLOR_GENERATED_PALETTES_CLASSES[palette].BORDER.HOVER,
   COLOR_GENERATED_PALETTES_CLASSES[palette].BG.HOVER,
 ];
+
+const isExpandable = computed(() => props.step.subSteps.length > 0);
+const accordionElRef = useTemplateRef("accordionElRef");
+const { expanded: subStepsExpanded } = useAccordionElement({
+  accordionEl: accordionElRef,
+  accordionId: `subSteps_${props.step.id}`,
+  ariaLabel: "sub steps",
+  maxHeight: 400,
+  expandToggleEl: stepExpandBtnRef,
+  expanded: false,
+});
 </script>
 
 <style scoped></style>
