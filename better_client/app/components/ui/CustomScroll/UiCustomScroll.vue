@@ -22,7 +22,7 @@ const scrollbarColor = computed(
 
 <style scoped>
 .custom_scroll {
-  --size: 4px;
+  --size: 0.25rem;
 
   /* Firefox */
   scrollbar-width: thin;
