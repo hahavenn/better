@@ -11,17 +11,23 @@
         >
           {{ props.step.name }}
         </span>
-        <span v-if="props.step.subSteps.length > 0">
-          ({{ props.step.subSteps.length }})
-        </span>
       </h2>
 
-      <UiCheckbox
-        v-model="completeState"
-        @toggle="toggleHandler"
-        :ariaLabel="props.step.name"
-        :palette="palette"
-      />
+      <div class="flex items-center gap-1">
+        <span
+          v-if="props.step.subSteps.length > 0"
+          class="text-sm font-bold"
+          :aria-label="`Progress: ${completedSubSteps} out of ${props.step.subSteps.length}`"
+        >
+          {{ `(${completedSubSteps}/${props.step.subSteps.length})` }}
+        </span>
+        <UiCheckbox
+          v-model="completeState"
+          @toggle="toggleHandler"
+          :ariaLabel="props.step.name"
+          :palette="palette"
+        />
+      </div>
     </header>
 
     <UiCustomScroll :palette>
@@ -106,6 +112,10 @@ const liClasses = [
   COLOR_GENERATED_PALETTES_CLASSES[palette].BG.DEFAULT,
   COLOR_GENERATED_PALETTES_CLASSES[palette].TEXT.DEFAULT,
 ];
+
+const completedSubSteps = computed(() =>
+  props.step.subSteps.reduce((c, sub) => c + (sub.complete ? 1 : 0), 0)
+);
 
 const completeState = ref(props.step.complete);
 function toggleHandler(state: boolean) {
