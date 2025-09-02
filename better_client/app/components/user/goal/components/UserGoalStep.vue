@@ -60,6 +60,7 @@
         <UiIcon
           :icon="'expand'"
           :palette="palette"
+          :rotateDeg="subStepsExpanded ? -180 : 0"
         />
       </button>
       <button
