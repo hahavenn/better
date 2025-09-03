@@ -77,9 +77,9 @@ const emit = defineEmits<{
 const isDark = useDark();
 
 const check = defineModel<boolean>({ required: true });
-const pressed = ref(false);
-const focused = ref(false);
-const hover = ref(false);
+const pressed = shallowRef(false);
+const focused = shallowRef(false);
+const hover = shallowRef(false);
 
 async function checkHandler() {
   check.value = !check.value;
