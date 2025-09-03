@@ -1,7 +1,6 @@
 <template>
   <div
     class="flex h-fit w-fit"
-    :class="classes"
     :style="styles"
   >
     <component :is="IconMap.get(props.icon)"></component>
@@ -16,7 +15,11 @@ import IconMap from "./iconMap";
 import type { ColorGeneratedPalettes } from "~/types/color/generatedPalettes";
 import type { Icons, IconState } from "./types";
 
-import COLOR_GENERATED_PALETTES_CLASSES from "~/constants/color/generatedPalettesClasses";
+import {
+  COLOR_GENERATED_FILL_ACTIVE,
+  COLOR_GENERATED_FILL_DEFAULT,
+  COLOR_GENERATED_FILL_HOVER,
+} from "~/constants/color/generatedFill";
 
 const props = withDefaults(
   defineProps<{
@@ -40,10 +43,30 @@ const props = withDefaults(
   }
 );
 
-const classes = computed(() => [
-  props.state,
-  COLOR_GENERATED_PALETTES_CLASSES[props.palette].FILL.DEFAULT,
-]);
+const isDark = useDark();
+
+const fill = computed(() => {
+  switch (props.state) {
+    case "state__active": {
+      return isDark.value
+        ? COLOR_GENERATED_FILL_ACTIVE[props.palette].DARK
+        : COLOR_GENERATED_FILL_ACTIVE[props.palette].LIGHT;
+    }
+    case "state__hover": {
+      return isDark.value
+        ? COLOR_GENERATED_FILL_HOVER[props.palette].DARK
+        : COLOR_GENERATED_FILL_HOVER[props.palette].LIGHT;
+    }
+    case "state__disabled": {
+      return "";
+    }
+    default: {
+      return isDark.value
+        ? COLOR_GENERATED_FILL_DEFAULT[props.palette].DARK
+        : COLOR_GENERATED_FILL_DEFAULT[props.palette].LIGHT;
+    }
+  }
+});
 
 const styles = computed<CSSProperties>(() => {
   let s: CSSProperties = {};
@@ -51,6 +74,8 @@ const styles = computed<CSSProperties>(() => {
   if (props.rotateDeg !== undefined) {
     s.transform = `rotate(${props.rotateDeg ?? 0}deg)`;
   }
+
+  s.fill = `var(${fill.value})`;
 
   return s;
 });
