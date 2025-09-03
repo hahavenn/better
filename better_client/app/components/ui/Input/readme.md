@@ -9,13 +9,17 @@ Input component for ui
 You can use predefined input preset:
 
 ```html
-<UiInput :preset="'search'" />
+<UiInput
+  v-model="inputValue"
+  :preset="'search'"
+/>
 ```
 
 Or you can use custom input:
 
 ```html
 <UiInput
+  v-model="inputValue"
   :autocapitalize=""
   :autocomplete=""
   :button-type=""

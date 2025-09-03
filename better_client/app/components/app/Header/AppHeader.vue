@@ -12,7 +12,11 @@
           <span class="text_link text-2xl font-bold underline"> better </span>
         </UiLink>
 
-        <AppSearch />
+        <ClientOnly>
+          <AppSearch />
+
+          <template #fallback></template>
+        </ClientOnly>
       </div>
     </UiContainer>
   </header>

@@ -4,7 +4,6 @@ type InputUIPreset = {
   placeholder: InputUIProps["placeholder"];
   type: HTMLInputElement["type"];
   autocapitalize?: InputUIProps["autocapitalize"];
-  autocomplete?: InputUIProps["autocomplete"];
   icon?: InputUIProps["icon"];
   buttonType?: HTMLButtonElement["type"];
   label: InputUIProps["label"];
@@ -20,7 +19,6 @@ export const InputUIPresets: {
     placeholder: "Search",
     type: "text",
     autocapitalize: "off",
-    autocomplete: "off",
     icon: "search",
     buttonType: "submit",
     label: "Search",
