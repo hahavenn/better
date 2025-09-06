@@ -21,6 +21,8 @@ export default function (params: AccordionElementParams) {
   const { accordionEl, accordionId, ariaLabel, maxHeight, expandToggleEl } =
     params;
 
+  const { y } = useScroll(accordionEl, { behavior: "smooth" });
+
   function setAccordionEl(expandState?: boolean) {
     const el = unrefElement(accordionEl);
 
@@ -74,5 +76,8 @@ export default function (params: AccordionElementParams) {
      * Can be used to manually set set needed state
      */
     expanded,
+
+    /** Y-scroll position */
+    y,
   };
 }
