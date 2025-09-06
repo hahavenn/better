@@ -1,7 +1,7 @@
 <template>
   <li
     class="flex h-fit flex-col gap-2 rounded-xl border-[1px] border-solid px-2.5 py-1.5"
-    :class="liClasses"
+    :class="stepClasses"
   >
     <header class="flex w-full items-center justify-between gap-2">
       <h2 class="flex items-center gap-1 text-2xl font-semibold">
@@ -17,13 +17,13 @@
         <span
           v-if="props.step.subSteps.length > 0"
           class="text-sm font-bold"
-          :aria-label="`Progress: ${completedSubSteps} out of ${props.step.subSteps.length}`"
+          :aria-label="`Progress: ${completedSubStepsCount} out of ${props.step.subSteps.length}`"
         >
-          {{ `(${completedSubSteps}/${props.step.subSteps.length})` }}
+          {{ `(${completedSubStepsCount}/${props.step.subSteps.length})` }}
         </span>
         <UiCheckbox
           v-model="completeState"
-          @toggle="toggleHandler"
+          @toggle="toggleStepCompletenessState"
           :ariaLabel="props.step.name"
           :palette="palette"
         />
@@ -45,28 +45,44 @@
             :stepId="props.step.id"
           />
         </li>
+        <div
+          v-show="isEnterNewSubStepVisible"
+          class="h-8 shrink-0"
+        >
+          <UiInput
+            v-model="newSubStepValue"
+            @submit="console.log('submitted')"
+            @cancel="cancelAddInputHandler"
+            ref="enterNewSubStepRef"
+            :icon="'add'"
+            :palette
+            :label="'Enter new sub step to do'"
+            :buttonType="'submit'"
+          />
+        </div>
       </ul>
     </UiCustomScroll>
 
     <div class="flex h-9 w-full items-center gap-1">
       <button
         v-if="isExpandable"
-        @click="subStepsExpanded = !subStepsExpanded"
+        @click="expandBtnClickHandler"
         ref="stepExpandBtnRef"
         class="flex h-full shrink-0 grow cursor-pointer items-center justify-center rounded-tl-lg rounded-bl-lg border-[1px] border-solid"
-        :class="stepBtnClasses"
+        :class="stepControlBtnClasses"
         type="button"
       >
         <UiIcon
           :icon="'expand'"
           :palette="palette"
-          :rotateDeg="subStepsExpanded ? -180 : 0"
+          :rotateDeg="isSubStepsExpanded ? -180 : 0"
         />
       </button>
       <button
+        @click="addBtnClickHandler"
         class="flex h-full shrink-0 grow cursor-pointer items-center justify-center border-[1px] border-solid"
         :class="[
-          ...stepBtnClasses,
+          ...stepControlBtnClasses,
           isExpandable
             ? 'rounded-tr-lg rounded-br-lg'
             : 'rounded-tl-lg rounded-tr-lg rounded-br-lg rounded-bl-lg',
@@ -76,6 +92,7 @@
         <UiIcon
           :icon="'add'"
           :palette="palette"
+          :rotateDeg="isEnterNewSubStepVisible ? 45 : 0"
         />
       </button>
     </div>
@@ -108,18 +125,18 @@ const store = useGoalsStore();
 const palette = pickPalette({
   exclude: ["SLATE", "GRAY", "ZINC", "NEUTRAL", "STONE"],
 });
-const liClasses = [
+const stepClasses = [
   COLOR_GENERATED_PALETTES_CLASSES[palette].BORDER.DEFAULT,
   COLOR_GENERATED_PALETTES_CLASSES[palette].BG.DEFAULT,
   COLOR_GENERATED_PALETTES_CLASSES[palette].TEXT.DEFAULT,
 ];
 
-const completedSubSteps = computed(() =>
+const completedSubStepsCount = computed(() =>
   props.step.subSteps.reduce((c, sub) => c + (sub.complete ? 1 : 0), 0)
 );
 
-const completeState = ref(props.step.complete);
-function toggleHandler(state: boolean) {
+const completeState = shallowRef(props.step.complete);
+function toggleStepCompletenessState(state: boolean) {
   if (goalIdInject === undefined) return;
 
   store.updateGoalCompleteness(
@@ -140,7 +157,7 @@ watch(
 );
 
 const stepExpandBtnRef = useTemplateRef<HTMLButtonElement>("stepExpandBtnRef");
-const stepBtnClasses = [
+const stepControlBtnClasses = [
   COLOR_GENERATED_PALETTES_CLASSES[palette].BORDER.DEFAULT,
   COLOR_GENERATED_PALETTES_CLASSES[palette].BG.DEFAULT,
 
@@ -148,16 +165,54 @@ const stepBtnClasses = [
   COLOR_GENERATED_PALETTES_CLASSES[palette].BG.HOVER,
 ];
 
+/** Is user step expandable (with sub steps) */
 const isExpandable = computed(() => props.step.subSteps.length > 0);
 const accordionElRef = useTemplateRef("accordionElRef");
-const { expanded: subStepsExpanded } = useAccordionElement({
-  accordionEl: accordionElRef,
-  accordionId: `subSteps_${props.step.id}`,
-  ariaLabel: "sub steps",
-  maxHeight: 400,
-  expandToggleEl: stepExpandBtnRef,
-  expanded: false,
+const { expanded: isSubStepsExpanded, y: accordionScrollY } =
+  useAccordionElement({
+    accordionEl: accordionElRef,
+    accordionId: `subSteps_${props.step.id}`,
+    ariaLabel: "sub steps",
+    maxHeight: 400,
+    expandToggleEl: stepExpandBtnRef,
+    expanded: false,
+  });
+
+const enterNewSubStepRef = useTemplateRef("enterNewSubStepRef");
+/** Value of input - new sub step */
+const newSubStepValue = shallowRef("");
+const isEnterNewSubStepVisible = shallowRef(false);
+watch(isEnterNewSubStepVisible, (v) => {
+  if (!v) {
+    // clear input value if input is hidden
+    newSubStepValue.value = "";
+  }
 });
+
+function expandBtnClickHandler() {
+  isSubStepsExpanded.value = !isSubStepsExpanded.value;
+
+  // if sub steps doesn't expanded - we hide input for preventing future rendering when expanding list
+  if (!isSubStepsExpanded.value) isEnterNewSubStepVisible.value = false;
+}
+function addBtnClickHandler() {
+  isEnterNewSubStepVisible.value = !isEnterNewSubStepVisible.value;
+
+  // if we click on add button - expand list must be expanded for view input field
+  if (!isSubStepsExpanded.value) isSubStepsExpanded.value = true;
+
+  // if expanded list is rendered (that means user clicked add button) - scroll to input field for better UX
+  if (isEnterNewSubStepVisible.value) {
+    setTimeout(() => {
+      accordionScrollY.value += accordionElRef.value?.offsetHeight ?? 0;
+      enterNewSubStepRef.value?.focus();
+    }, 50);
+  }
+}
+function cancelAddInputHandler() {
+  // user dismissed to add new sub step -> hide input field
+  isEnterNewSubStepVisible.value = false;
+}
 </script>
 
 <style scoped></style>
