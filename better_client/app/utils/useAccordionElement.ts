@@ -16,7 +16,23 @@ type AccordionElementParams = {
   expanded?: boolean;
 };
 
-/** Make element's behavior as accordion element */
+/**
+ * Make element's behavior as accordion element
+ *
+ * ------
+ *
+ * @example
+ * ```typescript
+ * const { expanded, y } = useAccordionElement({
+ *   accordionEl: accordionElRef,
+ *   accordionId: `subSteps_${props.step.id}`,
+ *   ariaLabel: "sub steps",
+ *   maxHeight: 400,
+ *   expandToggleEl: stepExpandBtnRef,
+ *   expanded: false,
+ * })
+ * ```
+ */
 export default function (params: AccordionElementParams) {
   const { accordionEl, accordionId, ariaLabel, maxHeight, expandToggleEl } =
     params;
