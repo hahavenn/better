@@ -17,6 +17,7 @@
       @focus="focused = true"
       @blur="focused = false"
       @keydown.enter.prevent="emit('submit')"
+      @keydown.esc="emit('cancel')"
       ref="inputRef"
       :id
       :type
@@ -67,6 +68,7 @@ const props = withDefaults(defineProps<InputUIProps>(), {
 
 const emit = defineEmits<{
   submit: [];
+  cancel: [];
 }>();
 
 const inputModel = defineModel<string>({

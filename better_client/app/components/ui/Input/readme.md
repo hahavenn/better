@@ -5,6 +5,7 @@ Input component for ui
 - [Usage](#usage)
 - [Props](#props)
 - [Exposed variables and methods](#exposed-variables-and-methods)
+- [Events](#events)
 - [Todo](#todo)
 
 ## Usage
@@ -51,6 +52,20 @@ const uiInputRef = useTemplateRef("uiInputRef");
 
 - `focus()` you can focus UiInput
 - `blur()` you can blur UiInput
+
+## Events
+
+You can listen for different events on UiInput component
+
+```html
+<UiInput
+  @submit=""
+  @cancel=""
+/>
+```
+
+- `submit` - when user click 'enter' key or button
+- `cancel` - when user click 'esc' button
 
 ## Todo
 
