@@ -1,5 +1,5 @@
 <template>
-  <div
+  <form
     @mouseenter="!hover && (hover = true)"
     @mouseleave="hover && (hover = false)"
     class="relative flex h-full w-full"
@@ -16,7 +16,8 @@
       v-model="inputModel"
       @focus="focused = true"
       @blur="focused = false"
-      @keyup.enter="emit('enter')"
+      @keydown.enter.prevent="emit('submit')"
+      ref="inputRef"
       :id
       :type
       :placeholder
@@ -26,6 +27,7 @@
     />
     <button
       v-if="icon !== undefined"
+      @click.prevent="emit('submit')"
       :type="buttonType"
       class="border-l-solid absolute top-(--size) right-(--size) flex w-8 cursor-pointer items-center justify-center border-t-0 border-r-0 border-b-0 border-l-(length:--size)"
       style="height: calc(100% - 2 * var(--size))"
@@ -37,7 +39,7 @@
         :state="iconState"
       />
     </button>
-  </div>
+  </form>
 </template>
 
 <script lang="ts" setup>
@@ -58,19 +60,25 @@ import type { IconState } from "~/components/ui/Icon/types";
 
 const props = withDefaults(defineProps<InputUIProps>(), {
   placeholder: "",
-  autocapitalize: "",
   buttonType: "button",
   type: "text",
   palette: COLOR_PALETTE_DEFAULT,
 });
 
 const emit = defineEmits<{
-  enter: [];
+  submit: [];
 }>();
 
 const inputModel = defineModel<string>({
   required: true,
 });
+const inputRef = useTemplateRef("inputRef");
+function focus() {
+  inputRef.value?.focus();
+}
+function blur() {
+  inputRef.value?.blur();
+}
 
 const id = useId();
 
@@ -147,6 +155,8 @@ const iconState = computed<IconState>(() => {
     }
   }
 });
+
+defineExpose({ focus, blur });
 </script>
 
 <style scoped></style>

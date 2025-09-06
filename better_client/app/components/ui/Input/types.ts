@@ -10,13 +10,19 @@ import type { ColorGeneratedPalettes } from "~/types/color/generatedPalettes";
 export type InputPresets = "search";
 
 export type InputUIProps = {
+  /** Predefined type of input */
   preset?: InputPresets;
+  /** Placeholder text for `placeholder=""` attribute */
   placeholder?: string;
-  autocapitalize?: string;
+  /** See `autocapitalize` global attribute */
+  autocapitalize?: "none" | "off" | "sentences" | "on" | "words" | "characters";
+  /** Type for button. Mainly used for a11y */
   buttonType?: HTMLButtonElement["type"];
-  type?: HTMLInputElement["type"];
+  type?: "text" | "tel";
   /**
-   * Text inside input label
+   * Text inside input label.
+   * Used only for a11y techs.
+   * Hidden on page, but accessible by screen readers
    */
   label?: string;
   /**
