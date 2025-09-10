@@ -1,3 +1,5 @@
+import processEnv from "./processEnv";
+
 export default defineNuxtConfig({
   compatibilityDate: "2024-11-01",
   devtools: { enabled: true },
@@ -31,8 +33,8 @@ export default defineNuxtConfig({
   },
 
   devServer: {
-    host: "localhost",
-    port: 3000,
+    host: processEnv.HOST,
+    port: parseInt(processEnv.PORT),
   },
 
   css: ["~/assets/css/main.css", "~/assets/css/colors/index.css"],
