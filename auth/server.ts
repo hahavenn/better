@@ -5,6 +5,7 @@ import path, { dirname } from "node:path";
 import { fileURLToPath } from "node:url";
 
 import Fastify from "fastify";
+import cors from "@fastify/cors";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 
@@ -17,6 +18,14 @@ const fastify = Fastify({
     key: fs.readFileSync(path.join(__dirname, "https", "private.key")),
     cert: fs.readFileSync(path.join(__dirname, "https", "certificate.crt")),
   },
+});
+
+await fastify.register(cors, {
+  origin: processEnv.CORS_CLIENT,
+  methods: ["GET", "HEAD", "POST", "PATCH"],
+  maxAge: 5,
+  optionsSuccessStatus: 204,
+  logLevel: "silent",
 });
 
 fastify.get("/", async (request, reply) => {
