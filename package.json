@@ -1,0 +1,12 @@
+{
+  "workspaces": [
+    "auth/",
+    "client/"
+  ],
+  "scripts": {
+    "dev": "concurrently -c auto --names auth,client 'npm run dev --workspace=auth' 'npm run dev --workspace=client'"
+  },
+  "devDependencies": {
+    "concurrently": "^9.2.1"
+  }
+}
