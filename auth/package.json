@@ -1,7 +1,7 @@
 {
   "type": "module",
   "scripts": {
-    "dev": "npm run generateDevEnvs && npm run generateJwtSecret && node --watch --env-file=.env server.ts",
+    "dev": "npm run generateDevEnvs && npm run generateJwtSecret && node --watch --env-file=.env src/server.ts",
     "generateHttpsKeyCert": "node scripts/generateHttpsKeyCert.ts",
     "generateJwtSecret": "node scripts/generateJwtSecret.ts",
     "generateDevEnvs": "node scripts/generateDevEnvs.ts"

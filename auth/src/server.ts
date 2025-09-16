@@ -6,6 +6,7 @@ import { fileURLToPath } from "node:url";
 
 import Fastify from "fastify";
 import cors from "@fastify/cors";
+import routes from "./routes/index.ts";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 
@@ -28,9 +29,7 @@ await fastify.register(cors, {
   logLevel: "silent",
 });
 
-fastify.get("/", async (request, reply) => {
-  return { hello: "world" };
-});
+await fastify.register(routes);
 
 async function start() {
   try {
