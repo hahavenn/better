@@ -1,4 +1,4 @@
-import processEnv from "./processEnv.ts";
+import processEnv from "../processEnv.ts";
 
 import fs from "node:fs";
 import path, { dirname } from "node:path";
