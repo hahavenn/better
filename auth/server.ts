@@ -12,12 +12,12 @@ const __dirname = dirname(fileURLToPath(import.meta.url));
 const fastify = Fastify({
   logger: processEnv.DEV === "true",
 
-  http2: true,
-  https: {
-    allowHTTP1: true,
-    key: fs.readFileSync(path.join(__dirname, "https", "private.key")),
-    cert: fs.readFileSync(path.join(__dirname, "https", "certificate.crt")),
-  },
+  // http2: true,
+  // https: {
+  //   allowHTTP1: true,
+  //   key: fs.readFileSync(path.join(__dirname, "https", "private.key")),
+  //   cert: fs.readFileSync(path.join(__dirname, "https", "certificate.crt")),
+  // },
 });
 
 await fastify.register(cors, {
