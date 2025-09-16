@@ -10,7 +10,7 @@ import cors from "@fastify/cors";
 const __dirname = dirname(fileURLToPath(import.meta.url));
 
 const fastify = Fastify({
-  logger: processEnv.DEV === "true",
+  logger: processEnv.DEV,
 
   // http2: true,
   // https: {

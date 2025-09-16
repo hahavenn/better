@@ -1,12 +1,11 @@
-/** Typed version of `process.env` */
-const processEnv = process.env as {
+type ProcessEnv = {
   /** Server host */
   HOST: string;
   /** Server port */
   PORT: string;
 
   /** Is dev mode */
-  DEV: "true" | "false";
+  DEV: boolean;
 
   /** Address of client server for accepting due CORS */
   CORS_CLIENT: string;
@@ -14,4 +13,15 @@ const processEnv = process.env as {
   /** Generated JWT secret string */
   JWT_SECRET: string;
 };
+
+const processEnv = new Proxy(process.env, {
+  get(target, prop) {
+    if (prop === "DEV") {
+      return target.DEV === "true";
+    }
+
+    return Reflect.get(target, prop);
+  },
+}) as unknown as ProcessEnv;
+
 export default processEnv;
