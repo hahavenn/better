@@ -1,5 +1,5 @@
 {
-  "name": "user_main",
+  "name": "client",
   "private": true,
   "type": "module",
   "scripts": {
