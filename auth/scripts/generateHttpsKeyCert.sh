@@ -1,6 +1,6 @@
 #!/bin/bash
 
-OUTPUT_DIR="../https"
+OUTPUT_DIR="https"
 KEY_FILE="$OUTPUT_DIR/private.key"
 CERT_FILE="$OUTPUT_DIR/certificate.crt"
 CSR_FILE="$OUTPUT_DIR/request.csr"
