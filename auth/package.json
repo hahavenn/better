@@ -1,7 +1,10 @@
 {
   "type": "module",
   "scripts": {
-    "dev": "node --watch --env-file=.env server.ts"
+    "dev": "npm run generateDevEnvs && npm run generateJwtSecret && node --watch --env-file=.env server.ts",
+    "generateHttpsKeyCert": "node scripts/generateHttpsKeyCert.ts",
+    "generateJwtSecret": "node scripts/generateJwtSecret.ts",
+    "generateDevEnvs": "node scripts/generateDevEnvs.ts"
   },
   "dependencies": {
     "fastify": "^5.6.0"
