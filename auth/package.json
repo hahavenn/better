@@ -1,14 +1,16 @@
 {
+  "name": "auth",
   "type": "module",
   "scripts": {
-    "dev": "npm run generateDevEnvs && npm run generateJwtSecret && node --watch --env-file=.env src/server.ts",
-    "generateHttpsKeyCert": "node scripts/generateHttpsKeyCert.ts",
-    "generateJwtSecret": "node scripts/generateJwtSecret.ts",
-    "generateDevEnvs": "node scripts/generateDevEnvs.ts"
+    "dev": "rm .env && npm run devEnvs && npm run jwtSecret && node --watch --env-file=.env src/server.ts",
+    "httpsKeyCert": "node scripts/httpsKeyCert.ts",
+    "jwtSecret": "node scripts/jwtSecret.ts",
+    "devEnvs": "node scripts/devEnvs.ts"
   },
   "dependencies": {
     "@fastify/cors": "^11.1.0",
-    "fastify": "^5.6.0"
+    "fastify": "^5.6.0",
+    "mysql2": "^3.15.0"
   },
   "devDependencies": {
     "@types/node": "^24.3.1"
