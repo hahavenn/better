@@ -1,3 +1,5 @@
 {
-  "cSpell.words": ["hahavenn", "hoverable", "nodenext", "pdfs"]
+  "cSpell.words": ["hahavenn", "hoverable", "nodenext", "pdfs", "Vitepress"],
+  "vue.server.includeLanguages": ["vue", "markdown"],
+  "typescript.tsdk": "node_modules/typescript/lib"
 }

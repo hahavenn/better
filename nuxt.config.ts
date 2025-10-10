@@ -38,4 +38,12 @@ export default defineNuxtConfig({
   css: ["~/assets/css/main.css", "~/assets/css/colors/index.css"],
 
   modules: ["@vueuse/nuxt", "@pinia/nuxt", "@nuxtjs/tailwindcss"],
+
+  nitro: {
+    routeRules: {
+      "/api/v1/**": {
+        cors: true,
+      },
+    },
+  },
 });

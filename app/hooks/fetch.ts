@@ -68,7 +68,7 @@ type HeadersInitObj =
  * // somewhere in your code if you need to abort request
  * window.dispatchEvent(new CustomEvent("abort_some_url"));
  */
-async function useFetch<SuccessResponse, ErrorResponse>(
+export default async function useFetch<SuccessResponse, ErrorResponse>(
   options: UseFetchOptions
 ) {
   const url = new URL(options.url, options.baseUrl ?? window.location.origin);
@@ -142,4 +142,3 @@ async function useFetch<SuccessResponse, ErrorResponse>(
     }
   }
 }
-export { useFetch };
