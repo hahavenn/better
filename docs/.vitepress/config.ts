@@ -1,6 +1,8 @@
+import { type DefaultTheme, type UserConfig } from "vitepress";
+
 import { withMermaid } from "vitepress-plugin-mermaid";
 
-export default withMermaid({
+const config: UserConfig<DefaultTheme.Config> = {
   srcDir: ".",
   outDir: "../public/docs",
 
@@ -69,4 +71,6 @@ export default withMermaid({
       provider: "local",
     },
   },
-});
+};
+
+export default withMermaid(config);
