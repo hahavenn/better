@@ -45,5 +45,35 @@ export default defineNuxtConfig({
         cors: true,
       },
     },
+
+    typescript: {
+      tsConfig: {
+        compilerOptions: {
+          noEmit: false,
+          composite: true,
+        },
+      },
+    },
+  },
+
+  typescript: {
+    sharedTsConfig: {
+      compilerOptions: {
+        noEmit: false,
+        composite: true,
+      },
+    },
+    nodeTsConfig: {
+      compilerOptions: {
+        noEmit: false,
+        composite: true,
+      },
+    },
+    tsConfig: {
+      compilerOptions: {
+        noEmit: false,
+        composite: true,
+      },
+    },
   },
 });

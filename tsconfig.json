@@ -15,10 +15,6 @@
       "path": "./.nuxt/tsconfig.node.json"
     }
   ],
-  "compilerOptions": {
-    "noEmit": false,
-    "composite": true
-  },
 
   "include": ["docs/**/*.ts", "docs/**/*.vue", "docs/**/*.md"],
   "vueCompilerOptions": {
