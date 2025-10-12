@@ -11,7 +11,7 @@
 <script setup lang="ts">
 import AppHeader from "./components/app/Header/AppHeader.vue";
 
-import useFetch from "./hooks/fetch";
+import useFetch from "~/hooks/fetch";
 
 onMounted(async () => {
   const response = await useFetch({

@@ -1,4 +1,4 @@
-import type { UserGoal } from "~/stores/goals/types";
+import type { UserGoal } from "~~/shared/types/goal";
 
 const goalIdKey = Symbol() as InjectionKey<UserGoal["id"]>;
 export { goalIdKey };

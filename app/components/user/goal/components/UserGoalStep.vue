@@ -100,13 +100,16 @@
 </template>
 
 <script lang="ts" setup>
-import type { UserGoalStep } from "~/stores/goals/types";
-
 import COLOR_GENERATED_PALETTES_CLASSES from "~/constants/color/generatedPalettesClasses";
 
 import useGoalsStore from "~/stores/goals";
 
+import pickPalette from "~/utils/pickPalette/";
+import useAccordionElement from "~/utils/useAccordionElement";
+
 import { goalIdKey } from "~/components/user/goal/provideInject";
+
+import type { UserGoalStep } from "~~/shared/types/goal";
 
 import UiCheckbox from "~/components/ui/Checkbox/UiCheckbox.vue";
 import UiIcon from "~/components/ui/Icon/UiIcon.vue";
@@ -116,9 +119,11 @@ const UserGoalSubStep = defineAsyncComponent(
   () => import("./UserGoalSubStep.vue")
 );
 
-const props = defineProps<{
+type Props = {
   step: UserGoalStep;
-}>();
+};
+
+const props = defineProps<Props>();
 const goalIdInject = inject(goalIdKey);
 const store = useGoalsStore();
 

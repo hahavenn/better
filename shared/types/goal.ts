@@ -2,10 +2,8 @@
 export type UserGoal = {
   /**
    * Identifier of goal
-   *
-   * @todo redo to uuid (string)
    */
-  id: number;
+  id: string;
 
   /**
    * Name of goal
@@ -36,10 +34,8 @@ export type UserGoal = {
 export type UserGoalStep = {
   /**
    * Identifier of step
-   *
-   * @todo redo to uuid (string)
    */
-  id: number;
+  id: string;
 
   /**
    * Name of step
@@ -70,10 +66,8 @@ export type UserGoalStep = {
 export type UserGoalSubStep = {
   /**
    * Identifier of sub-step
-   *
-   * @todo redo to uuid (string)
    */
-  id: number;
+  id: string;
 
   /**
    * Name of sub-step
