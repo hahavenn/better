@@ -29,33 +29,18 @@ const config: UserConfig<DefaultTheme.Config> = {
     /** @todo check how is it working */
     lastUpdated: {},
 
-    siteTitle: "better",
+    siteTitle: "better docs",
 
     sidebar: [
       {
-        text: "Database",
-        base: "/database",
+        text: "Entities",
+        base: "/entities",
+        link: "/",
         collapsed: false,
         items: [
           {
-            text: "Overview",
-            link: "/",
-          },
-          {
-            text: "Models",
-            collapsed: false,
-            items: [
-              {
-                text: "User",
-                collapsed: true,
-                items: [
-                  {
-                    text: "Goal",
-                    link: "/models/user/goal.md",
-                  },
-                ],
-              },
-            ],
+            text: "Goal",
+            link: "/goal.md",
           },
         ],
       },

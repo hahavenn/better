@@ -1,1 +1,0 @@
-this page contains info about database

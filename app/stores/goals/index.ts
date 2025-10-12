@@ -1,4 +1,8 @@
-import type { UserGoalSubStep, UserGoal, UserGoalStep } from "./types";
+import type {
+  UserGoalSubStep,
+  UserGoal,
+  UserGoalStep,
+} from "~~/shared/types/goal";
 
 import { goal } from "./data";
 

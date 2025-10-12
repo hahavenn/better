@@ -52,6 +52,7 @@ export default defineNuxtConfig({
           noEmit: false,
           composite: true,
         },
+        include: ["../shared/**/*.ts"],
       },
     },
   },
@@ -62,18 +63,21 @@ export default defineNuxtConfig({
         noEmit: false,
         composite: true,
       },
+      include: ["../shared/**/*.ts"],
     },
     nodeTsConfig: {
       compilerOptions: {
         noEmit: false,
         composite: true,
       },
+      include: ["../shared/**/*.ts"],
     },
     tsConfig: {
       compilerOptions: {
         noEmit: false,
         composite: true,
       },
+      include: ["../shared/**/*.ts"],
     },
   },
 });
