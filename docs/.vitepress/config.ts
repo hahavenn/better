@@ -10,7 +10,6 @@ const config: UserConfig<DefaultTheme.Config> = {
   description: "docs to work with better",
 
   base: "/docs/",
-  cleanUrls: true,
 
   lastUpdated: true,
 
@@ -19,6 +18,14 @@ const config: UserConfig<DefaultTheme.Config> = {
       light: "/favicon_light.ico",
       dark: "/favicon_dark.ico",
     },
+
+    nav: [
+      {
+        text: "Back to better",
+        link: process.argv[process.argv.length - 1],
+        target: "_self",
+      },
+    ],
 
     socialLinks: [
       { icon: "github", link: "https://github.com/hahavenn" },
@@ -35,7 +42,6 @@ const config: UserConfig<DefaultTheme.Config> = {
       {
         text: "Entities",
         base: "/entities",
-        link: "/",
         collapsed: false,
         items: [
           {
