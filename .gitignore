@@ -26,3 +26,5 @@ logs
 # Vitepress
 public/docs
 **/.vitepress/cache
+
+**/*.db
