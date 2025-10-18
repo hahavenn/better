@@ -1,10 +1,11 @@
 import bcrypt from "bcryptjs";
-
 import z from "zod";
+
 import LOG_TYPES from "~~/server/constants/logs";
 
 import db from "~~/server/db";
 import { usersTable } from "~~/server/db/schema/user";
+
 import handleError from "~~/server/utils/handleError";
 
 const User = z.object({
