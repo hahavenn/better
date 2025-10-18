@@ -45,7 +45,7 @@ export default defineEventHandler({
       let message: null | string = null;
 
       if (handled.type === "SQLite") {
-        switch (handled.value.cause.code) {
+        switch (handled.error.cause.code) {
           case "SQLITE_CONSTRAINT_UNIQUE": {
             message = `User with login '${credentials.login}' already exists`;
 
@@ -54,7 +54,7 @@ export default defineEventHandler({
           }
 
           default: {
-            logger(handled.value.cause.code, {
+            logger(handled.error.cause.code, {
               type: LOG_TYPES.SQLITE,
             });
 
@@ -68,7 +68,7 @@ export default defineEventHandler({
         return { details: message };
       }
 
-      logger(handled.value);
+      logger(handled.error);
       setResponseStatus(event, 500);
       return { details: "Fatal" };
     }

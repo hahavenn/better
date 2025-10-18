@@ -11,11 +11,11 @@ type SQLiteResultError = {
 type ReturnError =
   | {
       type: "SQLite";
-      value: SQLiteResultError;
+      error: SQLiteResultError;
     }
   | {
       type: "fatal";
-      value: unknown;
+      error: unknown;
     };
 
 type HandleErrorParamType = unknown;
@@ -43,13 +43,13 @@ const handleError: HandleErrorFn = async (error) => {
         type: "SQLite",
 
         // need to be destructed, because drizzle somehow return DrizzleQueryError when logging it
-        value: { ...error },
+        error: { ...error },
       };
     }
     default: {
       return {
         type: "fatal",
-        value: error,
+        error: error,
       };
     }
   }
