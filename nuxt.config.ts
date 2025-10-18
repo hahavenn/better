@@ -44,12 +44,6 @@ export default defineNuxtConfig({
   modules: ["@vueuse/nuxt", "@pinia/nuxt", "@nuxtjs/tailwindcss"],
 
   nitro: {
-    routeRules: {
-      "/api/v1/**": {
-        cors: true,
-      },
-    },
-
     typescript: {
       tsConfig: {
         compilerOptions: {
