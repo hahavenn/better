@@ -6,8 +6,6 @@ import LOG_TYPES from "~~/server/constants/logs";
 import db from "~~/server/db";
 import { usersTable } from "~~/server/db/schema/user";
 
-import handleError from "~~/server/utils/handleError";
-
 const User = z.object({
   login: z.string().max(20),
   password: z.string().max(50),
