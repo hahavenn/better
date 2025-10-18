@@ -68,11 +68,11 @@ type LoggerFn = (
 const logger: LoggerFn = (toLog, options) => {
   switch (options?.type ?? LOG_TYPES.ALL) {
     case LOG_TYPES.SQLITE: {
-      sqliteLogger.error(toLog);
+      sqliteLogger.error({ value: toLog, stack: new Error().stack });
       break;
     }
     default: {
-      allLogger.error(toLog);
+      allLogger.error({ value: toLog, stack: new Error().stack });
       break;
     }
   }
