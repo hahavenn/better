@@ -1,0 +1,18 @@
+meta {
+  name: index.post.ts
+  type: http
+  seq: 1
+}
+
+post {
+  url: {{baseUrl}}/users/signup
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "login": "hahavenn",
+    "password": "hahavenn"
+  }
+}
