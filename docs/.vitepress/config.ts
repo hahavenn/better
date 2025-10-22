@@ -50,10 +50,27 @@ const config: UserConfig<DefaultTheme.Config> = {
           },
         ],
       },
+      {
+        text: "Scripts",
+        base: "/scripts",
+        collapsed: true,
+        items: [
+          {
+            text: "Development",
+            collapsed: false,
+            items: [
+              {
+                text: "rmDB",
+                link: "/dev/rmDB.md",
+              },
+            ],
+          },
+        ],
+      },
     ],
 
     editLink: {
-      pattern: "https://github.com/hahavenn/better/docs/:path",
+      pattern: "https://github.com/hahavenn/better/tree/main/docs/:path",
       text: "Edit this page on GitHub",
     },
 
