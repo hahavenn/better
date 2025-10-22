@@ -1,7 +1,0 @@
-{
-  "#region": {
-    "scope": "css,typescript,javascript,html,vue",
-    "prefix": "#region",
-    "body": ["// #region $1", "$2", "// #endregion $1"],
-  },
-}
