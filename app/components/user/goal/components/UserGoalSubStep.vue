@@ -28,7 +28,7 @@ const props = defineProps<{
 const goalIdInject = inject(goalIdKey);
 const store = useGoalsStore();
 
-const completeState = ref(props.subStep.complete);
+const completeState = shallowRef(props.subStep.complete);
 function toggleHandler(state: boolean) {
   if (goalIdInject === undefined) return;
 

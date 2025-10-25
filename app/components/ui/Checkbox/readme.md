@@ -15,7 +15,7 @@ This component is used to check values with additional left/right text relative 
 ```
 
 ```typescript
-const checkbox = ref(false);
+const checkbox = shallowRef(false);
 watch(checkbox, (v) => console.log("checkbox", v));
 ```
 

@@ -68,7 +68,7 @@ export default function (params: AccordionElementParams) {
     }
   }
 
-  const expanded = ref(Boolean(params.expanded));
+  const expanded = shallowRef(Boolean(params.expanded));
   watch(
     expanded,
     (v) => {
