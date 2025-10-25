@@ -12,7 +12,8 @@
     "docs:build": "vitepress build docs",
     "docs:preview": "vitepress preview docs",
     "scripts:db:init": "npm run scripts:dev:rmDB && npx drizzle-kit push",
-    "scripts:dev:rmDB": "ts-node scripts/dev/rmDB.ts"
+    "scripts:dev:rmDB": "ts-node scripts/dev/rmDB.ts",
+    "scripts:env:jwtSecret": "ts-node scripts/env/jwtSecret.ts"
   },
   "dependencies": {
     "@libsql/client": "^0.15.15",
