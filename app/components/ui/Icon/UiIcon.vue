@@ -38,7 +38,7 @@ const props = withDefaults(
     rotateDeg?: number;
   }>(),
   {
-    state: "state__default",
+    state: "default",
     palette: "NEUTRAL",
   }
 );
@@ -47,17 +47,17 @@ const isDark = useDark();
 
 const fill = computed(() => {
   switch (props.state) {
-    case "state__active": {
+    case "active": {
       return isDark.value
         ? COLOR_GENERATED_FILL_ACTIVE[props.palette].DARK
         : COLOR_GENERATED_FILL_ACTIVE[props.palette].LIGHT;
     }
-    case "state__hover": {
+    case "hover": {
       return isDark.value
         ? COLOR_GENERATED_FILL_HOVER[props.palette].DARK
         : COLOR_GENERATED_FILL_HOVER[props.palette].LIGHT;
     }
-    case "state__disabled": {
+    case "disabled": {
       return "";
     }
     default: {

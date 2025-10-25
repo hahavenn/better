@@ -147,13 +147,13 @@ const buttonStyles = computed<CSSProperties>(() => ({
 const iconState = computed<IconState>(() => {
   switch (true) {
     case hover.value: {
-      return "state__hover";
+      return "hover";
     }
     case focused.value: {
-      return "state__active";
+      return "active";
     }
     default: {
-      return "state__default";
+      return "default";
     }
   }
 });
