@@ -1,3 +1,5 @@
+import getDocumentFontSize from "./getDocumentFontSize";
+
 /** @description breakpoints in rem */
 const breakpoints = {
   /** 0px */
