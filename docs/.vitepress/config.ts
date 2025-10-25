@@ -33,7 +33,6 @@ const config: UserConfig<DefaultTheme.Config> = {
       { icon: "gmail", link: "mailto:hahavenn@gmail.com" },
     ],
 
-    /** @todo check how is it working */
     lastUpdated: {},
 
     siteTitle: "better docs",
@@ -74,7 +73,6 @@ const config: UserConfig<DefaultTheme.Config> = {
       text: "Edit this page on GitHub",
     },
 
-    /** @todo needs to be configured, doesn't work on first add */
     search: {
       provider: "local",
     },
