@@ -1,11 +1,7 @@
-import path, { dirname } from "node:path";
-import { fileURLToPath } from "node:url";
-
+import { resolve } from "node:path";
 import pino from "pino";
 
 import LOG_TYPES from "../constants/logs";
-
-const __dirname = dirname(fileURLToPath(import.meta.url));
 
 const sqliteLogger = pino(
   {
@@ -13,7 +9,7 @@ const sqliteLogger = pino(
     nestedKey: "fatalObject",
   },
   pino.destination({
-    dest: path.resolve(__dirname, "..", "..", "logs", "sqlite.logs"),
+    dest: resolve(".", "..", "..", "logs", "sqlite.logs"),
     mkdir: true,
   })
 );
@@ -23,7 +19,7 @@ const allLogger = pino(
     nestedKey: "fatalObject",
   },
   pino.destination({
-    dest: path.resolve(__dirname, "..", "..", "logs", "all.logs"),
+    dest: resolve(".", "..", "..", "logs", "all.logs"),
     mkdir: true,
   })
 );
@@ -36,17 +32,6 @@ type LoggerOptions = {
    */
   type?: (typeof LOG_TYPES)[keyof typeof LOG_TYPES];
 };
-type LoggerFn = (
-  /**
-   * Value to log
-   */
-  toLog: any,
-
-  /**
-   * Logger options
-   */
-  options?: LoggerOptions
-) => void;
 
 /**
  * Main logger to log errors in logs/*.logs files.
@@ -65,7 +50,14 @@ type LoggerFn = (
  * logger("message to log")
  * ```
  */
-const logger: LoggerFn = (toLog, options) => {
+export default function (
+  /**
+   * Value to log
+   */
+  toLog: any,
+
+  options?: LoggerOptions
+) {
   switch (options?.type ?? LOG_TYPES.ALL) {
     case LOG_TYPES.SQLITE: {
       sqliteLogger.error({ value: toLog, stack: new Error().stack });
@@ -76,6 +68,4 @@ const logger: LoggerFn = (toLog, options) => {
       break;
     }
   }
-};
-
-export default logger;
+}
