@@ -41,15 +41,15 @@ Type definitions used for frontend and backend
 
 ### Goals
 
-<<< ../../shared/types/goal.ts#goal
+<<< ../../shared/types/goal/goal.ts#goal
 
 ### Steps
 
-<<< ../../shared/types/goal.ts#step
+<<< ../../shared/types/goal/goal.ts#step
 
 ### Sub-steps
 
-<<< ../../shared/types/goal.ts#subStep
+<<< ../../shared/types/goal/goal.ts#subStep
 
 ## Database schemas
 
