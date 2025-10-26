@@ -1,3 +1,5 @@
+/** @todo move types to separate files */
+
 // #region goal
 export type UserGoal = {
   /**
