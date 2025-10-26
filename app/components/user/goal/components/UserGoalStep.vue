@@ -109,7 +109,7 @@ import useAccordionElement from "~/utils/useAccordionElement";
 
 import { goalIdKey } from "~/components/user/goal/provideInject";
 
-import type { UserGoalStep } from "~~/shared/types/goal";
+import type { UserGoalStep } from "~~/shared/types/goal/goal";
 
 import UiCheckbox from "~/components/ui/Checkbox/UiCheckbox.vue";
 import UiIcon from "~/components/ui/Icon/UiIcon.vue";

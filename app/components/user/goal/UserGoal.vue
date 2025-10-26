@@ -33,7 +33,7 @@
 import useGoalsStore from "~/stores/goals";
 
 import { goalIdKey } from "./provideInject";
-import type { UserGoal } from "~~/shared/types/goal";
+import type { UserGoal } from "~~/shared/types/goal/goal";
 
 import UserGoalStep from "./components/UserGoalStep.vue";
 import ProgressBar from "~/components/shared/ProgressBar/ProgressBar.vue";
