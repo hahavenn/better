@@ -8,7 +8,8 @@ import LOG_TYPES from "~~/server/constants/logs";
 
 import type { AuthSignupResponse } from "~~/shared/types/response/auth/signup";
 import type { ErrorResponse } from "~~/shared/types/response/error";
-import setJwtToken from "~~/server/utils/setJwtToken";
+
+import setJwt from "~~/server/utils/setJwt";
 
 const User = z.object({
   login: z
@@ -85,11 +86,11 @@ export default defineEventHandler({
       return { message: "Fatal" };
     }
 
-    setJwtToken(event, {
+    setJwt(event, {
       tokenType: "access",
       login: credentials.login,
     });
-    setJwtToken(event, {
+    setJwt(event, {
       tokenType: "refresh",
       login: credentials.login,
     });

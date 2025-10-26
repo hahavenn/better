@@ -3,7 +3,7 @@ import { createSigner } from "fast-jwt";
 import COOKIE from "~~/server/constants/cookie";
 import TOKEN_EXPIRATION_TIMES from "~~/server/constants/token";
 
-type SetJwtTokenOptions = {
+type SetJwtOptions = {
   /**
    * Token type to set
    *
@@ -18,14 +18,14 @@ type SetJwtTokenOptions = {
 };
 
 /**
- * Set jwt token to requester
+ * Set jwt to requester
  */
 export default function (
   /**
    * `event` object, used in `defineEventHandler`
    */
   event: any,
-  options: SetJwtTokenOptions
+  options: SetJwtOptions
 ) {
   const { tokenType = "access", login } = options;
 
