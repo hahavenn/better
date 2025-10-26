@@ -1,15 +1,15 @@
-import { generateKey } from "node:crypto";
+import { randomBytes } from "node:crypto";
 import { appendFile } from "node:fs/promises";
 import { resolve } from "node:path";
 
 (async function () {
   try {
-    generateKey("hmac", { length: 512 }, async (err, key) => {
+    randomBytes(64, async (err, buf) => {
       if (err) throw err;
-      const envFilePath = resolve(".", ".env");
-      const jwtSecret = key.export().toString("hex");
-
-      await appendFile(envFilePath, `\nJWT_SECRET=${jwtSecret}`);
+      await appendFile(
+        resolve(".", ".env"),
+        `\nJWT_SECRET=${buf.toString("hex")}`
+      );
 
       console.log("jwt secret successfully generated");
     });
