@@ -1,11 +1,3 @@
-export type AuthSignupResponse = {
-  /**
-   * User identifier
-   */
-  id: number;
+import type { User } from "~~/shared/types/user";
 
-  /**
-   * User login, that signed up
-   */
-  login: string;
-};
+export type AuthSignupResponse = User;

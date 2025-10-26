@@ -1,5 +1,6 @@
 import bcrypt from "bcryptjs";
 import z from "zod";
+import { v4 } from "uuid";
 
 import db from "~~/server/db";
 import { usersTable } from "~~/server/db/schema/user";
@@ -40,18 +41,14 @@ export default defineEventHandler({
     const credentials = parsed.data;
     const salt = await bcrypt.genSalt(10);
     const hashPassword = await bcrypt.hash(credentials.password, salt);
-    let createdUserId: null | number = null;
+    const userId = v4();
 
     try {
-      const insertResult = await db
-        .insert(usersTable)
-        .values({
-          login: credentials.login,
-          password: hashPassword,
-        })
-        .returning();
-
-      createdUserId = insertResult[0].id;
+      await db.insert(usersTable).values({
+        id: userId,
+        login: credentials.login,
+        password: hashPassword,
+      });
     } catch (error) {
       const handled = await handleError(error);
 
@@ -88,16 +85,16 @@ export default defineEventHandler({
 
     setJwt(event, {
       tokenType: "access",
-      login: credentials.login,
+      userId: userId,
     });
     setJwt(event, {
       tokenType: "refresh",
-      login: credentials.login,
+      userId: userId,
     });
 
     setResponseStatus(event, 201);
     return {
-      id: createdUserId,
+      id: userId,
       login: credentials.login,
     };
   },

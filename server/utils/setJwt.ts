@@ -3,6 +3,8 @@ import { createSigner } from "fast-jwt";
 import COOKIE from "~~/server/constants/cookie";
 import TOKEN_EXPIRATION_TIMES from "~~/server/constants/token";
 
+import type { User } from "~~/shared/types/user";
+
 type SetJwtOptions = {
   /**
    * Token type to set
@@ -12,9 +14,9 @@ type SetJwtOptions = {
   tokenType?: "access" | "refresh";
 
   /**
-   * User login to set in token payload
+   * User id to set in token payload
    */
-  login: string;
+  userId: User["id"];
 };
 
 /**
@@ -27,7 +29,7 @@ export default function (
   event: any,
   options: SetJwtOptions
 ) {
-  const { tokenType = "access", login } = options;
+  const { tokenType = "access", userId } = options;
 
   const cookieTokenName =
     tokenType === "access" ? COOKIE.ACCESS_TOKEN : COOKIE.REFRESH_TOKEN;
@@ -40,7 +42,7 @@ export default function (
   deleteCookie(event, cookieTokenName);
   const token = createSigner({
     key: process.env.JWT_SECRET,
-    sub: login,
+    sub: userId,
     expiresIn: expiresIn,
   })({});
   setCookie(event, cookieTokenName, token, {
@@ -50,7 +52,4 @@ export default function (
     sameSite: true,
     path: tokenType === "refresh" ? "/api/users/signup/refresh" : undefined,
   });
-
-  console.log("cookieTokenName", cookieTokenName);
-  console.log("token", token);
 }
