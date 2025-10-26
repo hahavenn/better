@@ -19,7 +19,6 @@ type ReturnError =
     };
 
 type HandleErrorParamType = unknown;
-type HandleErrorFn = (error: HandleErrorParamType) => Promise<ReturnError>;
 
 function isSQLiteError(
   error: HandleErrorParamType
@@ -36,7 +35,25 @@ function isSQLiteError(
   ].every((condition) => condition === true);
 }
 
-const handleError: HandleErrorFn = async (error) => {
+/**
+ * Handle error in `defineEventHandler`
+ *
+ * @returns typed error to be proceeded to handle
+ *
+ * @example
+ * ```typescript
+ * const handled = await handleError(error);
+ * if(handled.type === "SQLite") {
+ *   // your handle logic for SQLite errors
+ * } else {
+ *   // your handle logic for other error types
+ * }
+ * ```
+ */
+export default async function (
+  /** Error to handle */
+  error: HandleErrorParamType
+): Promise<ReturnError> {
   switch (true) {
     case isSQLiteError(error): {
       return {
@@ -53,5 +70,4 @@ const handleError: HandleErrorFn = async (error) => {
       };
     }
   }
-};
-export default handleError;
+}
