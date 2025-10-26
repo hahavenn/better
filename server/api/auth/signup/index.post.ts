@@ -1,16 +1,14 @@
 import bcrypt from "bcryptjs";
 import z from "zod";
-import { createSigner } from "fast-jwt";
 
 import db from "~~/server/db";
 import { usersTable } from "~~/server/db/schema/user";
 
 import LOG_TYPES from "~~/server/constants/logs";
-import COOKIE from "~~/server/constants/cookie";
-import TOKEN_EXPIRATION_TIMES from "~~/server/constants/token";
 
 import type { AuthSignupResponse } from "~~/shared/types/response/auth/signup";
 import type { ErrorResponse } from "~~/shared/types/response/error";
+import setJwtToken from "~~/server/utils/setJwtToken";
 
 const User = z.object({
   login: z
@@ -87,31 +85,13 @@ export default defineEventHandler({
       return { message: "Fatal" };
     }
 
-    deleteCookie(event, COOKIE.ACCESS_TOKEN);
-    const accessToken = createSigner({
-      key: process.env.JWT_SECRET,
-      sub: credentials.login,
-      expiresIn: Date.now() + TOKEN_EXPIRATION_TIMES.ACCESS,
-    })({});
-    setCookie(event, COOKIE.ACCESS_TOKEN, accessToken, {
-      expires: new Date(Date.now() + TOKEN_EXPIRATION_TIMES.ACCESS),
-      httpOnly: true,
-      secure: true,
-      sameSite: true,
+    setJwtToken(event, {
+      tokenType: "access",
+      login: credentials.login,
     });
-
-    deleteCookie(event, COOKIE.REFRESH_TOKEN);
-    const refreshToken = createSigner({
-      key: process.env.JWT_SECRET,
-      sub: credentials.login,
-      expiresIn: Date.now() + TOKEN_EXPIRATION_TIMES.REFRESH,
-    })({});
-    setCookie(event, COOKIE.REFRESH_TOKEN, refreshToken, {
-      expires: new Date(Date.now() + TOKEN_EXPIRATION_TIMES.REFRESH),
-      httpOnly: true,
-      secure: true,
-      sameSite: true,
-      path: "/api/users/signup/refresh",
+    setJwtToken(event, {
+      tokenType: "refresh",
+      login: credentials.login,
     });
 
     setResponseStatus(event, 201);
