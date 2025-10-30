@@ -52,8 +52,8 @@ function isJwtPayload(payload: unknown): payload is JwtPayload {
  * ```
  */
 export default function (event: any, userId: User["id"]) {
-  const token = getCookie(event, COOKIE.ACCESS_TOKEN);
-  if (token === undefined) {
+  const accessToken = getCookie(event, COOKIE.ACCESS_TOKEN);
+  if (accessToken === undefined) {
     setResponseStatus(event, 401);
     return { ok: false, message: "Unauthorized" } as const;
   }
@@ -62,7 +62,7 @@ export default function (event: any, userId: User["id"]) {
 
   let payload: unknown = null;
   try {
-    payload = verify(token);
+    payload = verify(accessToken);
   } catch (error) {
     if (error instanceof TokenError) {
       setResponseStatus(event, 401);
