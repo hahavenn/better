@@ -12,7 +12,7 @@ import type { ErrorResponse } from "~~/shared/types/response/error";
 
 import setJwt from "~~/server/utils/setJwt";
 
-const User = z.object({
+const UserSchema = z.object({
   login: z
     .string("login should be string")
     .refine((login) => /^[\p{L}\d_-]+$/u.test(login), {
@@ -29,7 +29,7 @@ const User = z.object({
 
 export default defineEventHandler({
   async handler(event): Promise<AuthSignupResponse | ErrorResponse> {
-    const userParse = User.safeParse(await readBody(event));
+    const userParse = UserSchema.safeParse(await readBody(event));
 
     if (!userParse.success) {
       setResponseStatus(event, 400);
