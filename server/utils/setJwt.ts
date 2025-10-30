@@ -34,22 +34,24 @@ export default function (
   const cookieTokenName =
     tokenType === "access" ? COOKIE.ACCESS_TOKEN : COOKIE.REFRESH_TOKEN;
   const expiresIn =
-    Date.now() +
-    (tokenType === "access"
+    tokenType === "access"
       ? TOKEN_EXPIRATION_TIMES.ACCESS
-      : TOKEN_EXPIRATION_TIMES.REFRESH);
+      : TOKEN_EXPIRATION_TIMES.REFRESH;
 
   deleteCookie(event, cookieTokenName);
-  const token = createSigner({
+
+  const tokenSigner = createSigner({
     key: process.env.JWT_SECRET,
     sub: userId,
-    expiresIn: expiresIn,
-  })({});
+    expiresIn,
+  });
+  const token = tokenSigner({});
+
   setCookie(event, cookieTokenName, token, {
-    expires: new Date(expiresIn),
+    expires: new Date(Date.now() + expiresIn),
     httpOnly: true,
     secure: true,
     sameSite: true,
-    path: tokenType === "refresh" ? "/api/users/signup/refresh" : undefined,
+    path: tokenType === "access" ? undefined : "/api/auth/signup",
   });
 }
