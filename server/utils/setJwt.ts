@@ -11,7 +11,7 @@ type SetJwtOptions = {
    *
    * @default "access"
    */
-  tokenType?: "access" | "refresh";
+  type?: "access" | "refresh";
 
   /**
    * User id to set in token payload
@@ -21,6 +21,22 @@ type SetJwtOptions = {
 
 /**
  * Set jwt to requester
+ *
+ * @example
+ * ```typescript
+ * export default defineEventHandler({
+ *   async handler(event) {
+ *     // some other code
+ *
+ *     setJwt(event, {
+ *       type: "access",
+ *       userId: createdUser.id
+ *     })
+ *
+ *     // another some other code
+ *   }
+ * })
+ * ```
  */
 export default function (
   /**
@@ -29,7 +45,7 @@ export default function (
   event: any,
   options: SetJwtOptions
 ) {
-  const { tokenType = "access", userId } = options;
+  const { type: tokenType = "access", userId } = options;
 
   const cookieTokenName =
     tokenType === "access" ? COOKIE.ACCESS_TOKEN : COOKIE.REFRESH_TOKEN;

@@ -84,12 +84,12 @@ export default defineEventHandler({
     }
 
     setJwt(event, {
-      tokenType: "access",
-      userId: userId,
+      type: "access",
+      userId,
     });
     setJwt(event, {
-      tokenType: "refresh",
-      userId: userId,
+      type: "refresh",
+      userId,
     });
 
     setResponseStatus(event, 201);
