@@ -29,16 +29,16 @@ const User = z.object({
 
 export default defineEventHandler({
   async handler(event): Promise<AuthSignupResponse | ErrorResponse> {
-    const parsed = User.safeParse(await readBody(event));
+    const userParse = User.safeParse(await readBody(event));
 
-    if (!parsed.success) {
+    if (!userParse.success) {
       setResponseStatus(event, 400);
       return {
-        message: parsed.error.issues[0].message,
+        message: userParse.error.issues[0].message,
       };
     }
 
-    const credentials = parsed.data;
+    const credentials = userParse.data;
     const salt = await bcrypt.genSalt(10);
     const hashPassword = await bcrypt.hash(credentials.password, salt);
     const userId = v4();
