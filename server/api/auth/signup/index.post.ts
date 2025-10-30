@@ -30,7 +30,6 @@ const UserSchema = z.object({
 export default defineEventHandler({
   async handler(event): Promise<AuthSignupResponse | ErrorResponse> {
     const userParse = UserSchema.safeParse(await readBody(event));
-
     if (!userParse.success) {
       setResponseStatus(event, 400);
       return {
