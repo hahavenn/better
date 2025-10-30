@@ -20,7 +20,10 @@ type SetJwtOptions = {
 };
 
 /**
- * Set jwt to requester
+ * Set jwt to requester.
+ *
+ * @description
+ * Also remove old cookies === updating tokens
  *
  * @example
  * ```typescript
@@ -68,6 +71,6 @@ export default function (
     httpOnly: true,
     secure: true,
     sameSite: true,
-    path: tokenType === "access" ? undefined : "/api/auth/signup",
+    path: tokenType === "access" ? undefined : "/api/auth/refresh",
   });
 }

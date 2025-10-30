@@ -4,25 +4,7 @@ import type { User } from "~~/shared/types/user";
 
 import COOKIE from "../constants/cookie";
 
-/**
- * JWT payload
- *
- * @see https://en.wikipedia.org/wiki/JSON_Web_Token#Standard_fields
- */
-type JwtPayload = {
-  sub: string;
-  iat: number;
-  exp: number;
-};
-function isJwtPayload(payload: unknown): payload is JwtPayload {
-  const p = payload as any;
-
-  return [
-    "sub" in p && typeof p.sub === "string",
-    "iat" in p && typeof p.iat === "number",
-    "exp" in p && typeof p.exp === "number",
-  ].every((condition) => condition === true);
-}
+import isJwtPayload from "./isJwtPayload";
 
 /**
  * Verify access jwt.
@@ -74,8 +56,8 @@ export default function (event: any, userId: User["id"]) {
     }
   }
   if (!isJwtPayload(payload)) {
-    setResponseStatus(event, 500);
-    return { ok: false, message: "Fatal" } as const;
+    setResponseStatus(event, 400);
+    return { ok: false, message: "Invalid token payload" } as const;
   }
 
   if (payload.sub !== userId) {
