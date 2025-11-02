@@ -1,8 +1,8 @@
 /**
- * Expiration times for different tokens in ms
+ * Expiration in time for different tokens in ms
  */
-const TOKEN_EXPIRATION_TIMES = {
+const TOKEN_EXPIRATION_IN_TIME = {
   ACCESS: 60 * 15 * 1000,
-  REFRESH: 60 * 60 * 24 * 1 * 1000,
+  REFRESH: 60 * 60 * 6 * 1000,
 } as const;
-export default TOKEN_EXPIRATION_TIMES;
+export default TOKEN_EXPIRATION_IN_TIME;

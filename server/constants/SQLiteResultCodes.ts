@@ -1,5 +1,5 @@
 /** @see https://www.sqlite.org/rescode.html */
-const SQLiteResultCodes = {
+const SQLITE_RESULT_CODES = {
   4: "SQLITE_ABORT",
   23: "SQLITE_AUTH",
   5: "SQLITE_BUSY",
@@ -106,3 +106,4 @@ const SQLiteResultCodes = {
   776: "SQLITE_READONLY_ROLLBACK",
   284: "SQLITE_WARNING_AUTOINDEX",
 } as const;
+export default SQLITE_RESULT_CODES;

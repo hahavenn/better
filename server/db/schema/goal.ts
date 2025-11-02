@@ -1,5 +1,5 @@
 import { integer, sqliteTable, text } from "drizzle-orm/sqlite-core";
-import { usersTable } from "./user";
+import { usersTable } from "./users";
 
 // #region goal
 export const goalsTable = sqliteTable("goals_table", {

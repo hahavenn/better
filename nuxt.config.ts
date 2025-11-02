@@ -49,6 +49,7 @@ export default defineNuxtConfig({
         compilerOptions: {
           noEmit: false,
           composite: true,
+          noUncheckedIndexedAccess: true,
         },
         include: ["../shared/**/*.ts"],
       },
@@ -60,6 +61,7 @@ export default defineNuxtConfig({
       compilerOptions: {
         noEmit: false,
         composite: true,
+        noUncheckedIndexedAccess: true,
       },
       include: ["../shared/**/*.ts"],
     },
@@ -67,6 +69,7 @@ export default defineNuxtConfig({
       compilerOptions: {
         noEmit: false,
         composite: true,
+        noUncheckedIndexedAccess: true,
       },
       include: ["../shared/**/*.ts"],
     },
@@ -74,6 +77,7 @@ export default defineNuxtConfig({
       compilerOptions: {
         noEmit: false,
         composite: true,
+        noUncheckedIndexedAccess: true,
       },
       include: ["../shared/**/*.ts"],
     },

@@ -4,7 +4,7 @@ export const usersTable = sqliteTable("users_table", {
   /**
    * User id in uuid v4 format
    */
-  id: text().primaryKey().unique().notNull(),
+  id: text().primaryKey().unique(),
 
   /**
    * User login
@@ -15,4 +15,9 @@ export const usersTable = sqliteTable("users_table", {
    * User hashed password
    */
   password: text({ length: 60 }).notNull(),
+
+  /**
+   * Time when happened last update of user data in UTC format
+   */
+  updatedAt: text().notNull(),
 });

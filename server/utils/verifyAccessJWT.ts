@@ -4,7 +4,7 @@ import type { User } from "~~/shared/types/user";
 
 import COOKIE from "../constants/cookie";
 
-import isJwtPayload from "./isJwtPayload";
+import isJWTPayload from "./isJWTPayload";
 
 /**
  * Verify access jwt.
@@ -15,13 +15,13 @@ import isJwtPayload from "./isJwtPayload";
  *
  * @param event variable in `defineEventHandler`
  * @param userId to compare with userId in token payload object
- * @returns object with status of verification and additional message if validation failed
+ * @returns additional message if validation failed
  *
  * @example
  * ```typescript
  * export default defineEventHandler({
  *   async handler(event) {
- *     const verified = verifyAccessJwt(
+ *     const verified = verifyAccessJWT(
  *       event,
  *       userId
  *     );
@@ -34,7 +34,7 @@ import isJwtPayload from "./isJwtPayload";
  * ```
  */
 export default function (event: any, userId: User["id"]) {
-  const accessToken = getCookie(event, COOKIE.ACCESS_TOKEN);
+  const accessToken = getCookie(event, COOKIE.ACCESS_JWT);
   if (accessToken === undefined) {
     setResponseStatus(event, 401);
     return { ok: false, message: "Unauthorized" } as const;
@@ -55,7 +55,7 @@ export default function (event: any, userId: User["id"]) {
       return { ok: false, message: "Fatal" } as const;
     }
   }
-  if (!isJwtPayload(payload)) {
+  if (!isJWTPayload(payload)) {
     setResponseStatus(event, 400);
     return { ok: false, message: "Invalid token payload" } as const;
   }
@@ -67,5 +67,6 @@ export default function (event: any, userId: User["id"]) {
 
   return {
     ok: true,
+    message: "Authorized",
   } as const;
 }

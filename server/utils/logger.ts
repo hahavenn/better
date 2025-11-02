@@ -1,7 +1,10 @@
-import { resolve } from "node:path";
+import { dirname, resolve } from "node:path";
+import { fileURLToPath } from "node:url";
 import pino from "pino";
 
 import LOG_TYPES from "../constants/logs";
+
+const __dirname = dirname(fileURLToPath(import.meta.url));
 
 const sqliteLogger = pino(
   {
@@ -9,7 +12,7 @@ const sqliteLogger = pino(
     nestedKey: "fatalObject",
   },
   pino.destination({
-    dest: resolve(".", "..", "..", "logs", "sqlite.logs"),
+    dest: resolve(__dirname, "..", "..", "logs", "sqlite.logs"),
     mkdir: true,
   })
 );
@@ -19,7 +22,7 @@ const allLogger = pino(
     nestedKey: "fatalObject",
   },
   pino.destination({
-    dest: resolve(".", "..", "..", "logs", "all.logs"),
+    dest: resolve(__dirname, "..", "..", "logs", "all.logs"),
     mkdir: true,
   })
 );
