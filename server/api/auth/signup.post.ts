@@ -12,8 +12,6 @@ import type { ErrorResponse } from "~~/shared/types/response/error";
 
 import { UserCredentialsZodSchema } from "~~/server/shared/zod/user";
 
-import JWTGenerator from "~~/server/utils/JWTGenerator";
-
 defineRouteMeta({
   openAPI: {
     tags: ["Auth"],

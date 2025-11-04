@@ -11,8 +11,6 @@ import type { RefreshTokenSelectType } from "~~/server/db/types/refreshTokens";
 
 import { UserIdZod } from "~~/server/shared/zod/user";
 
-import JWTGenerator from "~~/server/utils/JWTGenerator";
-
 import type { AuthRefreshResponse } from "~~/shared/types/response/auth/refresh";
 import type { ErrorResponse } from "~~/shared/types/response/error";
 
