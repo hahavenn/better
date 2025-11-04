@@ -54,6 +54,25 @@ export default defineNuxtConfig({
         include: ["../shared/**/*.ts"],
       },
     },
+
+    experimental: {
+      openAPI: true,
+    },
+
+    openAPI: {
+      meta: {
+        title: "Better API with swagger",
+        description: "API's, that can be used in project",
+      },
+
+      production: "prerender",
+
+      ui: {
+        swagger: {
+          route: "/swagger",
+        },
+      },
+    },
   },
 
   typescript: {

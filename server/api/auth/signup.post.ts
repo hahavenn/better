@@ -11,7 +11,69 @@ import type { AuthSignupResponse } from "~~/shared/types/response/auth/signup";
 import type { ErrorResponse } from "~~/shared/types/response/error";
 
 import UserCredentialsSchema from "~~/server/shared/zod/user";
+
 import JWTGenerator from "~~/server/utils/JWTGenerator";
+
+defineRouteMeta({
+  openAPI: {
+    description:
+      "Sign up user by user credentials and set access&refresh jwt's",
+    summary: "Sign up user",
+    requestBody: {
+      content: {
+        "application/json": {
+          example: {
+            login: "hahavenn",
+            password: "hahavenn",
+          },
+        },
+      },
+    },
+    responses: {
+      201: {
+        description: "User created, access&refresh jwt's was set",
+        content: {
+          "application/json": {
+            example: {
+              userId: "efdac001-68e7-4f92-9340-ea462e65c712",
+              login: "hahavenn",
+            },
+          },
+        },
+      },
+      409: {
+        description: "User with given login already exist",
+        content: {
+          "application/json": {
+            example: {
+              message: "User with login 'hahavenn' already exist",
+            },
+          },
+        },
+      },
+      422: {
+        description: "Invalid user credentials",
+        content: {
+          "application/json": {
+            example: {
+              message: "Invalid user credentials",
+            },
+          },
+        },
+      },
+      500: {
+        description: "Fatal error occurred, see logs for details",
+        content: {
+          "application/json": {
+            example: {
+              message: "Fatal",
+            },
+          },
+        },
+      },
+    },
+  },
+});
 
 export default defineEventHandler({
   async handler(event): Promise<AuthSignupResponse | ErrorResponse> {
