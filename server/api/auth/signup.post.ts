@@ -6,7 +6,6 @@ import { usersTable } from "~~/server/db/schema/users";
 
 import LOG_TYPES from "~~/server/constants/logs";
 import SQLITE_RESULT_CODES from "~~/server/constants/SQLiteResultCodes";
-import { OPEN_API_TAGS } from "~~/server/constants/openApi";
 
 import type { AuthSignupResponse } from "~~/shared/types/response/auth/signup";
 import type { ErrorResponse } from "~~/shared/types/response/error";
@@ -17,7 +16,7 @@ import JWTGenerator from "~~/server/utils/JWTGenerator";
 
 defineRouteMeta({
   openAPI: {
-    tags: [OPEN_API_TAGS.AUTH],
+    tags: ["Auth"],
     description:
       "Sign up user by user credentials and set access&refresh jwt's",
     summary: "Sign up user",
