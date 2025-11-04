@@ -5,7 +5,7 @@ import db from "~~/server/db";
 import { usersTable } from "~~/server/db/schema/users";
 import type { UserSelectType } from "~~/server/db/types/user";
 
-import UserCredentialsSchema from "~~/server/shared/zod/user";
+import { UserCredentialsZodSchema } from "~~/server/shared/zod/user";
 
 import type { ErrorResponse } from "~~/shared/types/response/error";
 import type { AuthSigninResponse } from "~~/shared/types/response/auth/signin";
@@ -14,7 +14,7 @@ import LOG_TYPES from "~~/server/constants/logs";
 
 export default defineEventHandler({
   async handler(event): Promise<AuthSigninResponse | ErrorResponse> {
-    const userCredentialsParse = UserCredentialsSchema.safeParse(
+    const userCredentialsParse = UserCredentialsZodSchema.safeParse(
       await readBody(event)
     );
     if (!userCredentialsParse.success) {

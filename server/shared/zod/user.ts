@@ -1,6 +1,9 @@
 import z from "zod";
 
-const UserCredentialsSchema = z.object(
+/**
+ * User credentials zod schema
+ */
+const UserCredentialsZodSchema = z.object(
   {
     login: z
       .string("Login should be string")
@@ -20,4 +23,12 @@ const UserCredentialsSchema = z.object(
   { error: "Invalid input. Expected { login, password }" }
 );
 
-export default UserCredentialsSchema;
+/**
+ * User id zod definition
+ */
+const UserIdZod = z.uuid({
+  version: "v4",
+  error: "User id should be in uuid v4 format",
+});
+
+export { UserCredentialsZodSchema, UserIdZod };

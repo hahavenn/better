@@ -9,21 +9,20 @@ import db from "~~/server/db";
 import { refreshTokensTable } from "~~/server/db/schema/refreshTokens";
 import type { RefreshTokenSelectType } from "~~/server/db/types/refreshTokens";
 
+import { UserIdZod } from "~~/server/shared/zod/user";
+
 import JWTGenerator from "~~/server/utils/JWTGenerator";
 
 import type { AuthRefreshResponse } from "~~/shared/types/response/auth/refresh";
 import type { ErrorResponse } from "~~/shared/types/response/error";
 
-const RefreshSchema = z.object({
-  userId: z.uuid({
-    version: "v4",
-    error: "User id should be in uuid v4 format",
-  }),
-});
-
 export default defineEventHandler({
   async handler(event): Promise<AuthRefreshResponse | ErrorResponse> {
-    const refreshParse = RefreshSchema.safeParse(await readBody(event));
+    const refreshParse = z
+      .object({
+        userId: UserIdZod,
+      })
+      .safeParse(await readBody(event));
     if (!refreshParse.success) {
       setResponseStatus(event, 422);
       return {

@@ -11,7 +11,7 @@ import { OPEN_API_TAGS } from "~~/server/constants/openApi";
 import type { AuthSignupResponse } from "~~/shared/types/response/auth/signup";
 import type { ErrorResponse } from "~~/shared/types/response/error";
 
-import UserCredentialsSchema from "~~/server/shared/zod/user";
+import { UserCredentialsZodSchema } from "~~/server/shared/zod/user";
 
 import JWTGenerator from "~~/server/utils/JWTGenerator";
 
@@ -79,7 +79,7 @@ defineRouteMeta({
 
 export default defineEventHandler({
   async handler(event): Promise<AuthSignupResponse | ErrorResponse> {
-    const userCredentialsParse = UserCredentialsSchema.safeParse(
+    const userCredentialsParse = UserCredentialsZodSchema.safeParse(
       await readBody(event)
     );
     if (!userCredentialsParse.success) {
