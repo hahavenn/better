@@ -16,6 +16,67 @@ import JWTGenerator from "~~/server/utils/JWTGenerator";
 import type { AuthRefreshResponse } from "~~/shared/types/response/auth/refresh";
 import type { ErrorResponse } from "~~/shared/types/response/error";
 
+defineRouteMeta({
+  openAPI: {
+    tags: ["Auth"],
+    description:
+      "Update access&refresh jwt pair by valid refresh jwt and relative userId",
+    summary: "Update access&refresh jwt pair",
+    requestBody: {
+      content: {
+        "application/json": {
+          example: {
+            userId: "efdac001-68e7-4f92-9340-ea462e65c712",
+          },
+        },
+      },
+    },
+    responses: {
+      200: {
+        description: "Success verification, set new pair of access&refresh",
+        content: {
+          "application/json": {
+            example: {
+              userId: "efdac001-68e7-4f92-9340-ea462e65c712",
+            },
+          },
+        },
+      },
+      422: {
+        description: "Invalid 'userId'",
+        content: {
+          "application/json": {
+            example: {
+              message: "Incorrect request body",
+            },
+          },
+        },
+      },
+      401: {
+        description:
+          "Token verification failed due different reasons. Requested 'userId' is different from payload's 'userId'",
+        content: {
+          "application/json": {
+            example: {
+              message: "Unauthorized",
+            },
+          },
+        },
+      },
+      500: {
+        description: "Fatal error occurred, see logs for details",
+        content: {
+          "application/json": {
+            example: {
+              message: "Fatal",
+            },
+          },
+        },
+      },
+    },
+  },
+});
+
 export default defineEventHandler({
   async handler(event): Promise<AuthRefreshResponse | ErrorResponse> {
     const refreshParse = z
