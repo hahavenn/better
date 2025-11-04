@@ -58,24 +58,20 @@ export default async function* JWTGenerator(event: any, userId: User["id"]) {
     expiresIn: TOKEN_EXPIRATION_IN_TIME.ACCESS,
     jti: v4(),
   })({});
-  const accessJWTExpirationDate = new Date(
-    Date.now() + TOKEN_EXPIRATION_IN_TIME.ACCESS
-  );
   const refreshJWT = createSigner({
     key: process.env.JWT_SECRET,
     sub: userId,
     expiresIn: TOKEN_EXPIRATION_IN_TIME.REFRESH,
     jti: v4(),
   })({});
-  const refreshJWTExpirationDate = new Date(
-    Date.now() + TOKEN_EXPIRATION_IN_TIME.REFRESH
-  );
 
   try {
     await db.insert(refreshTokensTable).values({
       token: refreshJWT,
       userId,
-      expiresAt: refreshJWTExpirationDate.toUTCString(),
+      expiresAt: new Date(
+        Date.now() + TOKEN_EXPIRATION_IN_TIME.REFRESH
+      ).toUTCString(),
     });
   } catch (error) {
     logger(error, {
@@ -86,13 +82,13 @@ export default async function* JWTGenerator(event: any, userId: User["id"]) {
   }
 
   setCookie(event, COOKIE.ACCESS_JWT, accessJWT, {
-    expires: accessJWTExpirationDate,
+    maxAge: TOKEN_EXPIRATION_IN_TIME.ACCESS / 1000,
     httpOnly: true,
     secure: true,
     sameSite: true,
   });
   setCookie(event, COOKIE.REFRESH_JWT, refreshJWT, {
-    expires: refreshJWTExpirationDate,
+    maxAge: TOKEN_EXPIRATION_IN_TIME.REFRESH / 1000,
     httpOnly: true,
     secure: true,
     sameSite: true,
