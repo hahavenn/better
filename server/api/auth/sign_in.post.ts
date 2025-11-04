@@ -12,6 +12,69 @@ import type { AuthSigninResponse } from "~~/shared/types/response/auth/signin";
 
 import LOG_TYPES from "~~/server/constants/logs";
 
+defineRouteMeta({
+  openAPI: {
+    tags: ["Auth"],
+    description:
+      "Sign in user by user credentials and set access&refresh jwt's",
+    summary: "Sign in user",
+    requestBody: {
+      content: {
+        "application/json": {
+          example: {
+            login: "hahavenn",
+            password: "hahavenn",
+          },
+        },
+      },
+    },
+    responses: {
+      201: {
+        description: "User authorized, access&refresh jwt's was set",
+        content: {
+          "application/json": {
+            example: {
+              userId: "efdac001-68e7-4f92-9340-ea462e65c712",
+              login: "hahavenn",
+            },
+          },
+        },
+      },
+      401: {
+        description:
+          "Authorization failed. Invalid login or password or non-exist user",
+        content: {
+          "application/json": {
+            example: {
+              message: "Invalid login or password",
+            },
+          },
+        },
+      },
+      422: {
+        description: "Invalid user credentials",
+        content: {
+          "application/json": {
+            example: {
+              message: "Invalid user credentials",
+            },
+          },
+        },
+      },
+      500: {
+        description: "Fatal error occurred, see logs for details",
+        content: {
+          "application/json": {
+            example: {
+              message: "Fatal",
+            },
+          },
+        },
+      },
+    },
+  },
+});
+
 export default defineEventHandler({
   async handler(event): Promise<AuthSigninResponse | ErrorResponse> {
     const userCredentialsParse = UserCredentialsZodSchema.safeParse(
