@@ -41,7 +41,12 @@ export default defineNuxtConfig({
 
   css: ["~/assets/css/main.css", "~/assets/css/colors/index.css"],
 
-  modules: ["@vueuse/nuxt", "@pinia/nuxt", "@nuxtjs/tailwindcss"],
+  modules: [
+    "@vueuse/nuxt",
+    "@pinia/nuxt",
+    "@nuxtjs/tailwindcss",
+    "@nuxt/test-utils/module",
+  ],
 
   nitro: {
     typescript: {

@@ -5,7 +5,7 @@ export default defineConfig({
   schema: "server/db/schema",
 
   dbCredentials: {
-    url: process.env.DB_FILE_NAME!,
+    url: "file:dev.db",
   },
 
   strict: true,
