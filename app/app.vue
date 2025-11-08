@@ -10,20 +10,6 @@
 
 <script setup lang="ts">
 import AppHeader from "./components/app/Header/AppHeader.vue";
-
-import useFetch from "~/hooks/fetch";
-
-onMounted(async () => {
-  const response = await useFetch({
-    url: "/v1/hello",
-    method: "POST",
-    body: {
-      from1: "nuxt frontend",
-    },
-  });
-
-  console.log("response", response);
-});
 </script>
 
 <style scoped></style>
