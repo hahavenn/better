@@ -77,6 +77,12 @@ defineRouteMeta({
 
 export default defineEventHandler({
   async handler(event): Promise<AuthRefreshResponse | ErrorResponse> {
+    const refreshToken = getCookie(event, COOKIE.REFRESH_JWT);
+    if (refreshToken === undefined) {
+      setResponseStatus(event, 401);
+      return { message: "Unauthorized" };
+    }
+
     const refreshParse = z
       .object({
         userId: UserIdZod,
@@ -91,15 +97,8 @@ export default defineEventHandler({
     }
     const userId = refreshParse.data.userId;
 
-    const refreshToken = getCookie(event, COOKIE.REFRESH_JWT);
-
     const jwtGen = JWTGenerator(event, userId);
     await jwtGen.next();
-
-    if (refreshToken === undefined) {
-      setResponseStatus(event, 401);
-      return { message: "Unauthorized" };
-    }
 
     let payload: unknown = null;
     try {
