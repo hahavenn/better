@@ -103,7 +103,12 @@ export default defineNuxtConfig({
         composite: true,
         noUncheckedIndexedAccess: true,
       },
-      include: ["../shared/**/*.ts"],
+      include: [
+        "../shared/**/*.ts",
+        "../docs/**/*.ts",
+        "../docs/**/*.vue",
+        "../scripts/**/*.ts",
+      ],
     },
   },
 });
