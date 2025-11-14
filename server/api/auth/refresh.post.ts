@@ -102,7 +102,9 @@ export default defineEventHandler({
 
     let payload: unknown = null;
     try {
-      payload = createVerifier({ key: process.env.JWT_SECRET })(refreshToken);
+      payload = createVerifier({ key: process.env["JWT_SECRET"] })(
+        refreshToken
+      );
     } catch (error) {
       if (error instanceof TokenError) {
         setResponseStatus(event, 401);

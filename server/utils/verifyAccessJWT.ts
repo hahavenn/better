@@ -40,7 +40,7 @@ export default function (event: any, userId: User["id"]) {
     return { ok: false, message: "Unauthorized" } as const;
   }
 
-  const verify = createVerifier({ key: process.env.JWT_SECRET });
+  const verify = createVerifier({ key: process.env["JWT_SECRET"] });
 
   let payload: unknown = null;
   try {

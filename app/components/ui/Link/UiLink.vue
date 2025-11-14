@@ -22,11 +22,13 @@ const props = withDefaults(defineProps<LinkUIProps>(), {
   title: "",
 });
 
-const target = computed<LinkUIProps["target"]>(() =>
-  props.preset ? LinkUIPresets[props.preset].target : props.target
+const target = computed<NonNullable<LinkUIProps["target"]>>(() =>
+  props.preset
+    ? (LinkUIPresets[props.preset].target ?? props.target)
+    : props.target
 );
-const to = computed<LinkUIProps["to"]>(() =>
-  props.preset ? LinkUIPresets[props.preset].to : props.to
+const to = computed<NonNullable<LinkUIProps["to"]>>(() =>
+  props.preset ? (LinkUIPresets[props.preset].to ?? props.to) : props.to
 );
 const rel = computed<string>(() =>
   (props.preset ? LinkUIPresets[props.preset].rel : props.rel)!.join(" ")

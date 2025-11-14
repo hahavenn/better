@@ -1,4 +1,5 @@
 import { createSigner } from "fast-jwt";
+import { v4 } from "uuid";
 
 import type { User } from "~~/shared/types/user";
 
@@ -8,7 +9,6 @@ import { refreshTokensTable } from "../db/schema/refreshTokens";
 import COOKIE from "../constants/cookie";
 import TOKEN_EXPIRATION_IN_TIME from "../constants/token";
 import LOG_TYPES from "../constants/logs";
-import { v4 } from "uuid";
 
 /**
  * Generator to work with access+refresh jwt's
@@ -53,13 +53,13 @@ export default async function* JWTGenerator(event: any, userId: User["id"]) {
   yield;
 
   const accessJWT = createSigner({
-    key: process.env.JWT_SECRET,
+    key: process.env["JWT_SECRET"],
     sub: userId,
     expiresIn: TOKEN_EXPIRATION_IN_TIME.ACCESS,
     jti: v4(),
   })({});
   const refreshJWT = createSigner({
-    key: process.env.JWT_SECRET,
+    key: process.env["JWT_SECRET"],
     sub: userId,
     expiresIn: TOKEN_EXPIRATION_IN_TIME.REFRESH,
     jti: v4(),
