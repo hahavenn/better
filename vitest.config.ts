@@ -7,27 +7,27 @@ export default defineConfig({
       {
         test: {
           name: "unit",
-          include: ["test/{e2e,unit}/*.{test,spec}.ts"],
+          include: ["tests/{e2e,unit}/*.{test,spec}.ts"],
           environment: "node",
         },
       },
       await defineVitestProject({
         test: {
           name: "nuxt",
-          include: ["test/nuxt/*.{test,spec}.ts"],
+          include: ["tests/nuxt/*.{test,spec}.ts"],
           environment: "nuxt",
         },
       }),
       {
         test: {
           name: "api",
-          include: ["test/api/**/*.{test,spec}.ts"],
+          include: ["tests/api/**/*.{test,spec}.ts"],
           environment: "node",
         },
       },
     ],
     env: {
-      BASE_API_URL: "http://localhost:3000/api",
+      BASE_URL: `http://localhost:3000`,
     },
   },
 });
