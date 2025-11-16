@@ -71,7 +71,7 @@ type HeadersInitObj =
 export default async function useFetch<SuccessResponse, ErrorResponse>(
   options: UseFetchOptions
 ) {
-  const url = new URL(options.url, options.baseUrl ?? window.location.origin);
+  const url = new URL(options.url, options.baseUrl ?? location.origin);
 
   // set search params if presented
   if (options.queryParams) {
@@ -106,7 +106,7 @@ export default async function useFetch<SuccessResponse, ErrorResponse>(
     abortController.abort();
 
     // Remove other event listeners after aborting
-    options.abortEvents!.forEach((eventName) => {
+    options.abortEvents?.forEach((eventName) => {
       window.removeEventListener(eventName, abortFetch);
     });
   };
@@ -128,13 +128,13 @@ export default async function useFetch<SuccessResponse, ErrorResponse>(
     return {
       ...data,
       statusCode,
+      setCookies: response.headers.getSetCookie(),
     };
   } catch (e) {
-    /* error handling */
+    /** error handling @todo add proper way to handle fetch errors */
 
     return null;
   } finally {
-    // Clean up the event listeners
     if (options.abortEvents) {
       options.abortEvents.forEach((eventName) => {
         window.removeEventListener(eventName, abortFetch);
