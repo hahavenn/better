@@ -7,7 +7,7 @@ const signUpUrl = "/api/auth/sign_up";
 test("sign up api test", async () => {
   const response = await useFetch({
     url: signUpUrl,
-    baseUrl: process.env.BASE_URL,
+    baseUrl: process.env.SERVER_BASE_URL,
     method: "POST",
     body: {
       login: "hahavennaa",
