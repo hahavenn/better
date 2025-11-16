@@ -34,15 +34,9 @@ export default defineNuxtConfig({
     },
   },
 
-  debug: process.env["DEV"] === "1",
-
   devServer: {
     host: process.env["HOST"],
     port: parseInt(process.env["PORT"] ?? "3000"),
-  },
-
-  features: {
-    devLogs: true,
   },
 
   css: ["~/assets/css/main.css", "~/assets/css/colors/index.css"],
