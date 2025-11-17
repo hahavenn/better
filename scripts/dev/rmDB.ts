@@ -1,5 +1,5 @@
 import { rm } from "node:fs/promises";
-import path from "node:path";
+import { resolve } from "node:path";
 
 //#region rmDB
 /**
@@ -14,7 +14,7 @@ import path from "node:path";
  * ```
  */
 (async function () {
-  const rmPath = path.resolve(".", `${process.argv[2]}.db`);
+  const rmPath = resolve(".", `${process.argv[2]}.db`);
   rm(rmPath).catch(() => console.log("no file"));
 })();
 //#endregion

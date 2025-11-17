@@ -1,0 +1,39 @@
+{
+  "include": [
+    "./**/*.ts",
+    "../app/**/*.*",
+    "../shared/**/*.*",
+    "../server/**/*.*"
+  ],
+  "compilerOptions": {
+    "baseUrl": "./",
+    "paths": {
+      "~~/shared/*": ["./shared/*"],
+      "~~/app/*": ["./app/*"],
+      "~~/server/*": ["./server/*"]
+    },
+    "noEmit": false,
+    "composite": true,
+    "allowUnreachableCode": false,
+    "alwaysStrict": true,
+    "noFallthroughCasesInSwitch": true,
+    "noImplicitAny": true,
+    "noImplicitReturns": true,
+    "noImplicitThis": true,
+    "noPropertyAccessFromIndexSignature": true,
+    "noUncheckedIndexedAccess": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "strictNullChecks": true,
+    "strictBindCallApply": true,
+    "strictBuiltinIteratorReturn": true,
+    "strictFunctionTypes": true,
+    "strictPropertyInitialization": true,
+    "useUnknownInCatchVariables": true,
+    "removeComments": true,
+    "allowJs": false,
+    "allowSyntheticDefaultImports": true,
+    "erasableSyntaxOnly": true,
+    "forceConsistentCasingInFileNames": true
+  }
+}

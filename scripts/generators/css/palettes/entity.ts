@@ -1,5 +1,5 @@
-import fs from "node:fs";
-import path from "node:path";
+import { writeFile } from "node:fs";
+import { join } from "node:path";
 
 /** generate for each entity (border, bg, text, icon and etc) colors with themes and states */
 export default function generateColorEntity(
@@ -9,8 +9,9 @@ export default function generateColorEntity(
   palettes: string[]
 ) {
   entities.forEach((e) => {
-    const fileToGenerate = path.join(
+    const fileToGenerate = join(
       new URL(".", import.meta.url).pathname,
+      "..",
       "..",
       "..",
       "..",
@@ -36,7 +37,7 @@ export default function generateColorEntity(
       })
       .join("\n");
 
-    fs.writeFile(fileToGenerate, content, (err) => {
+    writeFile(fileToGenerate, content, (err) => {
       if (err) {
         console.error(err);
         return;

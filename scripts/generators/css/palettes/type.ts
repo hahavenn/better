@@ -1,8 +1,9 @@
-import fs from "node:fs";
-import path from "node:path";
+import { writeFile } from "node:fs";
+import { join } from "node:path";
 
-const fileToGenerate = path.join(
+const fileToGenerate = join(
   new URL(".", import.meta.url).pathname,
+  "..",
   "..",
   "..",
   "..",
@@ -18,7 +19,7 @@ export default function generateColorPalettesType(palettes: string[]) {
     .map((p) => `"${p.toUpperCase()}"`)
     .join("|");
   const colorPalettesTypeContent = `export type ColorGeneratedPalettes = ${formattedPalettes};`;
-  fs.writeFile(fileToGenerate, colorPalettesTypeContent, (err) => {
+  writeFile(fileToGenerate, colorPalettesTypeContent, (err) => {
     if (err) {
       console.error(err);
       return;

@@ -12,6 +12,7 @@ export default function runPalettesGenerators() {
       "..",
       "..",
       "..",
+      "..",
       "app",
       "assets",
       "css",
@@ -28,9 +29,9 @@ export default function runPalettesGenerators() {
       // const cssVars = data.match(/--plt-[a-zA-Z]+-[a-zA-Z]+-[a-zA-Z]+-[a-zA-Z]+/g);
       // console.log("cssVars", cssVars);
 
-      const palettes = [...data.matchAll(/\/\*(.*?)\*\//g)]?.map((m) =>
-        m[1].trim()
-      );
+      const palettes = [...data.matchAll(/\/\*(.*?)\*\//g)]
+        ?.map((m) => m[1]?.trim())
+        .filter((p) => p !== undefined);
       // console.log("palettes", palettes);
 
       const themes = [
@@ -41,7 +42,7 @@ export default function runPalettesGenerators() {
             ),
           ].map((match) => match[1])
         ),
-      ];
+      ].filter((t) => t !== undefined);
       // console.log("themes", themes);
 
       const entities = [
@@ -52,7 +53,7 @@ export default function runPalettesGenerators() {
             ),
           ].map((match) => match[1])
         ),
-      ];
+      ].filter((e) => e !== undefined);
       // console.log("entities", entities);
 
       const states = [
@@ -63,7 +64,7 @@ export default function runPalettesGenerators() {
             ),
           ].map((match) => match[1])
         ),
-      ];
+      ].filter((s) => s !== undefined);
       // console.log("states", states);
 
       generateColorPalettesType(palettes);

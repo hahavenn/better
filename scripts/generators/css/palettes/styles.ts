@@ -1,5 +1,5 @@
-import fs from "node:fs";
-import path from "node:path";
+import { writeFile } from "node:fs";
+import { join } from "node:path";
 
 const STATE_PREFIX_MAP = new Map([
   ["default", ""],
@@ -37,8 +37,9 @@ export default function generatePalettesStyles(
   states: string[],
   palettes: string[]
 ) {
-  const fileToGenerate = path.join(
+  const fileToGenerate = join(
     new URL(".", import.meta.url).pathname,
+    "..",
     "..",
     "..",
     "..",
@@ -62,7 +63,7 @@ export default function generatePalettesStyles(
 
   const content = `/** All color palettes, that used in project */\nconst COLOR_GENERATED_PALETTES_CLASSES = {\n${palettesFormatted}\n};\nexport default COLOR_GENERATED_PALETTES_CLASSES`;
 
-  fs.writeFile(fileToGenerate, content, (err) => {
+  writeFile(fileToGenerate, content, (err) => {
     if (err) {
       console.error(err);
       return;

@@ -163,7 +163,6 @@ export default defineNuxtConfig({
         composite: true,
         allowUnreachableCode: false,
         alwaysStrict: true,
-
         noFallthroughCasesInSwitch: true,
         noImplicitAny: true,
         noImplicitReturns: true,
