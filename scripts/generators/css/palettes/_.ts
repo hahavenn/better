@@ -7,18 +7,7 @@ import generatePalettesStyles from "./styles.ts";
 
 export default function runPalettesGenerators() {
   fs.readFile(
-    path.join(
-      new URL(".", import.meta.url).pathname,
-      "..",
-      "..",
-      "..",
-      "..",
-      "app",
-      "assets",
-      "css",
-      "colors",
-      "index.css"
-    ),
+    path.join(process.cwd(), "app", "assets", "css", "colors", "index.css"),
     "utf-8",
     (err, data) => {
       if (err) {

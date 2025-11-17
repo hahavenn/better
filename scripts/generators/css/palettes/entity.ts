@@ -10,11 +10,7 @@ export default function generateColorEntity(
 ) {
   entities.forEach((e) => {
     const fileToGenerate = join(
-      new URL(".", import.meta.url).pathname,
-      "..",
-      "..",
-      "..",
-      "..",
+      process.cwd(),
       "app",
       "constants",
       "color",

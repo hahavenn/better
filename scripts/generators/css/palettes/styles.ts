@@ -38,11 +38,7 @@ export default function generatePalettesStyles(
   palettes: string[]
 ) {
   const fileToGenerate = join(
-    new URL(".", import.meta.url).pathname,
-    "..",
-    "..",
-    "..",
-    "..",
+    process.cwd(),
     "app",
     "constants",
     "color",

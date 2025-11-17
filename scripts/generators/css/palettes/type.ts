@@ -2,11 +2,7 @@ import { writeFile } from "node:fs";
 import { join } from "node:path";
 
 const fileToGenerate = join(
-  new URL(".", import.meta.url).pathname,
-  "..",
-  "..",
-  "..",
-  "..",
+  process.cwd(),
   "app",
   "types",
   "color",
