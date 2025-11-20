@@ -1,17 +1,11 @@
 {
   "include": [
     "./**/*.ts",
-    "../app/**/*.*",
-    "../shared/**/*.*",
-    "../server/**/*.*"
+    "./app/**/*.*",
+    "./shared/**/*.*",
+    "./server/**/*.*"
   ],
   "compilerOptions": {
-    "baseUrl": "./",
-    "paths": {
-      "~~/shared/*": ["./shared/*"],
-      "~~/app/*": ["./app/*"],
-      "~~/server/*": ["./server/*"]
-    },
     "noEmit": false,
     "composite": true,
     "allowUnreachableCode": false,
