@@ -2,7 +2,7 @@ import { integer, sqliteTable, text } from "drizzle-orm/sqlite-core";
 import { usersTable } from "./users";
 
 // #region goal
-export const goalsTable = sqliteTable("goals_table", {
+export const goalsTable = sqliteTable("goals", {
   /**
    * User identifier, that owns goal
    *

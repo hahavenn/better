@@ -1,6 +1,6 @@
 import { sqliteTable, text } from "drizzle-orm/sqlite-core";
 
-export const refreshTokensTable = sqliteTable("refresh_tokens_table", {
+export const refreshTokensTable = sqliteTable("refresh_tokens", {
   /**
    * Active refresh token
    */
