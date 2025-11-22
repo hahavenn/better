@@ -11,7 +11,7 @@
     "docs:dev": "vitepress dev docs --port 3001 http://localhost:3000",
     "docs:build": "vitepress build docs",
     "docs:preview": "vitepress preview docs",
-    "scripts:dev:db:init": "npm run scripts:dev:rmDB && npx drizzle-kit push --config=drizzle-dev.config.ts",
+    "scripts:dev:db:init": "npm run scripts:dev:db:rm && npx drizzle-kit push --config=drizzle-dev.config.ts",
     "scripts:dev:db:rm": "ts-node scripts/dev/rmDB.ts dev",
     "scripts:env:jwtSecret": "ts-node scripts/env/jwtSecret.ts",
     "test": "vitest"
