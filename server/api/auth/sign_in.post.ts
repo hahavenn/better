@@ -29,7 +29,7 @@ defineRouteMeta({
       },
     },
     responses: {
-      201: {
+      200: {
         description: "User authorized, access&refresh jwt's was set",
         content: {
           "application/json": {
