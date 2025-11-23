@@ -12,7 +12,7 @@ import resetDb from "../../helpers/db/reset";
 const signUpUrl = "/api/auth/sign_up";
 
 const user = {
-  login: "hahavenn",
+  login: "hahavenn_sign_up",
   password: "hahavenn",
 };
 
