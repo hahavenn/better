@@ -5,9 +5,9 @@ import useFetch from "../../../app/hooks/useFetch";
 import type { AuthSignupResponse } from "../../../shared/types/response/auth/signup";
 import type { ErrorResponse } from "../../../shared/types/response/error";
 
-import resetDb from "../../helpers/resetDb";
-
 import COOKIE from "../../../server/constants/cookie";
+
+import resetDb from "../../helpers/db/reset";
 
 const signUpUrl = "/api/auth/sign_up";
 
