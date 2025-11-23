@@ -23,6 +23,11 @@ type HeadersInitObj =
       "Content-Type"?: "application/json; charset=utf-8";
     };
 
+type UseFetchBaseReturn = {
+  statusCode: Response["status"];
+  setCookies: ReturnType<Headers["getSetCookie"]>;
+};
+
 /**
  * This function is used to fetch data from server with predefined headers
  * @returns data with type, passed as generic `<SuccessResponse, ErrorResponse>` or `null` if other error
@@ -70,7 +75,11 @@ type HeadersInitObj =
  */
 export default async function useFetch<SuccessResponse, ErrorResponse>(
   options: UseFetchOptions
-) {
+): Promise<
+  | (SuccessResponse & UseFetchBaseReturn)
+  | (ErrorResponse & UseFetchBaseReturn)
+  | null
+> {
   const url = new URL(options.url, options.baseUrl ?? location.origin);
 
   // set search params if presented
