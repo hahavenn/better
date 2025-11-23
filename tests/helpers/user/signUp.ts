@@ -1,6 +1,6 @@
 import useFetch from "../../../app/hooks/useFetch";
 
-import type { AuthSignupResponse } from "../../../shared/types/response/auth/signup";
+import type { AuthSignUpResponse } from "../../../shared/types/response/auth/signUp";
 import type { ErrorResponse } from "../../../shared/types/response/error";
 
 /**
@@ -11,7 +11,7 @@ export default async function signUpUser(user: {
   login: string;
   password: string;
 }) {
-  const response = await useFetch<AuthSignupResponse, ErrorResponse>({
+  const response = await useFetch<AuthSignUpResponse, ErrorResponse>({
     url: "/api/auth/sign_up",
     baseUrl: process.env["SERVER_BASE_URL"],
     method: "POST",

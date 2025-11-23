@@ -7,7 +7,7 @@ import { usersTable } from "~~/server/db/schema/users";
 import LOG_TYPES from "~~/server/constants/logs";
 import SQLITE_RESULT_CODES from "~~/server/constants/SQLiteResultCodes";
 
-import type { AuthSignupResponse } from "~~/shared/types/response/auth/signup";
+import type { AuthSignUpResponse } from "~~/shared/types/response/auth/signUp";
 import type { ErrorResponse } from "~~/shared/types/response/error";
 
 import { UserCredentialsZodSchema } from "~~/server/shared/zod/user";
@@ -75,7 +75,7 @@ defineRouteMeta({
 });
 
 export default defineEventHandler({
-  async handler(event): Promise<AuthSignupResponse | ErrorResponse> {
+  async handler(event): Promise<AuthSignUpResponse | ErrorResponse> {
     const userCredentialsParse = UserCredentialsZodSchema.safeParse(
       await readBody(event)
     );

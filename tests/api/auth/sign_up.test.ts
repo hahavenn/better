@@ -2,7 +2,7 @@ import { beforeAll, describe, test } from "vitest";
 
 import useFetch from "../../../app/hooks/useFetch";
 
-import type { AuthSignupResponse } from "../../../shared/types/response/auth/signup";
+import type { AuthSignUpResponse } from "../../../shared/types/response/auth/signUp";
 import type { ErrorResponse } from "../../../shared/types/response/error";
 
 import COOKIE from "../../../server/constants/cookie";
@@ -25,7 +25,7 @@ describe(signUpUrl, () => {
   });
 
   test("Sign up a new user", async ({ expect }) => {
-    const response = await useFetch<AuthSignupResponse, ErrorResponse>({
+    const response = await useFetch<AuthSignUpResponse, ErrorResponse>({
       url: signUpUrl,
       baseUrl: process.env["SERVER_BASE_URL"],
       method: "POST",
@@ -51,7 +51,7 @@ describe(signUpUrl, () => {
   });
 
   test("Sign up an existing user", async ({ expect }) => {
-    const response = await useFetch<AuthSignupResponse, ErrorResponse>({
+    const response = await useFetch<AuthSignUpResponse, ErrorResponse>({
       url: signUpUrl,
       baseUrl: process.env["SERVER_BASE_URL"],
       method: "POST",
@@ -78,7 +78,7 @@ describe(signUpUrl, () => {
   });
 
   test("Sign up a new user with invalid login", async ({ expect }) => {
-    const response = await useFetch<AuthSignupResponse, ErrorResponse>({
+    const response = await useFetch<AuthSignUpResponse, ErrorResponse>({
       url: signUpUrl,
       baseUrl: process.env["SERVER_BASE_URL"],
       method: "POST",
@@ -108,7 +108,7 @@ describe(signUpUrl, () => {
   });
 
   test("Sign up a new user with long login", async ({ expect }) => {
-    const response = await useFetch<AuthSignupResponse, ErrorResponse>({
+    const response = await useFetch<AuthSignUpResponse, ErrorResponse>({
       url: signUpUrl,
       baseUrl: process.env["SERVER_BASE_URL"],
       method: "POST",
@@ -136,7 +136,7 @@ describe(signUpUrl, () => {
   });
 
   test("Sign up a new user with non-string login", async ({ expect }) => {
-    const response = await useFetch<AuthSignupResponse, ErrorResponse>({
+    const response = await useFetch<AuthSignUpResponse, ErrorResponse>({
       url: signUpUrl,
       baseUrl: process.env["SERVER_BASE_URL"],
       method: "POST",
@@ -164,7 +164,7 @@ describe(signUpUrl, () => {
   });
 
   test("Sign up a new user with non-string password", async ({ expect }) => {
-    const response = await useFetch<AuthSignupResponse, ErrorResponse>({
+    const response = await useFetch<AuthSignUpResponse, ErrorResponse>({
       url: signUpUrl,
       baseUrl: process.env["SERVER_BASE_URL"],
       method: "POST",
@@ -192,7 +192,7 @@ describe(signUpUrl, () => {
   });
 
   test("Sign up a new user with long password", async ({ expect }) => {
-    const response = await useFetch<AuthSignupResponse, ErrorResponse>({
+    const response = await useFetch<AuthSignUpResponse, ErrorResponse>({
       url: signUpUrl,
       baseUrl: process.env["SERVER_BASE_URL"],
       method: "POST",
@@ -221,7 +221,7 @@ describe(signUpUrl, () => {
   });
 
   test("Sign up a new user with incorrect body", async ({ expect }) => {
-    const response = await useFetch<AuthSignupResponse, ErrorResponse>({
+    const response = await useFetch<AuthSignUpResponse, ErrorResponse>({
       url: signUpUrl,
       baseUrl: process.env["SERVER_BASE_URL"],
       method: "POST",

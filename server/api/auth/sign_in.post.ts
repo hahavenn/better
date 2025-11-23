@@ -8,7 +8,7 @@ import type { UserSelectType } from "~~/server/db/types/user";
 import { UserCredentialsZodSchema } from "~~/server/shared/zod/user";
 
 import type { ErrorResponse } from "~~/shared/types/response/error";
-import type { AuthSigninResponse } from "~~/shared/types/response/auth/signin";
+import type { AuthSignInResponse } from "~~/shared/types/response/auth/signIn";
 
 import LOG_TYPES from "~~/server/constants/logs";
 
@@ -76,7 +76,7 @@ defineRouteMeta({
 });
 
 export default defineEventHandler({
-  async handler(event): Promise<AuthSigninResponse | ErrorResponse> {
+  async handler(event): Promise<AuthSignInResponse | ErrorResponse> {
     const userCredentialsParse = UserCredentialsZodSchema.safeParse(
       await readBody(event)
     );

@@ -1,6 +1,6 @@
 import type { User } from "~~/shared/types/user";
 
-export type AuthSigninResponse = {
+export type AuthSignUpResponse = {
   userId: User["id"];
   login: User["login"];
 };
