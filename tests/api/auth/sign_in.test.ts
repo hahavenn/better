@@ -5,8 +5,6 @@ import useFetch from "../../../app/hooks/useFetch";
 import type { AuthSignUpResponse } from "../../../shared/types/response/auth/signUp";
 import type { ErrorResponse } from "../../../shared/types/response/error";
 
-import resetDb from "../../helpers/db/reset";
-
 import COOKIE from "../../../server/constants/cookie";
 import signUpUser from "../../helpers/user/signUp";
 
@@ -19,11 +17,7 @@ const user = {
 
 describe(signInUrl, () => {
   beforeAll(async () => {
-    await resetDb();
     await signUpUser(user);
-    return async () => {
-      await resetDb();
-    };
   });
 
   test("Sign in an existing user", async ({ expect }) => {

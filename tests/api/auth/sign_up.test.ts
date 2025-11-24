@@ -1,4 +1,4 @@
-import { beforeAll, describe, test } from "vitest";
+import { describe, test } from "vitest";
 
 import useFetch from "../../../app/hooks/useFetch";
 
@@ -6,8 +6,6 @@ import type { AuthSignUpResponse } from "../../../shared/types/response/auth/sig
 import type { ErrorResponse } from "../../../shared/types/response/error";
 
 import COOKIE from "../../../server/constants/cookie";
-
-import resetDb from "../../helpers/db/reset";
 
 const signUpUrl = "/api/auth/sign_up";
 
@@ -17,13 +15,6 @@ const user = {
 };
 
 describe(signUpUrl, () => {
-  beforeAll(async () => {
-    await resetDb();
-    return async () => {
-      await resetDb();
-    };
-  });
-
   test("Sign up a new user", async ({ expect }) => {
     const response = await useFetch<AuthSignUpResponse, ErrorResponse>({
       url: signUpUrl,

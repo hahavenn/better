@@ -23,6 +23,7 @@ export default defineConfig({
           name: "api",
           include: ["tests/api/**/*.{test,spec}.ts"],
           environment: "node",
+          globalSetup: ["./tests/globalSetup"],
         },
       },
     ],
@@ -31,6 +32,11 @@ export default defineConfig({
        * Named like this because `process.env` has existing variable for `BASE_URL`
        */
       SERVER_BASE_URL: "http://localhost:3000",
+
+      /**
+       * Some jwt secret (similar as in `.env.example`)
+       */
+      JWT_SECRET: "SOME_GENERATED_SECRET",
     },
   },
 });

@@ -6,6 +6,6 @@ import useFetch from "../../../app/hooks/useFetch";
 export default async function resetDb() {
   await useFetch({
     url: "/api/admin/reset/db",
-    baseUrl: process.env["SERVER_BASE_URL"],
+    baseUrl: "http://localhost:3000",
   });
 }
