@@ -142,19 +142,17 @@ export default defineEventHandler({
       return { message: "Unauthorized" };
     }
 
-    if (new Date(activeRefreshJWT.expiresAt) < new Date()) {
-      try {
-        await db
-          .delete(refreshTokensTable)
-          .where(eq(refreshTokensTable.token, activeRefreshJWT.token));
-      } catch (error) {
-        logger(error, {
-          type: isSQLiteError(error) ? LOG_TYPES.SQLITE : undefined,
-        });
-      } finally {
-        setResponseStatus(event, 401);
-        return { message: "Unauthorized" };
-      }
+    try {
+      await db
+        .delete(refreshTokensTable)
+        .where(eq(refreshTokensTable.token, activeRefreshJWT.token));
+    } catch (error) {
+      logger(error, {
+        type: isSQLiteError(error) ? LOG_TYPES.SQLITE : undefined,
+      });
+
+      setResponseStatus(event, 401);
+      return { message: "Unauthorized" };
     }
 
     const successJWTSet = await jwtGen.next();
