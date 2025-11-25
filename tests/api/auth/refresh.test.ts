@@ -9,6 +9,7 @@ import signInUser from "../../helpers/user/signIn";
 
 import type { AuthRefreshResponse } from "../../../shared/types/response/auth/refresh";
 import type { ErrorResponse } from "../../../shared/types/response/error";
+import type { DevAuthRefreshExpired } from "../../../shared/types/response/dev/auth/refresh_expired";
 
 import COOKIE from "../../../server/constants/cookie";
 import TOKEN_EXPIRATION_IN_TIME from "../../../server/constants/token";
@@ -183,6 +184,56 @@ describe(refreshUrl, () => {
     expect(containsRefreshJWT2.includes("Max-Age=0")).toBe(true);
   });
 
-  /** @todo add test */
-  test("Use expired refresh jwt");
+  test("Use expired refresh jwt", async ({ expect }) => {
+    const signUpUserResponse = await signInUser(user);
+    if (!signUpUserResponse) throw `No sign up user response`;
+
+    const expiredRefreshResponse = await useFetch<
+      DevAuthRefreshExpired,
+      ErrorResponse
+    >({
+      url: "/api/dev/auth/refresh_expired",
+      baseUrl: process.env["SERVER_BASE_URL"],
+      method: "POST",
+      body: {
+        userId: signUpUserResponse.userId,
+      },
+    });
+    if (!expiredRefreshResponse || "message" in expiredRefreshResponse) {
+      throw `Invalid response - ${JSON.stringify(expiredRefreshResponse)}`;
+    }
+
+    const expiredRefreshJWT = expiredRefreshResponse.expiredRefreshJWT;
+
+    const response = await useFetch<AuthRefreshResponse, ErrorResponse>({
+      url: refreshUrl,
+      baseUrl: process.env["SERVER_BASE_URL"],
+      method: "POST",
+      body: {
+        userId: signUpUserResponse.userId,
+      },
+      headers: {
+        Cookie: `${COOKIE.REFRESH_JWT}=${expiredRefreshJWT}; Max-Age=21600; Path=/api/auth/refresh; HttpOnly; Secure; SameSite=Strict`,
+      },
+    });
+
+    if (!response || !("message" in response)) {
+      throw `Incorrect response - ${JSON.stringify(response)}`;
+    }
+
+    expect(response.message).toBe("Unauthorized");
+    expect(response.statusCode).toBe(401);
+
+    const access_jwt = response.setCookies.find((c) =>
+      c.includes(COOKIE.ACCESS_JWT)
+    );
+    if (!access_jwt) throw "No access_jwt cookie";
+    expect(access_jwt.includes("Max-Age=0")).toBe(true);
+
+    const refresh_jwt = response.setCookies.find((c) =>
+      c.includes(COOKIE.ACCESS_JWT)
+    );
+    if (!refresh_jwt) throw "No refresh_jwt cookie";
+    expect(refresh_jwt.includes("Max-Age=0")).toBe(true);
+  });
 });

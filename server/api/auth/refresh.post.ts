@@ -107,6 +107,16 @@ export default defineEventHandler({
       );
     } catch (error) {
       if (error instanceof TokenError) {
+        try {
+          await db
+            .delete(refreshTokensTable)
+            .where(eq(refreshTokensTable.token, refreshToken));
+        } catch (error) {
+          logger(error, {
+            type: isSQLiteError(error) ? LOG_TYPES.SQLITE : undefined,
+          });
+        }
+
         setResponseStatus(event, 401);
         return { message: "Unauthorized" };
       } else {
