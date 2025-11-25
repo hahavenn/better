@@ -1,7 +1,7 @@
 import db from "~~/server/db";
 import * as tables from "~~/server/db/schema/_";
 
-import type { DevResetDbResponse } from "~~/shared/types/response/dev/reset_db";
+import type { DevResetDbResponse } from "~~/shared/types/response/dev/db/reset";
 import type { ErrorResponse } from "~~/shared/types/response/error";
 
 defineRouteMeta({
