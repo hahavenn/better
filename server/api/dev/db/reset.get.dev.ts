@@ -6,7 +6,7 @@ import type { ErrorResponse } from "~~/shared/types/response/error";
 
 defineRouteMeta({
   openAPI: {
-    tags: ["Admin"],
+    tags: ["Dev"],
     description: "Reset all databases",
     summary: "Reset all databases",
     responses: {
