@@ -5,7 +5,7 @@ import useFetch from "../../../app/hooks/useFetch";
  */
 export default async function resetDb() {
   await useFetch({
-    url: "/api/admin/reset/db",
+    url: "/api/dev/reset_db",
     baseUrl: "http://localhost:3000",
   });
 }

@@ -1,7 +1,7 @@
 import db from "~~/server/db";
 import * as tables from "~~/server/db/schema/_";
 
-import type { AdminResetDbResponse } from "~~/shared/types/response/admin/reset/db";
+import type { DevResetDbResponse } from "~~/shared/types/response/dev/reset_db";
 import type { ErrorResponse } from "~~/shared/types/response/error";
 
 defineRouteMeta({
@@ -35,7 +35,7 @@ defineRouteMeta({
 });
 
 export default defineEventHandler({
-  async handler(event): Promise<AdminResetDbResponse | ErrorResponse> {
+  async handler(event): Promise<DevResetDbResponse | ErrorResponse> {
     try {
       for (const key of Object.keys(tables)) {
         const table = { ...tables }[key];
