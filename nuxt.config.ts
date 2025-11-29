@@ -183,12 +183,7 @@ export default defineNuxtConfig({
         erasableSyntaxOnly: true,
         forceConsistentCasingInFileNames: true,
       },
-      include: [
-        "../shared/**/*.ts",
-        "../docs/**/*.ts",
-        "../docs/**/*.vue",
-        "../scripts/**/*.ts",
-      ],
+      include: ["../shared/**/*.ts"],
     },
   },
 });
