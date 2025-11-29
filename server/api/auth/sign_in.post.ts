@@ -3,7 +3,7 @@ import { compare } from "bcryptjs";
 
 import db from "~~/server/db";
 import { usersTable } from "~~/server/db/schema/users";
-import type { UserSelectType } from "~~/server/db/types/user";
+import type { UserSelectType } from "~~/server/db/types/users";
 
 import { UserCredentialsZodSchema } from "~~/server/shared/zod/user";
 

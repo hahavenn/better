@@ -2,6 +2,8 @@ import { type DefaultTheme, type UserConfig } from "vitepress";
 
 import { withMermaid } from "vitepress-plugin-mermaid";
 
+import docsEntities from "../entities/_";
+
 const config: UserConfig<DefaultTheme.Config> = {
   srcDir: ".",
   outDir: "../public/docs",
@@ -42,12 +44,7 @@ const config: UserConfig<DefaultTheme.Config> = {
         text: "Entities",
         base: "/entities",
         collapsed: false,
-        items: [
-          {
-            text: "Goal",
-            link: "/goal.md",
-          },
-        ],
+        items: docsEntities,
       },
       {
         text: "Scripts",
