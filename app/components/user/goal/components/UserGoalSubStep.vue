@@ -14,7 +14,7 @@ import type { ColorGeneratedPalettes } from "~/types/color/generatedPalettes";
 
 import useGoalsStore from "~/stores/goals";
 
-import type { UserGoalStep, UserGoalSubStep } from "~~/shared/types/goal/goal";
+import type { UserGoalStep, UserGoalSubStep } from "~~/shared/types/goal";
 
 import { goalIdKey } from "~/components/user/goal/provideInject";
 

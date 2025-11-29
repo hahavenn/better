@@ -2,7 +2,7 @@ import type {
   UserGoal,
   UserGoalStep,
   UserGoalSubStep,
-} from "~~/shared/types/goal/goal";
+} from "~~/shared/types/goal";
 import { goal } from "./data";
 
 const useGoalsStore = defineStore("goalsStore", () => {
