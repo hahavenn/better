@@ -47,6 +47,10 @@ const config: UserConfig<DefaultTheme.Config> = {
         items: docsEntities,
       },
       {
+        text: "Endpoints",
+        link: "http://localhost:3000/swagger",
+      },
+      {
         text: "Scripts",
         base: "/scripts",
         collapsed: true,
