@@ -36,19 +36,13 @@ Start development by executing
 npm run dev
 ```
 
+### Read docs about working in project
+
+When project instance is running by `npm run dev` command, you can visit [`http://localhost:3001/docs/`](http://localhost:3001/docs/) to read docs about project
+
 Now you can access project on [`http://localhost:3000/`](http://localhost:3000/)
 
-### Run tests
-
-To run tests - make sure you have running dev server via `npm run dev` with initialized database. After confirming it - run in second terminal `npm run test`. Edit/create/delete your tests!
-
 ## FAQ
-
-### Why so complex development process?
-
-Because Nitro doesn't have proper way to test their api's. By doing this complex manipulations - we run our server to create possibility for testing api's
-
-Also i want to mention, that i only started to writing tests and test process can be reworked and optimized in future. This is my first time for creating production-like project with Nuxt with different tools by myself without examples of how to do it properly
 
 ### Can it be achieved by simply running docker container?
 

@@ -1,3 +1,8 @@
 {
-  "include": [".vitepress/**/*.ts", "entities/**/*.ts", "scripts/**/*.ts"]
+  "include": [
+    ".vitepress/**/*.ts",
+    "entities/**/*.ts",
+    "scripts/**/*.ts",
+    "testing/**/*.ts"
+  ]
 }
