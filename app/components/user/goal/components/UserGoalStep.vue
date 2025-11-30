@@ -104,7 +104,7 @@ import COLOR_GENERATED_PALETTES_CLASSES from "~/constants/color/generatedPalette
 
 import useGoalsStore from "~/stores/goals";
 
-import pickPalette from "~/utils/pickPalette/";
+import pickPalette from "~/utils/pickPalette";
 import useAccordionElement from "~/utils/useAccordionElement";
 
 import { goalIdKey } from "~/components/user/goal/provideInject";
