@@ -27,6 +27,7 @@ const allLogger = pino(
   })
 );
 
+//#region loggerOptions
 type LoggerOptions = {
   /**
    * Type of logger to use
@@ -35,7 +36,9 @@ type LoggerOptions = {
    */
   type?: (typeof LOG_TYPES)[keyof typeof LOG_TYPES];
 };
+//#endregion loggerOptions
 
+//#region logger
 /**
  * Main logger to log errors in logs/*.logs files.
  *
@@ -72,3 +75,4 @@ export default function (
     }
   }
 }
+//#endregion logger

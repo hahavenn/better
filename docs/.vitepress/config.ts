@@ -51,6 +51,10 @@ const config: UserConfig<DefaultTheme.Config> = {
         link: "/structure.md",
       },
       {
+        text: "Logs",
+        link: "/logs.md",
+      },
+      {
         text: "Entities",
         base: "/entities",
         collapsed: true,
