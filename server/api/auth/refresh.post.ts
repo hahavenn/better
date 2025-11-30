@@ -9,7 +9,7 @@ import db from "~~/server/db";
 import { refreshTokensTable } from "~~/server/db/schema/refreshTokens";
 import type { RefreshTokenSelectType } from "~~/server/db/types/refreshTokens";
 
-import { UserIdZod } from "~~/server/shared/zod/user";
+import { UserIdZod } from "~~/server/zod/user";
 
 import type { AuthRefreshResponse } from "~~/shared/types/response/auth/refresh";
 import type { ErrorResponse } from "~~/shared/types/response/error";

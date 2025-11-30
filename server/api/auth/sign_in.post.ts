@@ -5,7 +5,7 @@ import db from "~~/server/db";
 import { usersTable } from "~~/server/db/schema/users";
 import type { UserSelectType } from "~~/server/db/types/users";
 
-import { UserCredentialsZodSchema } from "~~/server/shared/zod/user";
+import { UserCredentialsZodSchema } from "~~/server/zod/user";
 
 import type { ErrorResponse } from "~~/shared/types/response/error";
 import type { AuthSignInResponse } from "~~/shared/types/response/auth/signIn";

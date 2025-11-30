@@ -10,7 +10,7 @@ import SQLITE_RESULT_CODES from "~~/server/constants/SQLiteResultCodes";
 import type { AuthSignUpResponse } from "~~/shared/types/response/auth/signUp";
 import type { ErrorResponse } from "~~/shared/types/response/error";
 
-import { UserCredentialsZodSchema } from "~~/server/shared/zod/user";
+import { UserCredentialsZodSchema } from "~~/server/zod/user";
 
 defineRouteMeta({
   openAPI: {
