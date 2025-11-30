@@ -39,6 +39,8 @@ classDiagram
 
 Type definitions used for frontend and backend
 
+Location -> [`shared/types/goal/index.ts`](https://github.com/hahavenn/better/tree/main/shared/types/goal/index.ts)
+
 ### Goals
 
 <<< ../../shared/types/goal/index.ts#goal
@@ -52,6 +54,8 @@ Type definitions used for frontend and backend
 <<< ../../shared/types/goal/index.ts#subStep
 
 ## Database schemas
+
+Location -> [`server/db/schema/goal.ts`](https://github.com/hahavenn/better/tree/main/server/db/schema/goal.ts)
 
 ### Goals
 
