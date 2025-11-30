@@ -31,6 +31,11 @@ function formatStates(
     .join(",\n");
 }
 
+//#region generatedPalettesClasses
+const generatedName = "COLOR_GENERATED_PALETTES_CLASSES";
+const fileName = "generatedPalettesClasses.ts";
+//#endregion generatedPalettesClasses
+
 export default function generatePalettesStyles(
   entities: string[],
   themes: string[],
@@ -42,7 +47,7 @@ export default function generatePalettesStyles(
     "app",
     "constants",
     "color",
-    "generatedPalettesClasses.ts"
+    fileName
   );
 
   const palettesFormatted = palettes
@@ -57,7 +62,7 @@ export default function generatePalettesStyles(
     })
     .join(",\n");
 
-  const content = `/** All color palettes, that used in project */\nconst COLOR_GENERATED_PALETTES_CLASSES = {\n${palettesFormatted}\n};\nexport default COLOR_GENERATED_PALETTES_CLASSES`;
+  const content = `/** All color palettes, that used in project */\nconst ${generatedName} = {\n${palettesFormatted}\n};\nexport default COLOR_GENERATED_PALETTES_CLASSES`;
 
   writeFile(fileToGenerate, content, (err) => {
     if (err) {

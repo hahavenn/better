@@ -17,4 +17,4 @@ import { resolve } from "node:path";
   const rmPath = resolve(".", `${process.argv[2]}.db`);
   rm(rmPath).catch(() => console.log("no file"));
 })();
-//#endregion
+//#endregion rmDB

@@ -1,20 +1,19 @@
 import { writeFile } from "node:fs";
 import { join } from "node:path";
 
-const fileToGenerate = join(
-  process.cwd(),
-  "app",
-  "types",
-  "color",
-  "generatedPalettes.ts"
-);
+//#region generatedPalettes
+const generatedName = "ColorGeneratedPalettes";
+const fileName = "generatedPalettes.ts";
+//#endregion generatedPalettes
+
+const fileToGenerate = join(process.cwd(), "app", "types", "color", fileName);
 
 /** used to generate color palettes as types for usage in project */
 export default function generateColorPalettesType(palettes: string[]) {
   const formattedPalettes = palettes
     .map((p) => `"${p.toUpperCase()}"`)
     .join("|");
-  const colorPalettesTypeContent = `export type ColorGeneratedPalettes = ${formattedPalettes};`;
+  const colorPalettesTypeContent = `export type ${generatedName} = ${formattedPalettes};`;
   writeFile(fileToGenerate, colorPalettesTypeContent, (err) => {
     if (err) {
       console.error(err);

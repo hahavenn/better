@@ -3,6 +3,7 @@ import { type DefaultTheme, type UserConfig } from "vitepress";
 import { withMermaid } from "vitepress-plugin-mermaid";
 
 import docsEntities from "../entities/_";
+import docsScripts from "../scripts/_";
 
 const config: UserConfig<DefaultTheme.Config> = {
   srcDir: ".",
@@ -27,6 +28,11 @@ const config: UserConfig<DefaultTheme.Config> = {
         link: process.argv[process.argv.length - 1],
         target: "_self",
       },
+      {
+        text: "Endpoints OpenAPI",
+        link: `${process.argv[process.argv.length - 1]}/swagger`,
+        target: "_self",
+      },
     ],
 
     socialLinks: [
@@ -43,29 +49,14 @@ const config: UserConfig<DefaultTheme.Config> = {
       {
         text: "Entities",
         base: "/entities",
-        collapsed: false,
+        collapsed: true,
         items: docsEntities,
-      },
-      {
-        text: "Endpoints",
-        link: "http://localhost:3000/swagger",
       },
       {
         text: "Scripts",
         base: "/scripts",
         collapsed: true,
-        items: [
-          {
-            text: "Development",
-            collapsed: false,
-            items: [
-              {
-                text: "rmDB",
-                link: "/dev/rmDB.md",
-              },
-            ],
-          },
-        ],
+        items: docsScripts,
       },
     ],
 
