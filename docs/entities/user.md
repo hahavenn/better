@@ -12,9 +12,9 @@ Location -> [`shared/types/user/index.ts`](https://github.com/hahavenn/better/tr
 
 Zod validation schema for request bodies
 
-Location -> [`server/shared/zod/user.ts`](https://github.com/hahavenn/better/tree/main/server/shared/zod/user.ts)
+Location -> [`server/shared/zod/user.ts`](https://github.com/hahavenn/better/tree/main/server/zod/user.ts)
 
-<<< ../../server/shared/zod/user.ts
+<<< ../../server/zod/user.ts
 
 ## Database schema
 
