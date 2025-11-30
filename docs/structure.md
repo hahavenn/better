@@ -28,7 +28,7 @@ This page contains info about project structure in general, some file-place rule
   - [`index.md`](https://github.com/hahavenn/better/tree/main/docs/index.md) -> Reference to root-based `readme.md` file
   - [`structure.md`](https://github.com/hahavenn/better/tree/main/docs/structure.md) -> This file with describing info about project structure
   - [`tsconfig.json`](https://github.com/hahavenn/better/tree/main/docs/tsconfig.json) -> Tsconfig for `docs/` ts-files
-- `logs/` -> Directory, that contains all logs, that writes by server. Doesn't tracked by git. For logs types please see -> [`server/utils/logger.ts`](https://github.com/hahavenn/better/tree/main/server/utils/logger.ts), [`server/constants/logs.ts`](https://github.com/hahavenn/better/tree/main/server/constants/logs.ts), [`Pino docs`](https://getpino.io/#/) for more info
+- `logs/` -> Directory, that contains all logs, that writes by server (available in sidebar). Doesn't tracked by git. For logs types please see -> [`server/utils/logger.ts`](https://github.com/hahavenn/better/tree/main/server/utils/logger.ts), [`server/constants/logs.ts`](https://github.com/hahavenn/better/tree/main/server/constants/logs.ts), [`Pino docs`](https://getpino.io/#/) for more info
 - [`public/`](https://github.com/hahavenn/better/tree/main/public) -> Project public files. Please see [`Nuxt's public/ docs`](https://nuxt.com/docs/4.x/directory-structure/public) for more details
 - [`scripts/`](https://github.com/hahavenn/better/tree/main/scripts) -> Project NodeJS scripts (available in sidebar)
   - [`tsconfig.json`](https://github.com/hahavenn/better/tree/main/scripts/tsconfig.json) -> Tsconfig for `scripts/` ts-files
