@@ -47,6 +47,10 @@ const config: UserConfig<DefaultTheme.Config> = {
 
     sidebar: [
       {
+        text: "Project structure",
+        link: "/structure.md",
+      },
+      {
         text: "Entities",
         base: "/entities",
         collapsed: true,
