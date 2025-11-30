@@ -56,6 +56,10 @@ const config: UserConfig<DefaultTheme.Config> = {
         link: "/logs.md",
       },
       {
+        text: "package.json scripts",
+        link: "/package_json_scripts",
+      },
+      {
         text: "Entities",
         base: "/entities",
         collapsed: true,
