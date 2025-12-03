@@ -49,7 +49,7 @@ const config: UserConfig<DefaultTheme.Config> = {
     sidebar: [
       {
         text: "Project structure",
-        link: "/structure.md",
+        link: "/project_structure.md",
       },
       {
         text: "Logs",
@@ -86,6 +86,16 @@ const config: UserConfig<DefaultTheme.Config> = {
 
     search: {
       provider: "local",
+    },
+
+    outline: {
+      level: [2, 6],
+    },
+  },
+
+  markdown: {
+    toc: {
+      level: [2, 3, 4, 5, 6],
     },
   },
 };
