@@ -17,6 +17,8 @@ const config: UserConfig<DefaultTheme.Config> = {
 
   lastUpdated: true,
 
+  head: [["link", { rel: "icon", href: "/docs/favicon_light.ico" }]],
+
   themeConfig: {
     logo: {
       light: "/favicon_light.ico",
